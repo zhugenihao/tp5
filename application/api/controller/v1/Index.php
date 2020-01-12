@@ -38,6 +38,7 @@ class Index extends Common {
         $list = ['advert_list' => $advertList, 'common_advert' => $common_advert, 'category' => $category,
             'spell_group_list' => $spellGroupList['list'], 'comdysalesp_list' => $comdysalespList['list'],
             'sales_goods_list' => $salesGoodsList['list'],'small_icon' => besidesContentModel::small_icon_list()];
+        
         Tobesuccess("成功获取首页数据", $list);
     }
 
