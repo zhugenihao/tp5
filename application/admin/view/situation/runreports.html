@@ -1,0 +1,34 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>运营情况列表</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 运营情况管理 <span class="c-gray en">&gt;</span> 运营情况列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="start_time" value="{:input('start_time')}" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="end_time" value="{:input('end_time')}" class="input-text Wdate" style="width:120px;">
+
+                    <button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i> 搜运营情况</button>
+                </div>
+            </form>
+            <div class="floatright panel-body">
+                <a class="btn btn-primary radius" href="javascript:;">本月订单总额（￥{$benyueOrderTprice}）</a>
+                <a class="btn btn-success radius" href="javascript:;">今日订单总量（{$todayOrderNum}）</a>
+                <a class="btn btn-primary radius" href="javascript:;">人均客单价（{$guestUnitPrice}）</a>
+                <a class="btn btn-success radius" href="javascript:;">本月取消订单总量（{$quxiaoOrderNum}）</a>
+            </div>
+
+        </div>
+        <div id="main"></div>
+        {include file="Common/plugin/runreports" /}
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    $(function () {
+        $("#province_id").on('change', function () {
+            var province_id = $(this).val();
+            regionHtml(province_id, 2);
+        })
+        $("#city_id").on('change', function () {
+            var city_id = $(this).val();
+            regionHtml(city_id, 3);
+        })
+        var province_show = $("#province_show").val();
+        var city_show = $("#city_show").val();
+        var county_show = $("#county_show").val();
+
+        regionHtml('province', 1, province_show);
+        if (city_show != undefined) {
+            setTimeout(function () {
+                regionHtml(province_show, 2, city_show);
+            }, 200);
+        }
+        if (county_show != undefined) {
+            setTimeout(function () {
+                regionHtml(city_show, 3, county_show);
+            }, 400);
+        }
+    })
+    function regionHtml(id, type, show_id) {
+        if (Number(id) <= 0) {
+            return false;
+        }
+        if (id == 'province') {
+            var id = 0;
+        }
+        ajaxMethods({
+            url: 'onethink_district/otDisList/',
+            type: 'get',
+            data: {upid: id},
+            sCallback: function (data) {
+                var countyHtml = '<option value="0">请选择县级</option>';
+                if (type === 1) {
+                    var provinceHtml = '<option value="0">请选择省级</option>';
+                    var cityHtml = '<option value="0">请选择市级</option>';
+                    $("#province_id option").remove();
+                    $("#city_id option").remove();
+                    $("#county_id option").remove();
+                    $.each(data, function (index, val) {
+                        var show_text = "";
+                        if (show_id == val['id']) {
+                            var show_text = " selected ";
+                        }
+                        provinceHtml += '<option value="' + val['id'] + '" ' + show_text + '>' + val['name'] + '</option>';
+                    })
+                } else if (type === 2) {
+                    var cityHtml = '<option value="0">请选择市级</option>';
+                    $("#city_id option").remove();
+                    $("#county_id option").remove();
+                    $.each(data, function (index, val) {
+                        var show_text = "";
+                        if (show_id == val['id']) {
+                            var show_text = " selected ";
+                        }
+                        cityHtml += '<option value="' + val['id'] + '"' + show_text + '>' + val['name'] + '</option>';
+                    })
+                } else if (type === 3) {
+                    $("#county_id option").remove();
+                    $.each(data, function (index, val) {
+                        var show_text = "";
+                        if (show_id == val['id']) {
+                            var show_text = " selected ";
+                        }
+                        countyHtml += '<option value="' + val['id'] + '"' + show_text + '>' + val['name'] + '</option>';
+                    })
+                }
+                $("#province_id").prepend(provinceHtml);
+                $("#city_id").prepend(cityHtml);
+                $("#county_id").prepend(countyHtml);
+            }
+        });
+    }
+</script>

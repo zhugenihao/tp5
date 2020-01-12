@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>模块权限编辑</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/user/module_permissions.js"></script>
+        <style>
+            .input-text{
+                height:auto;
+            }
+            .radio-box label{
+                line-height: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                {volist name="list" id="vo"}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">&nbsp;</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="input-text">
+                            <div class="radio-box" >
+                                <input  type="checkbox" value="{$vo.id}" id="sex-{$vo.id}" name="id[]" {if $vo['state']=='1'} checked {/if}>
+                                        <label for="sex-{$vo.id}">《{$vo.section_name}》</label>
+                            </div>|—
+                            {volist name="vo['pidlist']" id="pid_vo"}
+                            
+                            <div class="radio-box">
+                                <input  type="checkbox" value="{$pid_vo.id}" id="sex-{$pid_vo.id}" name="id[]" {if $pid_vo['state']=='1'} checked {/if}>
+                                        <label for="sex-{$pid_vo.id}">{$pid_vo.section_name}</label>
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button" onclick="modulePmSubmit();"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$user_id}" id="user_id" name="user_id"/>
+            </form>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

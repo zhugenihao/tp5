@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增标签</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/goods/goods_edit.js"></script>
+        {include file="Common/editor" /}
+        {include file="Common/directory_list" /}
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div id="tab-category" class="HuiTab">
+                    <a class="btn btn-success radius r" href="" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+
+                    <div class="tabBar cl">
+                        <span>基本信息</span>
+                        <span>商品详情</span>
+                        <span>其他信息</span>
+                    </div>
+                    <div class="tabCon">
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>经营类目：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+
+                                <span class="select-box" style="width:250px">
+                                    <select class="select" id="directory1_id">
+                                        <option value="0" >一级类目</option>
+                                    </select>
+                                </span>
+                                <input type="hidden" value="{$directory1_id}" id="directory1_show" />
+                                <span class="select-box" style="width:250px">
+                                    <select class="select" id="directory2_id">
+                                        <option value="0" >二级类目</option>
+                                    </select>
+                                </span>
+                                <input type="hidden" value="{$directory2_id}" id="directory2_show" />
+                                <span class="select-box" style="width:250px">
+                                    <select class="select directory_id" name="dir_id" id="directory3_id">
+                                        <option value="0" >三级类目</option>
+                                    </select>
+                                </span>
+                                <input type="hidden" value="{$info['dir_id']}" id="directory3_show" />
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品品牌：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:200px;">
+                                    <select name="brand_id" class="select brand_id" >
+                                        <option value="0">选择品牌</option>
+                                        {volist name="brandList" id="vo"}
+                                        <option value="{$vo.id}" {eq name="info['brand_id']" value="$vo['id']"} selected {/eq} >{$vo.brand_name}</option>
+                                        {/volist}
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" value="{$info['dir_id']}" id="dir_id" />
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['goods_name']}" placeholder="商品名称" id="goods_name" name="goods_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>成本价：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['cost_price']}" placeholder="成本价" id="cost_price" name="cost_price">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品价格：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['goods_price']}" placeholder="商品价格" id="goods_price" name="goods_price">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品库存：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['goods_stock']}" placeholder="商品库存" id="goods_stock" name="goods_stock">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品小名：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['goods2_name']}" placeholder="商品小名" id="goods2_name" name="goods2_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品货号：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['goods_sku']}" placeholder="商品货号" id="goods_sku" name="goods_sku">
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">封面：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <div class="uploader-thum-container">
+                                    <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                                    <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="thecover" size="50" type="file"><br/>
+
+                                    <p class="ge_pic_icon_Infor">
+                                        {if $info['thecover']}
+                                        <img src="__STATIC__/{$info.thecover}" id="imgShow" width="200" title="图片" />
+                                        {/if}
+                                    </p>
+                                    <input type="hidden" value="{$info.thecover}" class="thecover" name="thecover"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="tabCon">
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品描述：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <textarea id="editor" class="kindeditor" name="goods_desc" style="width:100%;height:300px;">
+                                  <?php echo htmlspecialchars_decode($info['goods_desc']); ?>         
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>规格参数：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <textarea id="editor2" class="kindeditor" name="goods_desc2" style="width:100%;height:300px;">
+                                   <?php echo htmlspecialchars_decode($info['goods_desc2']); ?>  
+                                </textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tabCon">
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>销量：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['sales']}" id="sales" name="sales">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所在地：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['region']}" id="region" name="region">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>设置规格：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <div class="switch" data-on-label="开" data-off-label="关">
+                                    <input type="checkbox" name="setup_norm" id="setup_norm" {eq name="info['setup_norm']" value="on"} checked {/eq} />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>规格信息：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <a href="#" onClick="href_url('规格管理', '{:url(\'inventory/inventory_list\')}?goods_id={$info.goods_id}')">规格管理</a>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>类型内容：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:200px;">
+                                    <select name="billing_way" class="select billing_way" >
+                                        <option value="1" {if $info['billing_way']==1} selected {/if}>件数</option>
+                                        <option value="2" {if $info['billing_way']==2} selected {/if}>重量(kg)</option>
+                                        <option value="3" {if $info['billing_way']==3} selected {/if}>体积(立方米)</option>
+                                    </select>
+                                </span>不设置规格时必填（除件数）
+                                <input type="text" class="input-text" value="{$info['billing_num']}" id="billing_num" name="billing_num">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品多图：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <a href="#" onClick="href_jump('多图管理', '{:url(\'goods/goodsimageslist\')}?goods_id={$info.goods_id}', '1030')">多图管理</a>
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐类型：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:200px;">
+                                    <select name="recommended" class="select type" >
+                                        <option value="0" {if $info['recommended']==0} selected {/if}>不推荐</option>
+                                        <option value="1" {if $info['recommended']==1} selected {/if}>热门推荐</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>运费模板：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:200px;">
+                                    <select name="freight_id" class="select" id="freight_id">
+                                        <option value="0" selected>请选择</option>
+                                        {volist name="freightList" id="vo"}
+                                        <option value="{$vo['id']}" {eq name="info['freight_id']" value="$vo['id']"} selected{/eq}>{$vo['freight_name']}</option>
+                                        {/volist}
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>排序：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="{$info['sort']}" id="sort" name="sort">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                                <div class="radio-box">
+                                    <input  type="radio" value="1" id="sex-1" name="is_show" {if $info['is_show']==1} checked {/if}/>
+                                            <label for="sex-1">显示</label>
+                                </div>
+                                <div class="radio-box">
+                                    <input type="radio" name="is_show" id="sex-0" value="0" {if $info['is_show']==0} checked {/if}/>
+                                           <label for="sex-0">隐藏</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.goods_id}" id="goods_id" name="goods_id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

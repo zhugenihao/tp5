@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>编辑配置</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/config/add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选项类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="title_type" class="select">
+                                <option value="1" {if $info['title_type']==1} selected {/if}>基本设置</option>
+                                <option value="2" {if $info['title_type']==2} selected {/if}>其他设置</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>配置类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="config_type" class="select">
+                                <option value="1" {if $info['config_type']==1} selected {/if}>文本框</option>
+<!--                                <option value="2" {if $info['config_type']==2} selected {/if}>复选框</option>
+                                <option value="3" {if $info['config_type']==3} selected {/if}>单选框</option>-->
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>字段名称（自定义字母）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.config_name}" placeholder="" id="config_name" name="config_name">
+                    </div>
+                </div>
+
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.config_title}" placeholder="" id="config_title" name="config_title">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" id="id" name="id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+
+    </body>
+</html>

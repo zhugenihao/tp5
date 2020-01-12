@@ -1,0 +1,117 @@
+.indextopbacg{
+    background: #ff3300 !important;
+    color:#fff;
+    border-bottom: 1px solid #ff3300 !important;
+}
+.indextopbacg i{
+    color:#fff;
+}
+.seconds-all{
+    width:100%;
+    height:100%;
+}
+.seconds-topas{
+    width:100%;
+    height:40px;
+    overflow: hidden;
+}
+.seconds-top{
+    width:100%;
+    height:55px;
+    background: #ff6600;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.miaosa-time{
+    color:red;
+}
+.secondstop-auto{
+    width:100%;
+    height:100%;
+    display: flex;
+    margin-left: 0px;
+}
+.secondstop-auto li{
+    min-width:100px;
+    height:100%;
+    text-align: center;
+    /*line-height: 30px;*/
+    float:left;
+    color: #fff;
+    transition: background 0.4s;
+}
+.secondstop-auto li p{
+    font-size:12px;
+}
+.secpone{
+    padding-top: 2px;
+}
+.active-sec{
+    background: red;
+}
+.advertimg{
+    width:100%;
+    height:90px;
+    overflow: hidden;
+}
+.advertimg img{
+    width:100%;
+}
+.seconds-cont{
+    width:100%;
+    height:auto;
+}
+.secondscont-all{
+    width:100%;
+}
+.secondscont-ul{
+    width:100%;
+}
+.secondscont-li{
+    width:100%;
+    height:100px;
+    overflow: hidden;
+    border-bottom:1px solid #ccc;
+}
+.secondscontdiv-auto{
+    width:97%;
+    margin:5px auto;
+    height:90px;
+    padding-bottom: 5px;
+}
+.secondscontdiv-img{
+    width:80px;
+    height:90px;
+    overflow: hidden;
+}
+.secondscontdiv-img img{
+    width:100%;
+}
+.goods-text{
+    width: 72%;
+    margin-left: 10px;
+}
+.goods-name{
+    width:100%;
+    height:44px;
+    overflow: hidden;
+}
+.goods-price{
+    float: left;
+    color:red;
+    font-weight:800;
+}
+.goods-pay{
+    margin-top: 10px;
+}
+.goodspay-a{
+    padding: 5px 10px;
+    background: #ff3300;
+    color:#fff;
+}
+.goodspay-b{
+    padding: 5px 10px;
+    background: #999999;
+    color:#fff;
+}

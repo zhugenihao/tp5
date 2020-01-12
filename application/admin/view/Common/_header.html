@@ -1,0 +1,62 @@
+<header class="navbar-wrapper">
+    <div class="navbar navbar-fixed-top">
+        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="">华竹平台管理中心</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml"></a> 
+            <span class="logo navbar-slogan f-l mr-10 hidden-xs">1.0</span> 
+            <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+            <nav class="nav navbar-nav">
+                <?php 
+                $category_add_url = url('category/category_add');
+                $advert_add_url = url('advert/advert_add');
+                $works_add_url = url('works/works_add');
+                $user_add_url = url('user/user_add');
+                $user_adduid_url = url('user/user_add',array('u_id'=>$user_id));
+                ?>
+                <ul class="cl">
+                    {volist name="backgroundsectionLister" id="vo"}
+                    <li class="dropDown dropDown_hover" id="bgs{$vo.id}">
+                        <a href="{:url($vo['column_method'])}?id={$vo.id}" class="dropDown_A">
+                            <i class="Hui-iconfont">{$small_icon[$vo['small_icon']]['icon']}</i>&nbsp;{$vo.section_name}
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </nav>
+            <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+                <ul class="cl">
+                    <li><a href="#" onClick="updatesCache()"><i class="Hui-iconfont">&#xe6df;</i>&nbsp;更新缓存</a></li>
+                    <li>{$rolename}</li>
+                    <li class="dropDown dropDown_hover">
+                        <a href="#" class="dropDown_A">{$user_name} <i class="Hui-iconfont">&#xe6d5;</i></a>
+                        <ul class="dropDown-menu menu radius box-shadow">
+                            <li><a href="javascript:;" onclick="href_jump('个人信息', '{$user_adduid_url}', '', '510')">个人信息</a></li>
+                            <li><a href="javascript:;" onClick="Logout()">切换账户</a></li>
+                            <li><a href="javascript:;" onClick="Logout()">退出</a></li>
+                        </ul>
+                    </li>
+                    <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+                    <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+                        <ul class="dropDown-menu menu radius box-shadow">
+                            <li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+                            <li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+                            <li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+                            <li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+                            <li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+                            <li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+                            <li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<script type="text/javascript" src="__STATIC__/h-admin/js/common/_header.js"></script>
+
+    <script type="text/javascript">
+    var user_name1 = "{$user['name']}";
+    var user_name2 = "{$user_name}";
+    
+    if (user_name1 != user_name2) {
+        LogoutAjax();
+    }
+</script>

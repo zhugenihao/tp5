@@ -1,0 +1,131 @@
+.sorder{
+    width:100%;
+}
+.sorder-ul{
+    width:100%;
+    padding-bottom: 20px;
+}
+.sorder-li{
+    width:100%;
+    border-bottom:1px solid #eee;
+}
+.sorder-lidiv{
+    width:95%;
+    margin:10px auto;
+}
+.sorder-input{
+    width:20px;
+    float:left;
+    padding-top: 30px;
+}
+.sorder-img{
+    width:80px;
+    height:80px;
+    overflow: hidden;
+}
+.sorder-imgas{
+    width:100px;
+    /*height:120px;*/
+    float: left;
+}
+.sorder-img img{
+    width:100%;
+}
+.sorder-title{
+    width:67%;
+    height:82px;
+    float:left;
+    overflow: hidden;
+}
+.sorder-textas{
+    font-size:13px;
+    width:100%;
+    height:40px;
+    overflow: hidden;
+}
+.wuliu-list{
+    width:100%;
+    border-top:10px solid #eee;
+}
+.wuliu-text{
+    width:90%;
+    margin:10px auto;
+}
+.wuliu-cont{
+    width:90%;
+    height:100%;
+    margin:0px auto;
+}
+.wuliu-title{
+    font-size: 18px;
+}
+.wuliucont-ul{
+    width:100%;
+    margin-top: 10px;
+}
+.wuliucont-li{
+    width:100%;
+    min-height:100px;
+}
+.wuliucont-su{
+    float: left;
+    width:4px;
+    min-height:100px;
+    margin-left: 10px;
+}
+.wuliucont-yuan{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    margin-top:40px;
+    margin-left:-3px;
+}
+.wuliucont-green,.wuliucont-green div{
+    background: #0da659;
+}
+.wuliucont-huise,.wuliucont-huise div{
+    background: #dfdfdf;
+}
+.wuliucont-tetm{
+    width:85%;
+    margin-left:40px;
+    padding-bottom: 10px;
+    position: relative;
+    border-bottom:5px solid #fff;
+}
+.wuliucont-tetmbac1{
+    background: #0da659;
+    color:#fff;
+}
+.wuliucont-tetmbac1:before{
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: -20px;
+    border-width: 0 0px 15px 20px;
+    border-style: solid;
+    border-color: transparent transparent #0da659;
+}
+.wuliucont-tetmbac2{
+    background: #dfdfdf;
+}
+.wuliucont-tetmbac2:before{
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: -20px;
+    border-width: 0 0px 15px 20px;
+    border-style: solid;
+    border-color: transparent transparent #dfdfdf;
+}
+.wuliucont-time{
+    width:100%;
+    height:25px;
+    line-height:25px;
+    text-indent:10px;
+    font-size: 13px;
+}
+.wuliucont-text{
+    width:96%;
+    margin: 0px auto;
+}

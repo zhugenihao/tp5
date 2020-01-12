@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增秒杀</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/secondskill/secondskilladd.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选择秒杀商品：<br/>(输入商品名称或商品ID)</label>
+                    <div class="formControls col-xs-8 col-sm-9 divwks">
+                        <input type="text" class="input-text" value="" placeholder="商品id/商品名称" oninput="goodsList(this)" id="goods_id" name="goods_id">
+                        <input type="hidden" name="goods_id" value="{$info.goods_id}" class="goods_id" />
+                        <ul class="worksul goodsulclick"></ul>
+                    </div>
+                </div>
+
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">秒杀价格(￥)：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="秒杀价格" id="sk_price" name="sk_price">
+                    </div>
+                </div>
+<!--                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">折扣（如:7.5）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="折扣" id="discount" name="discount">
+                    </div>
+                </div>-->
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">秒杀数量（件）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="秒杀数量" id="sk_num" name="sk_num">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">设置为每天：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="every_day" class="select every_day">
+                                <option value="2" >不设置</option>
+                                <option value="1" >设置</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">开始时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9" id="start_time_div">
+                        <input type="text" class="input-text Wdate" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$start_time}" name="start_time" style="width:200px;" readonly>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">结束时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9" id="end_time_div">
+                        <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" placeholder="结束时间" name="end_time" value="" class="input-text Wdate" style="width:200px;">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">排序值：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="100" placeholder="排序值" id="sort" name="sort">
+                    </div>
+                </div>
+                
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_show" checked>
+                            <label for="sex-1">发布</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_show" id="sex-2" value="2">
+                            <label for="sex-2">下架</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

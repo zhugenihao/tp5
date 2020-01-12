@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>栏目管理</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/system/template_add.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+            <span class="c-gray en">&gt;</span>
+            系统管理
+            <span class="c-gray en">&gt;</span>
+            栏目管理
+            
+        </nav>
+        <div class="page-container">
+            <div class="text-c">
+                <input type="text" name="" id="" placeholder="模板名称" style="width:250px" class="input-text">
+                <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <a href="javascript:;" onclick="directory_datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                    <a class="btn btn-primary radius" onclick="href_url('添加模版','{:url('system/template_add')}?tmp_type={$tmp_type}')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加模版</a>
+                </span>
+                <span class="r">共有数据：<strong>{$allcount}</strong> 条</span>
+            </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-hover table-bg table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="25"><input type="checkbox" name="" value=""></th>
+                            <th width="80">ID</th>
+                            <th>模板名称</th>
+                            <th width="140">创建时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="vo"}
+                        <tr class="text-c">
+                            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.tmp_name}</td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                            <td class="f-14">
+                                <a title="编辑" href="javascript:;" onclick="href_url('添加模版','{:url(\'system/template_add\')}?id={$vo.id}&tmp_type={$tmp_type}')" style="text-decoration:none">
+                                    <i class="Hui-iconfont">&#xe6df;</i>
+                                </a>
+                                <a title="删除" href="javascript:;" onclick="template_del(this, '{$vo.id}')" class="ml-5" style="text-decoration:none">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript">
+            $(function () {
+
+            })
+            /*系统-栏目-添加*/
+            function system_category_add(title, url, w, h) {
+                layer_show(title, url, w, h);
+            }
+            /*系统-栏目-编辑*/
+            function system_category_edit(title, url, id, w, h) {
+                layer_show(title, url, w, h);
+            }
+            /*系统-栏目-删除*/
+            function directory_del(obj, id) {
+                layer.confirm('确认要删除吗？', function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "{:url('system/directoryDel')}",
+                        data: {'id': id},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.types === 1) {
+                                layer.msg(data.prompt, {icon: 1, time: 1000});
+                                layer.load(0, {shade: false, time: 1000});
+                                $(obj).parents("tr").remove();
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+
+                        },
+                        error: function (data) {
+                            console.log(data.msg);
+                        },
+                    });
+                });
+            }
+            /*系统-栏目-批量删除*/
+            function directory_datadel() {
+                var idstr = $('input[type=checkbox]:checked').map(function () {
+                    return this.value
+                }).get().join(',');
+                layer.confirm('确认要删除这些吗？', function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "{:url('system/directoryDatadel')}",
+                        data: {'idstr': idstr},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.types === 1) {
+                                layer.msg(data.prompt, {icon: 1});
+                                $("body").addClass("layui-layer-load");
+                                setTimeout(function () {
+                                    window.location.href = "{:url('system/directory_list')}";
+
+                                }, 1000);
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+
+                        },
+                        error: function (data) {
+                            console.log(data.msg);
+                        },
+                    });
+                });
+            }
+
+        </script>
+    </body>
+</html>

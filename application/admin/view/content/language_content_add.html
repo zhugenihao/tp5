@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增内容</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/content/language_content_add.js"></script>
+        <script charset="utf-8" src="__STATIC__/plugin/kindeditor/kindeditor.js"></script>
+        <script charset="utf-8" src="__STATIC__/plugin/kindeditor/lang/zh_CN.js"></script>
+        <script>
+            KindEditor.ready(function (K) {
+                window.editor = K.create('#editor_id', {
+                    afterBlur: function () {
+                        this.sync();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>原内容标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$title}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">语言类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="language_id" class="select selectdi">
+                                <option value="0" >请选择</option>
+                                {volist name="languageList" id="vo"}
+                                <option value="{$vo.id}" {if $vo['id']==$info['language_id']} selected {/if}>{$vo.language_name}</option>
+                                {/volist}
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.title}" placeholder="" id="title" name="title">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>副标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.subtitle}" placeholder="" id="subtitle" name="subtitle">
+                    </div>
+                </div>
+
+
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea id="editor_id" class="kindeditor" name="content" rows="20" cols="150"><?php echo htmlspecialchars_decode($info['content']); ?></textarea>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>seo标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.seo_title}" placeholder="" id="seo_title" name="seo_title">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>关键词：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.keywords}" placeholder="逗号隔开" id="keywords" name="keywords">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">详情：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea rows="10" name="details" id="details" cols="150">{$info.details}</textarea>
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" id="id" name="id"/>
+                <input type="hidden" value="{$content_id}" id="content_id" name="content_id"/>
+            </form>
+            
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

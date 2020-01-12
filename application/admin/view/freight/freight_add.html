@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增运费模板</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/freight/freight_add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="submitfrom">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>运费模板名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="运费模板名称" id="freight_name" name="freight_name">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">计费方式：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="billing_way" class="select" id="billing_way" onchange="billingWay(this)">
+                                <option value="1" >件数</option>
+                                <option value="2" >重量</option>
+                                <option value="3" >体积</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">配送区域：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="floatleft">
+                            <span class="select-box" style="width:150px;">
+                                <select name="province_id" id="province_id" class="select">
+                                    <option value="0" >省级</option>
+                                    {volist name="provinceList" id="vo"}
+                                    <option value="{$vo['id']}" >{$vo['name']}</option>
+                                    {/volist}
+                                </select>
+                            </span>
+                            <span class="select-box" style="width:150px;">
+                                <select name="city_id" id="city_id" class="select">
+                                    <option value="0" >市级</option>
+                                </select>
+                            </span>
+                            <span class="select-box" style="width:150px;">
+                                <select name="county_id" id="county_id" class="select">
+                                    <option value="0" >区级</option>
+                                </select>
+                            </span>&nbsp;&nbsp;
+                        </div>
+                        <button class="btn floatleft" type="button" onclick="dtionArea(this)">确定</button>
+                        <div class="floatfalse">
+                            <div class="border-divs">
+                                <ul class="borderdivs-ul" id="dtionarealu">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>
+                        <span class="number_title">首件（件数）：</span>
+                        <span class="heavy_title">首重（kg）：</span>
+                        <span class="volume_title">首体积（立方米）：</span>
+                    </label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="first_number" value="1" class="input-text number_title" id="first_number" size="40">
+                        <input type="text" name="first_heavy" value="1.00" class="input-text heavy_title" id="first_heavy" size="40">
+                        <input type="text" name="first_volume" value="1.00" class="input-text volume_title" id="first_volume" size="40">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>首运费（￥）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="1.00" id="first_fee" name="first_fee">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>
+                        <span class="number_title">续件（件数）：</span>
+                        <span class="heavy_title">续重（kg）：</span>
+                        <span class="volume_title">续体积（立方米）：</span>
+                    </label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="tocontinue_number" value="1" class="input-text number_title" id="tocontinue_number" size="40">
+                        <input type="text" name="tocontinue_heavy" value="1.00" class="input-text heavy_title" id="tocontinue_heavy" size="40">
+                        <input type="text" name="tocontinue_volume" value="1.00" class="input-text volume_title" id="tocontinue_volume" size="40">
+
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">续运费（￥）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="uploader-thum-container">
+                            <input type="text" name="tocontinue_fee" value="1.00" class="input-text" id="tocontinue_fee" size="40">
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">默认：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="on" id="sex-1" name="is_default" checked>
+                            <label for="sex-1">是</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_default" id="sex-0" value="off">
+                            <label for="sex-0">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">使用：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_use" checked>
+                            <label for="sex-1">是</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_use" id="sex-0" value="2">
+                            <label for="sex-0">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button" onclick="addFreight(this)"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

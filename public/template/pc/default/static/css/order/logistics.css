@@ -1,0 +1,108 @@
+.order-det{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.orderdet-li{
+    clear:both;
+    float: left;
+    border-bottom: 1px solid #eee;
+    width:98%;
+    padding-bottom: 10px;
+    background: #fff;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.orderdet-img{
+    width:140px;
+    height:140px;
+    overflow: hidden;
+}
+.orderdet-img img{
+    width:100%;
+}
+.orderdet-text{
+    width:750px;
+    margin-left: 10px;
+}
+.orderdet-name{
+    width:740px;
+    height:47px;
+    overflow: hidden;
+}
+.orderdet-er{
+    margin-top: 20px;
+}
+.goods-price{
+    color:red;
+    font-weight: 800;
+}
+.goods-price2{
+    color:red;
+}
+.goods-guige{
+    color:#999;
+    margin-top: 10px;
+}
+.btnlist-a{
+    padding: 5px 10px;
+    background: #eee;
+}
+.wuliujidu{
+    margin-top: 10px;
+}
+.wuliujidu-title{
+    font-size:20px;
+}
+.wuliujidu-ul{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.orderli-top{
+    border-top:10px solid #eee;
+}
+.wuliujidu-li{
+    border-left:5px solid #dfdfdf;
+    position: relative;
+    padding-bottom: 10px;
+}
+.wuliujd-active{
+    border-left:5px solid #0da659;
+}
+.wuliujd-active .wuliujidu-yuan{
+    background: #0da659;
+}
+.wuliujd-active .wuliujidu-text{
+    background: #0da659;
+    color:#fff;
+}
+.wuliujidu-yuan{
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    background: #dfdfdf;
+    position: absolute;
+    top:35px;
+    left:-10px;
+}
+.wuliujidu-text{
+    width:500px;
+    min-height:50px;
+    background: #dfdfdf;
+    margin-left: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.wuliujidu-text:before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 20px;
+    border-width: 0 0px 15px 20px;
+    border-style: solid;
+    border-color: transparent transparent #dfdfdf;
+}
+.wuliujidu-time{
+    font-size: 15px;
+}

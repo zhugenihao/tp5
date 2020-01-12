@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增店铺</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/store/store_add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" method="post" enctype="multipart/form-data" name="fileinfo">
+                <!--店铺信息-->
+                <div class="panel panel-default">
+                    <div class="panel-header">店铺信息</div>
+                    <div class="panel-body">
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>店铺名称：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="店铺名称" id="store_name" name="store_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>店铺性质：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="store_nature" class="select" id="store_nature">
+                                        <option value="1" >旗舰店</option>
+                                        <option value="2" >专卖店</option>
+                                        <option value="3" >专营店</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>店铺负责人姓名：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="店铺负责人姓名" id="head_name" name="head_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>负责人手机号码：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="负责人手机号码" id="head_mobile" name="head_mobile">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>负责人QQ号码：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="负责人QQ号码" id="head_qq" name="head_qq">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电子邮箱：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="电子邮箱" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>店铺详细地址：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="店铺详细地址" id="store_address" name="store_address">
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">店铺主营大类：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="directory_big_id" class="select" id="directory_big_id">
+                                        {volist name="directory1_list" id="vo"}
+                                        <option value="2" {if in_array($i,array(1,2))} disabled {/if}>{$vo['title']}</option>
+                                        {/volist}
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>经营类目：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <div class="divbotm">
+                                    <span class="select-box" style="width:250px">
+                                        <select class="select" id="directory1_id">
+                                            <option value="0" >一级类目</option>
+                                            {volist name="directory1_list" id="vo"}
+                                            <option value="{$vo['id']}" {if in_array($i,array(1,2))} disabled {/if}>{$vo['title']}</option>
+                                            {/volist}
+                                        </select>
+                                    </span>
+                                    <span class="select-box" style="width:250px">
+                                        <select class="select" id="directory2_id">
+                                            <option value="0" >二级类目</option>
+                                        </select>
+                                    </span>
+                                    <span class="select-box" style="width:250px">
+                                        <select class="select" id="directory3_id">
+                                            <option value="0" >三级类目</option>
+                                        </select>
+                                    </span>
+                                    <button class="btn radius" type="button" onclick="addBcategory(this)">确定</button>
+                                </div>
+                                <table class="table table-border table-bordered table-bg table-hover">
+                                    <thead>
+                                        <tr class="text-c">
+                                            <th>一级类目名称</th>
+                                            <th>二级类目名称</th>
+                                            <th>三级类目名称</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bcategorylist">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-header">银行卡信息</div>
+                    <div class="panel-body">
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">银行开户名：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="银行开户名" id="bank_name" name="bank_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">银行账号：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="银行账号" id="bank_account" name="bank_account">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">开户银行支行名称：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="开户银行支行名称" id="bank_branch_name" name="bank_branch_name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">开户银行支行所在地：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="province_id" class="select" id="province_id">
+                                        <option value="0" >省级</option>
+                                        {volist name="onethinkDistrict" id="vo"}
+                                        <option value="{$vo['id']}">{$vo['name']}</option>
+                                        {/volist}
+                                    </select>
+                                </span>
+                                <span class="select-box" style="width:250px">
+                                    <select name="city_id" class="select" id="city_id">
+                                        <option value="0" >市级</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-header">经营情况</div>
+                    <div class="panel-body">
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">近一年主营渠道：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="main_channel" class="select" id="main_channel">
+                                        <option value="1" >商场/卖场</option>
+                                        <option value="2" >批发市场</option>
+                                        <option value="3" >超市/连锁店/商业中心</option>
+                                        <option value="4" >电商网站</option>
+                                        <option value="5" >其他</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">近一年销售额：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <div class="titlelheight">
+                                    <input type="text" class="input-text" placeholder="近一年销售额" id="sales" name="sales" size="20">
+                                    万元
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">同类电子商务网站经验：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="experience" class="select" id="experience">
+                                        <option value="1" >有</option>
+                                        <option value="2" >没有</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">可网售商品数量：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="可网售商品数量" id="sales_quantity" name="sales_quantity">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">预计平均客单价：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" placeholder="预计平均客单价" id="average_price" name="average_price">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">仓库情况：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="warehouse" class="select" id="warehouse">
+                                        <option value="1" >自有仓库</option>
+                                        <option value="2" >第三方仓库</option>
+                                        <option value="3" >无仓库</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">是否有实体店：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <span class="select-box" style="width:250px">
+                                    <select name="there_is_store" class="select" id="there_is_store">
+                                        <option value="1" >有</option>
+                                        <option value="2" >无</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 添加</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

@@ -1,0 +1,271 @@
+.goods-all{
+    width:100%;
+}
+.goodsalltop{
+    width:100%;
+}
+.goodsalltop-ul{
+    width:100%;
+    height:30px;
+    border-bottom:1px solid #eee;
+}
+.goodsalltop-ul li{
+    width:25%;
+    float: left;
+    height:30px;
+    text-align: center;
+    line-height:30px;
+}
+.goodsalltop-ul li:active{
+    background: #eee;
+}
+.activeall{
+    color:red;
+    box-sizing: border-box;
+    border-bottom:1px solid red;
+}
+.tejiayouhui-all{
+    width:100%;
+    padding-top:0px;
+}
+.tejiayouhui-top{
+    width:100%;
+    height:25px;
+    border-bottom:1px solid #ccc;
+    padding-top: 0px;
+}
+.tejiayouhui-topauto{
+    width:95%;
+    height:20px;
+    margin:10px auto;
+}
+.tejiayouhui-toptitle{
+    font-size:15px;
+    font-weight:800;
+    float: left;
+}
+.tejiayouhui-gd{
+    float:right;
+}
+.tejiayouhui-ul{
+    width:100%;
+}
+.tejiayouhui-li{
+    width:160px;
+    height:210px;
+    float:left;
+    margin-left: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.tejiayouhui-ul li a{
+    display: block;
+    height:97%;
+    padding-bottom: 5px;
+}
+.tejiayouhui-img{
+    width:160px;
+    height:140px;
+    overflow: hidden;
+}
+.tejiayouhui-img img{
+    width:100%;
+    height:100%;
+}
+.tejiayouhui-bottom{
+    width:100%;
+    margin-top: 5px;
+}
+.tejiayouhui-jiage{
+    font-weight:800;
+    color:red;
+    float:left;
+}
+.tejiayouhui-xl{
+    color:#666;
+    float:right;
+    font-size:10px;
+}
+.anniu{
+    position: fixed;
+    bottom:50px;
+    right:20px;
+}
+.anniu-ul{
+    display: none;
+}
+.anniu-ul li{
+    font-size:25px;
+    width:40px;
+    height:40px;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    text-align: center;
+    line-height:40px;
+    position: absolute;
+}
+.anniu-one{
+    font-size:25px;
+    width:45px;
+    height:45px;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    text-align: center;
+    line-height:45px;
+    z-index: 100;
+    position: absolute;
+    top:-60px;
+    right:0px;
+}
+.tejiayouhui-title{
+    height: 42px;
+    overflow: hidden;
+}
+.anniuli1{
+    top:-60px;
+    right:0px;
+}
+.anniuli2{
+    top:-60px;
+    right:0px;
+}
+.anniuli3{
+    top:-60px;
+    right:0px;
+}
+.anniuli2 i:nth-child(2){
+    display: none;
+}
+.anniu-one i:nth-child(2){
+    display: none;
+}
+.goodslistcss{
+    width:95%;
+    height:100px;
+    /*border-bottom:1px solid #eee;*/
+    padding-bottom: 5px;
+}
+
+.goodslistcss .tejiayouhui-img{
+    width:120px;
+    height:100px;
+    float: left;
+}
+.goodslistcss .goodslistright{
+    width:60%;
+    float: left;
+    position: relative;
+    height:100px;
+    margin-left: 5px;
+}
+.goodslistcss .tejiayouhui-bottom{
+    position: absolute;
+    bottom:10px;
+}
+.goodssx{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0px;
+    z-index:100;
+    display: none;
+}
+.goodssx-bacg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    z-index:101;
+    background: rgba(0,0,0,0.5);
+}
+.goodssx-text{
+    width:70%;
+    height:100%;
+    position: absolute;
+    top:40px;
+    z-index:102;
+    background: #fff;
+    right:-70%;
+}
+.goodssx-title{
+    width:100%;
+    height:35px;
+    font-size:16px;
+    border-bottom:1px solid #eee;
+    line-height: 35px;
+    text-indent: 20px;
+}
+.goodssx-list{
+    width:100%;
+}
+.goodssx-ul{
+    width:100%;
+}
+.goodssx-ul li{
+    margin-top:10px;
+    float: left;
+}
+.goodssxli1 div{
+    width:100px;
+    height:25px;
+    float: left;
+    margin-left: 10px;
+    background: #eee;
+    text-align: center;
+    line-height:25px;
+}
+.goodssxli2 div{
+    float: left;
+    margin-left:10px;
+}
+.goodssxli-div{
+    width:92px;
+    height:25px;
+    /*background: #eee;*/
+    text-align: center;
+    padding-top: 2px;
+    border: 1px solid #eee;
+}
+.goodssxli-div input{
+    padding: 2px;
+    border:none;
+    text-align: center;
+    width:90%;
+}
+.goodssxli3 div{
+    padding: 5px 10px;
+    float: left;
+    margin-left: 5px;
+    background: #eee;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 20px;
+}
+.goods_soucolor{
+    background: red !important;
+    color:#fff;
+}
+.goodssx-btn{
+    width:100%;
+    height:30px;
+    position: absolute;
+    bottom:40px;
+}
+.goodssx-btn div{
+    width:50%;
+    height:100%;
+    text-align: center;
+    line-height:30px;
+    float:left;
+}
+.goodssx-btn1{
+    border-top:1px solid #eee;
+}
+.goodssx-btn2{
+    background: #ff0033;
+    color:#fff;
+    border-top:1px solid #ff0033;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增支付</title>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/h-admin/css/backgroundsection/add.css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/public/public.js"></script>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/payment/add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>支付名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="支付名称" id="payment_name" name="payment_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>支付标志：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="支付标志" id="payment_mark" name="payment_mark">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">图标：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="uploader-thum-container">
+                            <input type="text" value="" class="input-text icon" placeholder="图标地址" name="payment_img" />
+                            <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                            <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="payment_img" size="50" type="file"><br/>
+
+                            <p class="ge_pic_icon_Infor"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">小图标：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <ul class="small_icon_ul">
+                            {volist name="small_icon" id="vo" key="i"}
+                            <li data-smallicon="{$i}" data-text="{$vo['icon']}">
+                                <a href="#" title="{$vo['title']}" ><i class="Hui-iconfont">{$vo['icon']}</i></a>
+                            </li>
+                            {/volist}
+
+                        </ul>
+                        <p class="p_img" title="{$small_icon[1]['title']}"><i class="Hui-iconfont">{$small_icon[1]['icon']}</i></p>
+                        <input type="hidden" name="small_icon" id="small_icon" value="1" />
+                    </div>
+                </div>
+              
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">AppId：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="AppId" id="app_id" name="app_id">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">AppSecret：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="AppSecret" id="app_secret" name="app_secret">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">商户ID：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="商户ID" id="merchants_id" name="merchants_id">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">商户密钥：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="商户密钥" id="merchants_key" name="merchants_key">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">商户账号：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="商户账号" id="merchants_account" name="merchants_account">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">排序：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="100" placeholder="排序" id="sort" name="sort">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_show" checked />
+                                    <label for="sex-1">显示</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_show" id="sex-0" value="0" />
+                                   <label for="sex-0">隐藏</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>基本设置</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+            <span class="c-gray en">&gt;</span>
+            系统管理
+            <span class="c-gray en">&gt;</span>
+            基本设置
+            <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+        </nav>
+
+        <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+            <div class="page-container">
+                <p>内容说明：用“|”隔开。</p>
+                <div>
+                    <textarea class="textarea" style="width:98%; height:300px; resize:none" name="text">{$info.text}</textarea>
+                </div>
+                <div class="mt-20 text-c">
+                    <button name="system-base-save" id="system-base-save" class="btn btn-success radius" type="button"><i class="icon-ok"></i> 确定</button>
+                </div>
+            </div>
+            <input type="hidden" name="id" value="{$info.id}" />
+        </form>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript">
+            $(function () {
+                $(".btn-success").click(function (e) {
+                    var form = document.forms.namedItem("fileinfo");
+                    var form = new FormData(form);
+                    $.ajax({
+                        url: "{:url('system/block_word')}",
+                        type: "post",
+                        data: form,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.types === 1) {
+                                layer.msg(data.prompt, {icon: 1});
+                                $("body").addClass("layui-layer-load");
+                                setTimeout(function () {
+                                    window.location.href = "{:url('system/block_word')}";
+
+                                }, 1000);
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+                        },
+                        error: function (e) {
+                            layer.msg("错误！！", {icon: 5});
+                        }
+                    });
+
+                });
+            })
+        </script>
+        <!--/请在上方写此页面业务相关的脚本-->
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>栏目管理</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/directory/language_directory.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+            <span class="c-gray en">&gt;</span>
+            栏目管理
+            <span class="c-gray en">&gt;</span>
+            语言内容-----"{$info['title']}"
+            <a class="btn btn-success radius r" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont"></i></a>
+        </nav>
+
+        <div class="page-container">
+            <div class="text-c">
+                <form action="" method="post" id="forms" style="padding-right: 0%;">
+                    语言类型：
+                    <span class="select-box" style="width:140px;" >
+                        <select class="select" name="language_id" >
+                            <option value="0">选择类型</option>
+                            {volist name="languageList" id="vo"}
+                            <option value="{$vo.id}" {if $vo['id']==$language_id} selected {/if}>{$vo.language_name}</option>
+                            {/volist}
+                        </select>
+                    </span>
+                    <input type="text" name="search" placeholder="栏目名称" style="width:250px" class="input-text" disabled="disabled">
+                    <button class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+                </form>
+            </div>
+            <div class="text-c">语言类型：
+                <span class="select-box" style="width:140px;" >
+                    <select class="select" id="language_id" name="language_id" >
+                        <option value="0">选择类型</option>
+                        {volist name="languageList" id="vo"}
+                        <option value="{$vo.id}">{$vo.language_name}</option>
+                        {/volist}
+                    </select>
+                </span>
+                <input type="hidden" value="{$info['id']}" id="directory_id" />
+                <input type="text" name="title" id="title" placeholder="栏目名称" style="width:250px" class="input-text">
+                <button class="btn btn-success" type="submit" onclick="languageDirectorySubmit(this)"><i class="Hui-iconfont">&#xe600;</i> 添加</button>
+            </div>
+
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <a href="javascript:;" onclick="language_lirectory_del()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                    <a class="btn btn-primary radius" onclick="href_url('添加更多翻译', '__URL__/language_directory_add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加更多翻译</a>
+                </span>
+                <span class="r">共有数据：<strong>{$allcount}</strong> 条</span>
+            </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-hover table-bg table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="25"><input type="checkbox" name="" value=""></th>
+                            <th width="60">ID</th>
+                            <th class="text-l">栏目名称</th>
+                            <th width="100">语言类型</th>
+                            <th width="140">创建时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="language_lirectory" id="vo"}
+                        <tr class="text-c">
+                            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td><input type="text" id="title_up{$vo.id}" value="{$vo.title}" placeholder="栏目名称" class="input-text"></td>
+                            <td>
+                                <span class="select-box" style="width:140px;" >
+                                    <select class="select" name="language_ids" id="language_ids{$vo.id}">
+                                        {volist name="languageList" id="vos"}
+                                        <option value="{$vos.id}" {if $vos['id']==$vo['language_id']} selected {/if}>{$vos.language_name}</option>
+                                        {/volist}
+                                    </select>
+                                </span>
+                            </td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                            <td class="f-14">
+                                <a title="点击修改" href="javascript:;" onclick="Modify('{$vo.id}','{$vo.directory_id}')" style="text-decoration:none">
+                                    <i class="Hui-iconfont">&#xe6df;</i>
+                                </a>
+                                <a onclick="href_url('编辑更多翻译', '__URL__/language_directory_add.html')" href="javascript:;" >编辑更多翻译</a>
+                                <a title="删除" href="javascript:;" onclick="language_lirectory_del('{$vo.id}')" class="ml-5" style="text-decoration:none">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>留言管理</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/leaveamessage/getlist.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 留言管理 <span class="c-gray en">&gt;</span> 留言列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c"> 日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" value="{$datemin}" name="datemin" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({minDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="datemax" value="{$datemax}" class="input-text Wdate" style="width:120px;">
+                    <input type="text" class="input-text" style="width:250px" placeholder="输入名字/邮箱" id="search" name="search" value="{$search}">
+                    <button type="submit" class="btn btn-success radius" id=""><i class="Hui-iconfont">&#xe665;</i> 搜留言</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="leaveamessageDatadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                </span> <span class="r">每页<strong>{$limit}</strong> 条，共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-hover table-bg table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="25"><input type="checkbox" name="" value=""></th>
+                            <th width="60">ID</th>
+                            <th width="60">游客名字</th>
+                            <th class="text-l">留言内容</th>
+                            <th width="300">邮箱</th>
+                            <th width="300">国家</th>
+                            <th width="140">留言时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {volist name="list" id="vo"}
+                        <tr class="text-c">
+                            <td><input type="checkbox" value="{$vo.id}" name="id[]"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.your_name}</td>
+                            <td class="text-l">
+                                <div class="c-999 f-12">
+                                    <u style="cursor:pointer" class="text-primary">{$vo.your_name}</u> {$vo.create_time} </div>
+                                <div>
+                                    电话号码：{if strlen($vo['text'])>40} {$vo['text']|mb_substr=###,0,40,'utf-8'}... {else /}{$vo['text']}{/if}
+                                </div>
+                                
+                            </td>
+                            <td>{$vo.email}</td>
+                            <td>{$vo['country']}</td>
+                            <td>{$vo['create_time']}</td>
+                            <td class="td-manage">
+                                <a title="查看" href="javascript:;" onclick="href_jump('查看', '__URL__/edit.html?id={$vo.id}', '900', '610')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+                                <a title="删除" href="javascript:;" onclick="leaveamessageDatadel('{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript">
+            $(function () {
+                $(".btn-success").click(function () {
+                    var datemin = $("#datemin").val();
+                    var datemax = $("#datemax").val();
+                    var search = $("#search").val();
+                    var list = "{$list[0]['id']}";
+                    if (search || !list || datemin || datemax) {
+                        $("#forms").submit();
+                    }
+                })
+            })
+            /*用户-添加*/
+            function feedback_edit(title, url, w, h) {
+                layer_show(title, url, w, h);
+            }
+            /*用户-查看*/
+            function member_show(title, url, id, w, h) {
+                layer_show(title, url, w, h);
+            }
+
+            /*评论-删除*/
+            function feedback_del(obj, id) {
+                layer.confirm('确认要删除吗？', function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "{:url('feedback/feedbackdetel')}",
+                        data: {'id': id},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.types === 1) {
+                                $(obj).parents("tr").remove();
+                                layer.msg(data.prompt, {icon: 1, time: 1000});
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+
+                        },
+                        error: function (data) {
+                            console.log(data.msg);
+                        },
+                    });
+                });
+            }
+            /*评论-批量删除*/
+            function datadel() {
+                var idstr = $('input[type=checkbox]:checked').map(function () {
+                    return this.value
+                }).get().join(',');
+                layer.confirm('确认要删除这些吗？', function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "{:url('feedback/datadel')}",
+                        data: {'idstr': idstr},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.types === 1) {
+                                layer.msg(data.prompt, {icon: 1});
+                                $("body").addClass("layui-layer-load");
+                                setTimeout(function () {
+                                    window.location.href = "{:url('feedback/feedback_list')}";
+
+                                }, 1000);
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+
+                        },
+                        error: function (data) {
+                            console.log(data.msg);
+                        },
+                    });
+                });
+            }
+
+
+
+        </script>
+    </body>
+</html>

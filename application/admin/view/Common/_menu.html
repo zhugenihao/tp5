@@ -1,0 +1,30 @@
+<aside class="Hui-aside">
+    <div class="menu_dropdown bk_2">
+        {volist name="backgroundsectionList" id="vo"}
+        <dl id="menu-article">
+            <dt>
+                {if $vo['is_href']==1}
+                <i class="Hui-iconfont">{$small_icon[$vo['small_icon']]['icon']}</i> {$vo['section_name']}
+                <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+                {else/}
+                <a data-href="{:url($vo['column_method'])}?{$vo['parameter']}" data-title="{$vo.section_name}" href="javascript:void(0)">
+                    <i class="Hui-iconfont">{$small_icon[$vo['small_icon']]['icon']}</i> {$vo['section_name']}
+                </a>
+                {/if}
+            </dt>
+            <dd>
+                <ul>
+                    {volist name="vo['backgroundsectionPidList']" id="pivo"}
+                    <li>
+                        <a data-href="{:url($pivo['column_method'])}?{$pivo['parameter']}" data-title="{$pivo.section_name}" href="javascript:void(0)">
+                            <i class="Hui-iconfont">{$small_icon[$pivo['small_icon']]['icon']}</i>&nbsp;{$pivo.section_name}
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </dd>
+        </dl>
+        {/volist}
+    </div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

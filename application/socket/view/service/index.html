@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>客服工作台</title>
+        {include file="common/js_css" /}
+        <link rel="stylesheet" type="text/css" href="__STATIC__/socket/css/service/index.css" />
+    </head>
+    <body class="layui-layout-body">
+        <div class="layui-layout layui-layout-admin">
+            <div class="layui-header">
+                <div class="layui-logo" style="color: white">平台客服系统</div>
+                <ul class="layui-nav layui-layout-right">
+                    <li style="margin-top: 10%">
+                        <a href="{:url('service/loginOut')}">
+                            <button class="layui-btn layui-bg-red">
+                                <i class="layui-icon">&#xe609;</i> 退出下班
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="layui-side" style="background:#f2f2f2">
+                <div class="layui-side-scroll">
+                    <blockquote class="layui-elem-quote layui-bg-cyan" style="color: white">正在咨询的会员</blockquote>
+                    <ul class="layui-unselect" id="user_list">
+                        {volist name="kefuMemberOnline['data']" id="vo"}
+                        <li class="layui-nav-item {if $i==1}active{/if}" data-id="{$vo['member_id']}" id="f-{$vo['member_id']}"
+                            data-name="{$vo['member_name']}" data-avatar="{$vo['avatar']}" data-ip="{$vo['ip']}">
+                            <img src="/static/{$vo['avatar']}">
+                            <span class="user-name">{$vo['member_name']}</span>
+                            <span class="layui-badge" style="margin-left:5px">{$vo['chat_count']}</span>
+                            <i class="layui-icon close" style="display:none">ဇ</i>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="layui-body" style="bottom:0">
+                <input type="hidden" id="active-user" data-avatar="" data-name="" data-id=""><!-- 当前对话的用户 -->
+                <div class="chat-left">
+                    <ul class="chat-box mylink-chat-main" id="contentul">
+
+                    </ul>
+                    <input type="hidden" value="{$member_id}" id="member_id" />
+                    <div class="msg-send">
+                        <div class="tools-bar">
+                            <i class="layui-icon" style="font-size: 30px;" id="up-face">&#xe60c;</i>
+                            <i class="layui-icon" style="font-size: 30px;" id="up-image">&#xe60d;</i>
+                            <!--<i class="layui-icon" style="font-size: 30px;" id="file">&#xe61d;</i>-->
+                        </div>
+                        <div class="msg-box">
+                            <textarea class="msg-area" id="content"></textarea>
+                        </div>
+                        <div class="send-area">
+                            <span style="margin-left:10px;color:gray">快捷键 Ctrl+Enter</span>
+                            <button class="layui-btn layui-btn-small layui-bg-cyan" style="float:right;margin-right:10px;height: 40px;padding: 0 15px;" id="send">
+                                <i class="layui-icon">&#xe609;</i>发送
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width:28%;height:100%;float:left;margin-left:1%;overflow-y: auto">
+                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">访客信息</li>
+                            <li>常用语</li>
+                        </ul>
+                        <div class="layui-tab-content" style="min-height: 100px;">
+                            <div class="layui-tab-item layui-show">
+
+                                <!--基本信息-->
+                                <div class="layui-form layui-form-pane">
+
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">当前客服</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="f-kefu" value="{$kefu['kefu_account']}" class="layui-input" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">访客名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="f-user" value="{$kefu['kefu_name']}" class="layui-input" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">IP</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="f-ip" value="{$kefu['login_ip']}" class="layui-input" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">地区</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="f-area" value="{$kefu['region']}" class="layui-input" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-bg-cyan" style="cursor: pointer;color:white" id="scroll-link">转接</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-form">
+                                    <table class="layui-table">
+                                        <thead>
+                                            <tr>
+                                                <th>内容</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {volist name="kefuStatements['data']" id="vo"}
+                                            <tr>
+                                                <td>{$vo['content']}</td>
+                                                <td>
+                                                    {if $vo['is_use']==0}
+                                                    <a href="javascript:;" onclick="statementsUse(this)" data-id="{$vo['id']}" style="color:#009688">应用</a>
+                                                    {else/}
+                                                    <a href="javascript:;" style="color:#FF5722">已应用</a>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                            {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 转接提示层 -->
+        <div class="layui-form" id="change-box" style="display: none">
+            <div class="layui-form-item" style="margin-top: 20px">
+                <label class="layui-form-label">选择分组</label>
+                <div class="layui-input-block" style="width: 70%" >
+                    <select lay-verify="required" lay-filter="group">
+                        <option value=""></option>
+                        <option value="1">售前客服</option>
+                        <option value="2">售后客服</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- 转接提示层 -->
+
+        <script type="text/javascript">
+            var info = {
+                socket_ip: "{:config('socket_ip')}",
+                kefu_id: '{$kefu.id}',
+            };
+        </script>
+        <script type="text/javascript" src="__STATIC__/socket/js/service/index.js"></script>
+    </body>
+</html>

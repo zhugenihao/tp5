@@ -1,0 +1,45 @@
+.record_books-all{
+    width:100%;
+}
+.record_books-top{
+    width:100%;
+    height:40px;
+    border-top:5px solid #eee;
+    border-bottom:1px solid #eee;
+}
+.record_bookstop-auto{
+    width:90%;
+    margin:10px auto;
+    height:30px;
+}
+.record_bookstop-auto div{
+    width:50%;
+    height:100%;
+    float:left;
+    text-align: center;
+    line-height:30px;
+}
+.record_bookstop-auto div:active{
+    background: #eee;
+}
+.record_books-active{
+    color: #ff0033;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ff0033;
+}
+.rbooks-li{
+    width:100%;
+    height:50px;
+    border-bottom:1px solid #eee;
+}
+.rbooks-liauto{
+    width:90%;
+    margin:0px auto;
+    padding-top: 5px;
+}
+.rbooksnum-green{
+    color:green;
+}
+.rbooks-time{
+    clear: both;
+}

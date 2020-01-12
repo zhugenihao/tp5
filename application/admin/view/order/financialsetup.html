@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>财务设置</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+            <span class="c-gray en">&gt;</span>
+            财务中心
+            <span class="c-gray en">&gt;</span>
+            财务设置
+            <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+        </nav>
+        <div class="panel panel-primary">
+            <div class="panel-header">财务设置</div>
+            <div class="panel-body">
+                <form class="form form-horizontal" method="post" enctype="multipart/form-data" name="fileinfo">
+                    <div class="page-container" style="text-align: center;">
+                        <div>
+                            <p>商家分成与平台的分润比例</p>
+                            <div>
+                                （商家分成）
+                                <input type="button" value="-" class="btn btn-default" id="author-jian"/>
+                                <input type="text" class="input-text" value="{$info.author}" id="author" name="author" style="width:100px;">
+                                <input type="button" value="+" class="btn btn-success radius" id="author-jia"/>
+                                :
+                                <input type="button" value="-" class="btn btn-default" id="platform-jian"/>
+                                <input type="text" class="input-text" value="{$info.platform}" id="platform" name="platform" style="width:100px;">
+                                <input type="button" value="+" class="btn btn-success radius" id="platform-jia"/>
+                                （平台）
+                            </div>
+                            <p>指消费者每笔商品交易所获得的佣金比例</p>
+                        </div>
+
+                        <div class="mt-20 text-c">
+                            <button id="fileinfo-btn" class="btn btn-primary radius" type="button"> 确定</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{$info.id}" />
+                </form>
+
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <script type="text/javascript" src="__STATIC__/h-admin/js/order/financialsetup.js"></script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>权限管理</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/user/user_menu.js"></script>
+        <style>
+            .bacgtr1{
+                background: #999;
+            }
+            .bacgtr2{
+                background: #ccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 权限管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <div class="text-c">
+                <form class="Huiform" method="post" action="" target="_self">
+                    <span class="select-box" style="width:150px">
+                        <select name="oneid" class="select">
+                            <option value="0" >请选择模块</option>
+                            {volist name="usermenulistOne" id="vo"}
+                            <option value="{$vo.id}" {if $vo['id']==input('oneid')} selected {/if}>{$vo.name}</option>
+                            {/volist}
+                        </select>
+                    </span>
+                    <input type="text" class="input-text" style="width:250px" placeholder="权限名称" id="" name="search" value="{$search}">
+                    <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜权限节点</button>
+                </form>
+            </div>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel(this)" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="href_url('添加权限节点', 'user_menu_add.html', '', '710')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a></span> <span class="r">共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="11">权限节点</th>
+                    </tr>
+                    <tr class="text-c">
+                        <th width="25"><input type="checkbox"></th>
+                        <th width="40">ID</th>
+                        <th>菜单名称</th>
+                        <th class="text-l">方法说明</th>
+                        <th>应用名</th>
+                        <th>控制器名</th>
+                        <th>操作名称</th>
+                        <th width="60">排序</th>
+                        <th width="50">层级</th>
+                        <th width="50">状态</th>
+                        <th width="140">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach name="menus" item="vo"}
+                    <tr class="text-c {if $vo['fpid']==1} bacgtr1 {elseif $vo['fpid']==2} bacgtr2 {/if}">
+                        <td><input type="checkbox" value="{$vo.id}" name="id[]"></td>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.name}</td>
+                        <td class="text-l">{for start="1" end="$vo['fpid']+1"}&nbsp;&nbsp;&nbsp;&nbsp;{/for}|----{$vo.instructions}</td>
+                        <td>{$vo.app}</td>
+                        <td>{$vo.controller}</td>
+                        <td>{$vo.action}</td>
+                        <td>{$vo.list_order}</td>
+                        <td>{$vo.fpid}</td>
+                        <td>{if condition="$vo['status'] eq 1"}
+                            显示
+                            {else /}
+                            隐藏
+                            {/if}
+                        </td>
+                        <td>
+                            {if $vo['fpid']<=3}
+                            <a href="javascript:;" onclick="href_url('添加权限节点', 'user_menu_add.html?um_id={$vo.id}&secondary=1&fpid={$vo.fpid+1}', '', '710')" class="ml-5">
+                                <i class="Hui-iconfont"></i> 添加节点
+                            </a>
+                            {/if}
+                            <a title="编辑" href="javascript:;" onclick="href_url('角色编辑', 'user_menu_add.html?um_id={$vo.id}', '', '', '710')" class="ml-5" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6df;</i>
+                            </a>
+                            <a title="删除" href="javascript:;" onclick="datadel(this, '{$vo.id}')" class="ml-5" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6e2;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+            {$page}
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

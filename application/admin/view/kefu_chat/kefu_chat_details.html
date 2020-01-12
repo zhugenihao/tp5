@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>聊天记录详情</title>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/socket/css/index/pc_index.css" />
+        
+        <script type="text/javascript" src="__STATIC__/socket/js/public/functions.js"></script>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/kefu_chat/kefu_chat_details.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="submitfrom">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>聊天内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9" id="content2" go_type="{$info['go_type']}">
+                        {$info['content']}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info['member_name']}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info['kefu_name']}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="type" class="select" id="type">
+                                <option value="1" {eq name="info['type']" value='1'} selected{/eq}>用户的信息</option>
+                                <option value="2" {eq name="info['type']" value='2'} selected{/eq}>客服的信息</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>创建时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info['create_time']}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info['id']}" name="kefu_id" />
+            </form>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

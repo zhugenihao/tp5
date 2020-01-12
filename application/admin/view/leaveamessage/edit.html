@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增标签</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/leaveamessage/edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">游客名字：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.your_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">国家名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.country}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">邮箱：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.email}
+                    </div>
+                </div>
+               
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">留言内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                         <textarea rows="10" name="details" id="details" cols="100">电话号码：{$info.text}</textarea>
+                    </div>
+                </div>
+                 
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                         <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <!--<button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 回复</button>-->
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" id="id" name="id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+
+        
+    </body>
+</html>

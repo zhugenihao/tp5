@@ -1,0 +1,164 @@
+.order-all{
+    width:100%;
+    margin-top: 35px;
+}
+.order-top{
+    width:100%;
+    height:35px;
+    border-bottom:1px solid #eee;
+    position: fixed;
+    top:40px;
+    background: #fff;
+}
+.order-topul{
+    width:100%;
+}
+.order-topul li:active{
+    background: #eee;
+}
+.tord_time{
+    font-size:12px;
+}
+.order-topli{
+    width:20%;
+    height:35px;
+    float:left;
+    text-align: center;
+    line-height:35px;
+}
+.adtactive{
+    color:#ff0033;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ff0033;
+}
+.order-list{
+    width:100%;
+    height:auto;
+    background: #eee;
+    padding-bottom: 1px;
+}
+.order-search{
+    width:100%;
+    height:30px;
+}
+.order-searchauto{
+    width:95%;
+    margin:0px auto;
+    height:30px;
+}
+.order-listul{
+    width:100%;
+    margin-top: 8px;
+}
+.order-listli{
+    width:100%;
+    height:auto;
+    border-bottom:1px solid #eee;
+    background: #fff;
+    float: left;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+.order-listli-auto{
+    width:95%;
+    height:100%;
+}
+.order-img{
+    width:120px;
+    height:120px;
+    overflow: hidden;
+    float:left;
+}
+.order-img a{
+    display: block;
+    width:90%;
+    height:90%;
+    margin: 5px;
+}
+.order-img img{
+    width:100%;
+}
+.order-text{
+    float:left;
+    width:64.3%;
+    padding-top: 5px;
+}
+.order-title{
+    font-size:13px;
+    height:40px;
+    overflow: hidden;
+}
+.order-jiage{
+    color:red;
+    font-weight:800;
+}
+.order-qita{
+    font-size:12px;
+    color:#999;
+    width:100%;
+    height:36px;
+    overflow: hidden;
+}
+.order-state{
+    color:red;
+    text-align: right;
+    float: right;
+}
+.order-btn{
+    width:90%;
+    margin-left: 35px;
+    max-height:20px;
+    clear: both;
+}
+.order-btn a{
+    padding: 2px 10px;
+    border:1px solid #eee;
+    text-align: center;
+    border-radius: 5px;
+    float: right;
+    margin-right: 10px;
+}
+.order-shouhuo{
+    background: #ff0033;
+    color:#fff;
+}
+.order-text21{
+    max-width:239px;
+}
+.activitytext{
+    width:95%;
+    margin:0px auto;
+    font-size:13px;
+    padding-top: 4px;
+    color:green;
+}
+.spellmember{
+    width:95%;
+    margin:0px auto;
+    color:green;
+}
+.spellmember img{
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    margin-left: 2px;
+}
+.selactive{
+    border:1px solid red !important;
+}
+.search-btn2 {
+    width: 40px;
+    margin-left: 0px;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-left: 1px solid #eee;
+    border-radius: 0px 20px 20px 0px;
+    height: 27px;
+    margin-top: 5px;
+    text-align: center;
+}
+.search-btn2 i{
+    font-size: 18px;
+}

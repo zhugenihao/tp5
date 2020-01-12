@@ -1,0 +1,69 @@
+.goods-alls{
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    float:left;
+}
+.goods-img{
+    width:80px;
+    height:80px;
+    overflow: hidden;
+}
+.goods-img img{
+    width:100%;
+}
+.goods-text{
+    max-width:300px;
+    line-height: 20px;
+    text-align: left;
+    margin-left:10px;
+}
+.goods-name{
+    width:100%;
+    height:41px;
+    overflow: hidden;
+}
+.goods-price{
+    font-weight:800;
+    color:red;
+}
+.goods-guige{
+    font-size:15px;
+    color:#999;
+    width:100%;
+    height:21px;
+    overflow:hidden;
+}
+.order-btn div{
+    line-height:20px;
+}
+.order-btn div a:hover{
+    color:red;
+}
+.activity_title{
+    max-width:390px;
+    color:green;
+    min-height:25px;
+    text-align: left;
+    line-height:25px;
+    font-size: 14px;
+    background: #eee;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+.spellmember{
+    width:95%;
+    /*margin:0px auto;*/
+    color:green;
+    line-height: 10px;
+}
+.spellmember img{
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    margin-left: 2px;
+}
+.selactive{
+    border:1px solid red !important;
+}

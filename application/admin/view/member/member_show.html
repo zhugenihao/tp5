@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>添加用户 - H-ui.admin 3.0</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <div class="cl pd-20" style=" background-color:#5bacb6">
+            <img class="avatar size-XL l" src="{if $Info['photo']}__STATIC__/{$Info['photo']}{else/}{$Info['avatarUrl']}{/if}" onerror="this.src='{$errUrl}';">
+
+            <dl style="margin-left:80px; color:#fff">
+                <dt>
+                    <span class="f-18">{$Info.member_name}</span>
+                    <span class="pl-10 f-12">余额：{$Info.forehead}</span>
+                </dt>
+                <dd class="pt-10 f-12" style="margin-left:0">这家伙很懒，什么也没有留下</dd>
+            </dl>
+        </div>
+        <div class="pd-20">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="text-r" width="80">性别：</th>
+                        {if $Info['gender']=='1'} 
+                        <td>男</td>
+                        {elseif $Info['gender']=='2' /} 
+                        <td>女</td>
+                        {else /}
+                        <td>保密</td>
+                        {/if}
+
+                    </tr>
+                    <tr>
+                        <th class="text-r">手机：</th>
+                        <td>{$Info.mobile}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-r">邮箱：</th>
+                        <td>{$Info.email}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-r">地址：</th>
+                        <td>{$Info.address}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-r">用户IP：</th>
+                        <td>{$Info['m_ip']}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-r">注册时间：</th>
+                        <td>{$Info['create_time']}</td>
+                    </tr>
+                     <tr>
+                        <th class="text-r">最后登录时间：</th>
+                        <td>{$Info['last_time']|date="Y-m-d H:i",###}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-r">积分：</th>
+                        <td>{$Info.integral}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+        <!--请在下方写此页面业务相关的脚本-->
+    </body>
+</html>

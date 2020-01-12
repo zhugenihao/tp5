@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增商家菜单</title>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/h-admin/css/backgroundsection/add.css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/seller_menu/seller_menu_add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上级菜单名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:300px">
+                            <select name="pid" class="select catetype">
+                                <option value="0" >根目录</option>
+                                {volist name="list['data']" id="vo"}
+                                <option value="{$vo.id}" {eq name=":input('id')" value="$vo['id']"} selected {/eq} >
+                                        |------
+                                        {$vo.menu_name}</option>
+                                {volist name="vo['lister']" id="voer"}
+                                <option value="{$voer.id}" {eq name=":input('id')" value="$voer['id']"} selected {/eq} >
+                                        |------------
+                                        {$voer.menu_name}</option>
+                                {/volist}
+                                {/volist}
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商家菜单名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" name="menu_name" id="menu_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>菜单方法：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="methods" name="methods">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>参数：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="parameter" name="parameter">
+                        <p>如：category_name=>1,is_show=1&sort=2</p>
+                    </div>
+
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>小图标：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <ul class="small_icon_ul">
+                            {volist name="small_icon" id="vo" key="i"}
+                            <li data-smallicon="{$i}" data-text="{$vo['icon']}">
+                                <a href="#" title="{$vo['title']}" class="{if 1==$i}activeas{/if}"><i class="Hui-iconfont">{$vo['icon']}</i></a>
+                            </li>
+                            {/volist}
+
+                        </ul>
+                        <p class="p_img" title="{$small_icon[1]['title']}"><i class="Hui-iconfont">{$small_icon[1]['icon']}</i></p>
+                        <input type="hidden" name="small_icon" id="small_icon" value="1" />
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>排序：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="100" placeholder="" id="sort" name="sort">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_show" checked />
+                            <label for="sex-1">显示</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_show" id="sex-0" value="0" >
+                            <label for="sex-0">隐藏</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+
+    </body>
+</html>

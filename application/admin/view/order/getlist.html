@@ -1,0 +1,186 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>订单列表</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/order/getlist.js"></script>
+        
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    <p>订单类型：
+                        <span class="select-box" style="width:150px">
+                            <select name="activity" class="select activity">
+                                <option value="0" >订单类型</option>
+                                <option value="a_separate_buy" {if $activity=='a_separate_buy'} selected {/if}>普通订单</option>
+                                <option value="seconds_kill" {if $activity=='seconds_kill'} selected {/if}>秒杀订单</option>
+                                <option value="spell_group" {if $activity=='spell_group'} selected {/if}>拼团订单</option>
+                                <option value="comdysalesp" {if $activity=='comdysalesp'} selected {/if}>促销订单</option>
+                            </select>
+                    </p>
+                    <p>
+                        日期范围：
+                        <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="datemin" value="{$datemin}" class="input-text Wdate" style="width:120px;">
+                        -
+                        <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')]', maxDate: '%y-%M-%d'})" id="datemax" name="datemax" value="{$datemax}" class="input-text Wdate" style="width:120px;">
+                        <span class="select-box" style="width:150px">
+                            <select name="state" class="select catetype">
+                                <option value="0" >付款状态</option>
+                                <option value="10" {if $state=='10'} selected {/if}>待付款</option>
+                                <option value="11" {if $state=='11'} selected {/if}>交易关闭</option>
+                                <option value="20" {if $state=='20'} selected {/if}>待发货</option>
+                                <option value="30" {if $state=='30'} selected {/if}>待收货</option>
+                                <option value="40" {if $state=='40'} selected {/if}>已完成</option>
+                            </select>
+                        </span>
+                        <input type="text" class="input-text" style="width:150px" placeholder="付款用户" id="member_name" name="member_name" value="{$member_name}">
+                        <input type="text" class="input-text" style="width:200px" placeholder="付款单号" id="order_no" name="order_no" value="{$order_no}">
+
+                        <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜订单</button>
+                    </p>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <a href="javascript:;" onclick="orderDel(this)" class="btn btn-danger radius">
+                        <i class="Hui-iconfont">&#xe6e2;</i> 批量删除
+                    </a>
+                </span>
+
+                <span class="r"><strong>{$limit}</strong>条/页,共有数据：<strong>{$allcount}</strong> 条</span> </div>
+
+            
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="40">ID</th>
+                            <th>商品名称</th>
+                            <th>规格信息</th>
+                            <th width="100">商品单价</th>
+                            <th width="60">商品数量</th>
+                            <th width="100">支付方式</th>
+                            <th width="100">实付金额</th>
+                            <th width="80">订单状态</th>
+                            <th width="120">下单时间</th>
+                            <th width="160">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="vo"}
+                        <tr class="text-c success">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td colspan="9" class="order-text"> 
+                                {if $vo['activity']=='spell_group'}
+                                <p class="pintuanp">
+                                    <span>拼团订单：{$vo['sg_members_num']}人成团，{if $vo['sgm_member_poor'] > 0}
+                                        还差{$vo['sgm_member_poor']}人 {else/} 人数已满，可以发货 {/if}
+                                    </span>
+                                    {if $vo['sgm_member_list']}
+                                    <span>团员：</span>
+                                    <span class="pintuanimg">
+                                        {volist name="vo['sgm_member_list']" id="sgmvo" key="index"}
+                                        <img src="__STATIC__/{$sgmvo['photo']}" class="{if $index==1}pintuanimg-active{/if}" onerror="imgExists(this)"/>
+                                        {/volist}
+                                    </span>
+                                    {/if}
+                                </p>
+                                {elseif $vo['activity']=='seconds_kill'/}
+                                <p class="pintuanp">
+                                    <span>秒杀订单</span>
+                                </p>
+                                {elseif $vo['activity']=='comdysalesp'/}
+                                <p class="pintuanp">
+                                    <span>促销订单</span>
+                                </p>
+                                {else/}
+                                <p class="pintuanp">
+                                    <span>普通订单</span>
+                                </p>
+                                {/if}
+                                <p class="clear">
+                                    <span>订单编号：{$vo.order_no}</span>
+                                    <span>实付总金额：{$vo.total_price}</span>
+                                    <span>用户名称：{$vo['member']['member_name']}</span>
+                                    <span>下单时间：{$vo.order_time|date='Y-m-d H:i:s',###}</span>
+                                </p>
+                            </td>
+                            <td> 
+                                <a class="label label-default radius" onClick="href_url('订单详情', '__URL__/order_details?order_id={$vo.id}')" href="javascript:;" title="订单详情">
+                                    订单详情
+                                </a>
+                                {if $vo['state']=='20'} 
+                                <a class="label label-primary radius" onClick="deliveryStart(this)" data-orderid="{$vo['id']}" data-ordertype="order" href="javascript:;" >
+                                    立即发货
+                                </a>
+                                {/if}
+                                {if $vo['state']=='10'} 
+                                <a onClick="modifyStart(this)" data-orderid="{$vo['id']}" data-ordertype="order" href="javascript:;" >
+                                    <i class="Hui-iconfont">&#xe615;</i>帮付款
+                                </a>
+                                {/if}
+                                <a style="text-decoration:none" class="ml-5" onClick="orderDel(this, '{$vo.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {volist name="vo['order_goods']" id="vog"}
+                        <tr class="text-c">
+                            <td>
+                                <!--<input name="id[]" type="checkbox" value="{$vo.id}">-->
+                            </td>
+                            <td>{$vog.id}</td>
+                            <td class="text-l"><img src="__STATIC__/{$vog['goods_img']}" width="20" />&nbsp;{$vog['goods_name']}</td>
+                            <td class="text-l">{$vog.goods_information}</td>
+                            <td>{$vog.goods_price}</td>
+                            <td>{$vog.goods_num}</td>
+                            <td>{$vog['payment']['payment_name']}</td>
+                            <td>{$vog.total_price}</td>
+                            <td>
+                                {if $vog['state']=='10'}
+                                <span class="label label-primary radius">待付款</span>
+                                {elseif($vog['state']=='11') /} 
+                                <span class="label label label-danger radius">交易关闭</span>
+                                {elseif($vog['state']=='20') /} 
+                                <span class="label label-warning radius">待发货</span>
+                                {elseif($vog['state']=='30') /} 
+                                <span class="label label-secondary radius">待收货</span>
+                                {elseif($vog['state']=='40') /} 
+                                <span class="label label-success radius">已完成</span>
+                                {/if}
+                            </td>
+                            <td>{$vog.tord_time|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <!--                                {if $vog['state']=='20'} 
+                                                                <a class="label label-primary radius" onClick="deliveryStart(this)" data-ordertype="order_goods" data-orderid="{$vog['id']}" href="javascript:;" >
+                                                                    立即发货
+                                                                </a>
+                                                                {/if}
+                                                                {if $vog['state']=='10'} 
+                                                                <a onClick="modifyStart(this)" data-ordertype="order_goods" data-orderid="{$vog['id']}" href="javascript:;" title="">
+                                                                    <i class="Hui-iconfont">&#xe615;</i>帮付款
+                                                                </a>
+                                                                {/if}-->
+                                <a style="text-decoration:none" class="ml-5" onClick="orderGoodsDel(this, '{$vog.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

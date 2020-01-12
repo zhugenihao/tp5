@@ -1,0 +1,25 @@
+.pcdiv-bottom{
+    width:100%;
+    height:200px;
+    background: #eee;
+    margin-top: 20px;
+    float: left;
+    min-width:1200px;
+}
+.pcdivbottom-auto{
+    height:100%;
+}
+.pcdivbottom-ul{
+    margin-top:20px;
+    float:left;
+}
+.pcdivbottom-ul li{
+    float: left;
+    margin-left:10px;
+}
+.pcdivbottom{
+    text-align: center;
+    margin-top: 40px;
+    float:left;
+    width:100%;
+}

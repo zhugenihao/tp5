@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>商品退换货详情</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/withdrawal/withdrawal_edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>申请金额：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.toapplyfor_amount}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>店铺名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.store_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商家余额：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.balance}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>银行名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.bank_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>银行账号：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.bank_account}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>银行账户名：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.account_name}
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>备注：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea cols="39" rows="5" name="note">{$info.note}</textarea>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <span class="select-box" style="width:150px">
+                            <select name="state" class="select">
+                                <option value="1" {eq name="info['state']" value="1"} selected{/eq}>申请中</option>
+                                <option value="2" {eq name="info['state']" value="2"} selected{/eq}>审核成功</option>
+                                <option value="3" {eq name="info['state']" value="3"} selected{/eq}>审核失败</option>
+                                <option value="4" {eq name="info['state']" value="4"} selected{/eq}>已关闭</option>
+                                <option value="5" {eq name="info['state']" value="5"} selected{/eq}>已转账</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>申请时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.create_time}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>处理时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.todealwith_time|date="Y-m-d H:i:s",###}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" name="id" />
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

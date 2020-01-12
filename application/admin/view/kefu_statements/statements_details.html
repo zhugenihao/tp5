@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>编辑常用语句</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/kefu_statements/statements_details.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="submitfrom">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>常用语句内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea cols="39" rows="5" name="content" placeholder="常用语句内容" id="content2">{$info['content']}</textarea>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>常用语句类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="is_show" class="select" id="is_show">
+                                <option value="1" {eq name="info['is_show']" value="1"} selected{/eq}>显示</option>
+                                <option value="2" {eq name="info['is_show']" value="2"} selected{/eq}>隐藏</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button" onClick="detailsSubmit(this)"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info['id']}" name="kstem_id" />
+            </form>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

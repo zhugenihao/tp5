@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+
+        <title>客服登录页面</title>
+        {include file="common/js_css" /}
+        <link rel="stylesheet" type="text/css" href="__STATIC__/socket/css/service/login.css" />
+
+    </head>
+
+    <body>
+
+        <canvas id="background"></canvas>
+        <script async type="text/javascript" src="__STATIC__/socket/js/service/background.js"></script>
+
+        <div class="login_box">
+            <div class="login_l_img"><img src="__STATIC__/socket/images/login-img.png" /></div>
+            <div class="login">
+                <div class="login_logo"><a href="javascript:;"><img src="__STATIC__/socket/images/login_logo.png" /></a></div>
+                <div class="login_name">
+                    <p>客服登录页面</p>
+                </div>
+                <div class="login-form">
+                    <form action="" name="formsubmit">
+                        <input name="kefu_account" type="text" placeholder="账号" id="kefu_account" >
+                        <input name="password" type="password" id="password" placeholder="密码"/>
+                        <input value="登录" style="width:100%;" type="button" id="btn">
+                    </form>
+                </div>
+            </div>
+            <div class="copyright"><a href="" target="_blank" style="color:white;">官网</a> 版权所有</div>
+        </div>
+        <script async type="text/javascript" src="__STATIC__/socket/js/service/login.js"></script>
+    </body>
+</html>

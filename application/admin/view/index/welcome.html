@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>我的桌面</title>
+    </head>
+    <body>
+        <div class="page-container">
+            <p class="f-20 text-success">平台管理中心</p>
+            <ul class="basic-list" id="menu-member">
+                <li>基本模块：</li>
+                <li><a href="#" onClick="updatesCache()"><i class="Hui-iconfont">&#xe68f;</i>&nbsp;更新缓存</a></li>
+                <li><a onclick="href_jump('系统设置', '{:url(\'system/system_base\');}', '1300', '700')" data-title="系统设置" href="javascript:void(0)">
+                        <i class="Hui-iconfont">&#xe61d;</i>&nbsp;系统设置</a>
+                </li>
+                <li><a href="{:url('socket/service/index')}" target="_blank"><i class="Hui-iconfont">&#xe6d0;</i>&nbsp;客服登录</a></li>
+            </ul>
+            <p style="clear: both;"></p>
+            <p>登录次数：{$loginredCount} </p>
+            <p>上次登录IP：{$login_last['login_ip']}  上次登录时间：{$login_last['create_time']|date='Y-m-d H:i:s',###}</p>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th colspan="7" scope="col">信息统计</th>
+                    </tr>
+                    <tr class="text-c">
+                        <th>统计</th>
+                        <th>栏目库</th>
+                        <th>图片库</th>
+                        <th>商品库</th>
+                        <th>用户</th>
+                        <th>管理员</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="list" id="vo"}
+                    <tr class="text-c">
+                        <td>{$vo.title}</td>
+                        <td>{$vo.directoryCount}</td>
+                        <td>{$vo.advertCount}</td>
+                        <td>{$vo.goodsCount}</td>
+                        <td>{$vo.memberCount}</td>
+                        <td>{$vo.userCount}</td>
+                    </tr>
+                    {/volist}
+
+                </tbody>
+            </table>
+
+        </div>
+        <footer class="footer mt-20">
+            <div class="container">
+                <p>深圳市华乐科技有限公司</p>
+            </div>
+        </footer>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/common/_header.js"></script>
+    </body>
+</html>

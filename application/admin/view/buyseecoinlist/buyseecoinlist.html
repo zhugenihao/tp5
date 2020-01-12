@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>购买余额币选项列表</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/Buyseecoinlist/Buyseecoinlist.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 购买选项管理 <span class="c-gray en">&gt;</span> 购买余额币选项列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    <input type="text" class="input-text" style="width:250px" placeholder="现金数量" id="search" name="search" value="{$search}">
+                    <button type="button" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜选项</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="href_url('添加选项', '__URL__/Buyseecoinlist_add')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加选项</a></span><span class="r"><strong>{$limit}</strong>条/页,共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="80">编号</th>
+                            <th>现金（元）</th>
+                            <th>购买的余额币数量（币）</th>
+                            <th>赠送的积分数量（个）</th>
+                            <th width="60">排序</th>
+                            <th width="150">更新时间</th>
+                            <th width="60">显示状态</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="vo" key="i"}
+                        <tr class="text-c">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td>{$i}</td>
+                            <td>{$vo.cash}</td>
+                            <td>{$vo.seecoin}</td>
+                            <td>{$vo.readingnotes}</td>
+                            <td>{$vo.sort}</td>
+                            <td>{$vo.create_time}</td>
+                            <td>
+                                {if $vo['is_show']=='1'} 
+                                <span class="label label-success radius">已显示</span>
+                                {else /} 
+                                <span class="label label-defaunt radius">已隐藏</span>
+                                {/if}
+
+                            </td>
+                            <td class="td-manage">
+                                <a style="text-decoration:none" class="ml-5" onClick="href_url('购买选项编辑', '__URL__/Buyseecoinlist_add?id={$vo.id}', '10001')" href="javascript:;" title="编辑">
+                                    <i class="Hui-iconfont">&#xe6df;</i>
+                                </a>
+                                <a style="text-decoration:none" class="ml-5" onClick="datadel(this, '{$vo.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        
+    </body>
+</html>

@@ -1,0 +1,131 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+
+        <title>权限编辑</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <script type="text/javascript" src="__STATIC__/h-admin/js/user/user_menu_add.js"></script>
+    </head>
+    <body>
+        <article class="page-container">
+            <form action="" method="post" class="form form-horizontal" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>上级：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select class="select" name="ums_id" id="input-parent_id">
+                            <option value="0" >根栏目</option>
+                            {volist name="select_category" id="vo" }
+                                <option value="{$vo.id}" {if $vo['id']==$parent_id} selected {/if} {if $vo['id']==$info['id']} disabled {/if}>
+                                        |{for start="1" end="$vo['fpid']+1"}--{/for}
+                                        {$vo.instructions}
+                                </option>
+                            {/volist}
+                            </select>
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.name}" placeholder="" id="name" name="name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>方法说明：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.instructions}" placeholder="" id="instructions" name="instructions">
+                    </div>
+                </div>
+                 <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>应用：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.app}" placeholder="" id="app" name="app">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>控制器：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.controller}" placeholder="" id="controller" name="controller">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>操作名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.action}" placeholder="" id="action" name="action">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>参数：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.param}" placeholder="" id="param" name="param">
+                        <p class="help-block">例:id=3&amp;p=3</p>
+                    </div>
+                </div>
+                <!--                <div class="row cl">
+                                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>图标：</label>
+                                    <div class="formControls col-xs-8 col-sm-9">
+                                        <input type="text" class="input-text" value="{$Info.icon}" placeholder="" id="icon" name="icon">
+                                        <p class="help-block">
+                                            <a href="http://www.thinkcmf.com/font/icons" target="_blank">选择图标</a> 不带前缀fa-，如fa-user => user
+                                        </p>
+                                    </div>
+                                </div>-->
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">备注：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.remark}" placeholder="" id="remark" name="remark">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">排序：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{if $info.list_order}{$info.list_order}{else/}10000{/if}" placeholder="" id="list_order" name="list_order">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:200px;">
+                            <select class="select" name="status">
+                                <option value="1" {if $info['status']==1} selected {/if} >显示</option>
+                                <option value="2" {if $info['status']==2} selected {/if} >隐藏</option>
+                            </select>
+                        </span>
+                        
+                    </div>
+                </div>
+<!--                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <select class="form-control" name="type">
+                            <option value="1">有界面可访问菜单</option>
+                            <option value="2">无界面可访问菜单</option>
+                            <option value="0">只作为菜单</option>
+                        </select>
+                    </div>
+                </div>-->
+
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                        <button type="button" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 保存</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+ <input type="hidden" class="input-text" value="{$info.id}" id="um_id" name="um_id">
+            </form>
+        </article>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+<!--        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>-->
+        <!--/请在上方写此页面业务相关的脚本-->
+    </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>添加管理员 - 管理员管理 - H-ui.admin v2.4</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <article class="page-container">
+            <form class="form form-horizontal" id="form-user-add">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$Info.name}" placeholder="" id="name" name="name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建用户所在ip：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <p class="linep">{$Info.u_ip}</p>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>最后登录时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <p class="linep">{$Info.lg_time}</p>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <p class="linep">{$Info.create_time}</p>
+                    </div>
+                </div>
+                {if empty($Info)}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
+                    </div>
+                </div>
+                {elseif $roleids=='1'/}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>修改密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" value="" placeholder="留空则不改" id="password" name="password">
+                    </div>
+                </div>
+                {else /}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>旧的密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="passwords" name="passwords">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>新的密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
+                    </div>
+                </div>
+
+                {/if}
+                
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">角色：</label>
+                    <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+                            <select class="select" name="role_id" size="1" disabled>
+                                <option value="0" >请选择角色</option>
+                                {volist name="roles" id="vo"}
+                                {if $vo['id']!=1}
+                                <option value="{$vo.id}" {if $Info['role_id']==$vo['id']} selected {/if} >{$vo.name}</option>
+                                {elseif $roleids==1}
+                                <option value="{$vo.id}" {if $Info['role_id']==$vo['id']} selected {/if} >{$vo.name}</option>
+                                {/if}
+                                {/volist}
+                            </select>
+                        </span> </div>
+                </div>
+
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                        <input class="btn btn-primary radius" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" name="u_id" value="{$Info.id}" />
+            </form>
+        </article>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+        <script type="text/javascript">
+            $(function () {
+                $('.skin-minimal input').iCheck({
+                    checkboxClass: 'icheckbox-blue',
+                    radioClass: 'iradio-blue',
+                    increaseArea: '20%'
+                });
+
+                $(".btn-primary").click(function (e) {
+                    var userid = "{$Info['id']}";
+                    var name = $("#name").val();
+                    var password = $("#password").val();
+                    var password2 = $("#password2").val();
+                    if ("{$roleids}" != '1') { //超级管理员不用进判断
+                        if (userid) {
+                            var passwords = $("#passwords").val();
+                            if (!passwords) {
+                                layer.tips('密码不能为空', $("#passwords"), {
+                                    tips: [2, '#dd514c']
+                                });
+                                return;
+                            }
+                            if (passwords.length < 3 || passwords.length > 10) {
+                                layer.tips('密码长度为3~10位', $("#passwords"), {
+                                    tips: [2, '#dd514c']
+                                });
+                                return;
+                            }
+                        }
+
+                        if (!name) {
+                            layer.tips('用户不能为空', $("#name"), {
+                                tips: [2, '#dd514c']
+                            });
+                            return;
+                        }
+                        if (!password) {
+                            layer.tips('密码不能为空', $("#password"), {
+                                tips: [2, '#dd514c']
+                            });
+                            return;
+                        }
+                        if (password.length < 3 || password.length > 10) {
+                            layer.tips('密码长度为3~10位', $("#password"), {
+                                tips: [2, '#dd514c']
+                            });
+                            return;
+                        }
+                        if (password != password2) {
+                            layer.tips('密码不一致', $("#password2"), {
+                                tips: [2, '#dd514c']
+                            });
+                            return;
+                        }
+                    }
+
+
+                    var form = new FormData(document.getElementById("form-user-add"));
+                    $.ajax({
+                        url: "{:url('User/user_add')}",
+                        type: "post",
+                        data: form,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.types === 1) {
+                                layer.msg(data.prompt, {icon: 1});
+                                setTimeout(function () {
+                                    closeRefresh();
+                                }, 1000);
+                            } else {
+                                layer.msg(data.prompt, {icon: 5});
+                            }
+                        },
+                        error: function (e) {
+                            layer.msg("错误！！", {icon: 5});
+                        }
+                    });
+
+                });
+            });
+        </script> 
+        <!--/请在上方写此页面业务相关的脚本-->
+    </body>
+</html>

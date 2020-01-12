@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>图片展示</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/goods/goodsimageslist.js"></script>
+        
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品图片管理 <span class="c-gray en">&gt;</span> 图片展示 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <div class="text-c">
+                <form class="Huiform" method="post" action="" target="_self" enctype="multipart/form-data" name="fileinfo">
+
+                    <span class="btn-upload form-group">
+                        <input class="input-text upload-url norm_images" type="text" name="gallery" value="" id="uploadfile-2" readonly="" style="width:400px">
+                        <a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont"></i> 上传商品图片</a>
+                        <input type="file" multiple="" name="gallery" class="input-file">
+                    </span>
+                    <input type="text" placeholder="排序" value="10" class="input-text sort" name="sort" style="width:120px">
+                    <button type="button" class="btn btn-success btn-submit" >
+                        <i class="Hui-iconfont"></i> 添加图片
+                    </button>
+                    <input type="hidden" value="{$info['goods_id']}" name="goods_id" id="goods_id" />
+                </form>
+            </div>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">  <a href="javascript:;" onclick="galleryDatadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span>
+                <span class="title-as">商品名称：<i>{$info['goods_name']}</i></span>
+                <span class="r">共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <div class="portfolio-content">
+                <form class="Huiform" style="padding-right: 0;" method="post" action="" enctype="multipart/form-data" name="fileinfoImg">
+                    <ul class="cl portfolio-area">
+                        {volist name="galleryList" id="vo"}
+                        <li class="item">
+                            <div class="portfoliobox" data-sort="{$vo.sort}" data-url="{$vo.img_big}">
+                                <input class="checkbox" name="id[]" type="checkbox" value="{$vo.gallery_id}" >
+                                <div class="picbox"><a href="__STATIC__/{$vo.img_big}" data-lightbox="gallery" data-title="排序：{$vo.sort}"><img src="__STATIC__/{$vo.img_big}"></a></div>
+                                <div class="textbox">
+                                    <label class="fileLabel btn btn-default btn-uploadstar radius" for="galleryImg{$vo.gallery_id}">修改上传图片</label>
+                                    <input type="file" id="galleryImg{$vo.gallery_id}" name="galleryimg{$vo.gallery_id}" onchange="galleryImg(this)" style="display: none" data-id="{$vo.gallery_id}"/>
+                                    <div style="height:10px;"></div>
+                                    排序:<input type="text" class="input-text sort" style="width:50px;" value="{$vo.sort}" onchange="gallerySort(this,'{$vo.gallery_id}')"/>
+                                    <a href="#" onclick="galleryDatadel(this,'{$vo.gallery_id}')" class="btn btn-danger radius" style="float: right;"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        {/volist}
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/lightbox2/2.8.1/js/lightbox.min.js"></script>
+    </body>
+</html>

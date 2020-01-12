@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>结算记录列表</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/store_settlement/storelemt_list.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 结算记录管理 <span class="c-gray en">&gt;</span> 结算记录列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="start_time" value="{:input('start_time')}" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="end_time" value="{:input('end_time')}" class="input-text Wdate" style="width:120px;">
+
+                    <input type="text" class="input-text" style="width:250px" placeholder="商品订单编号" id="search" name="search" value="{:input('search')}">
+                    <button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i> 搜结算记录</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel(this)" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                </span> <span class="r"><strong>10</strong>条/页,共有数据：<strong>{$list['total']}</strong> 条</span> </div>
+            <div class="panel panel-success">
+                <div class="panel-header">入账总汇</div>
+                <div class="panel-body">
+                    <ul class="panel-luas">
+                        <li>
+                            <span>平台入账总额：{$total_balance}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="80">ID</th>
+                            <th>商品订单编号</th>
+                            <th>订单实付金额</th>
+                            <th>运费</th>
+                            <th width="100">平台抽成</th>
+                            <th width="150">店铺名称</th>
+                            <th width="150">平台抽取金额</th>
+                            <th width="130">店铺实获金额</th>
+                            <th width="150">创建时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list['data']" id="vo"}
+                        <tr class="text-c">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.order_no}</td>
+                            <td>{$vo.total_price}</td>
+                            <td>{$vo.courier_price}</td>
+                            <td>{$vo['platformasa']}%</td>
+                            <td>{$vo.store_name}</td>
+                            <td>{$vo.platforme_amount}</td>
+
+                            <td>{$vo.shouldbe_amount}</td>
+                            <td>{$vo.create_time}</td>
+
+                            <td class="td-manage">
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增模块</title>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/h-admin/css/backgroundsection/add.css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/category/category_edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>模块名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.cat_name}" placeholder="模块名称" id="cat_name" name="cat_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选择指向类目：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:300px">
+                            <select name="dir_id" class="select dir_id">
+                                <option value="0" >选择类目</option>
+                                {volist name="directoryList" id="vo"}
+                                <option value="{$vo.id}" {eq name="info.dir_id" value="$vo['id']"} selected {/eq} >
+                                        {$vo.title}</option>
+                                {/volist}
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl" id="methods-div">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>模块方法：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.methods}" placeholder="模块方法,如：goods/goodslist" id="methods" name="methods">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>设备：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:300px">
+                            <select name="equipment" class="select equipment">
+                                <option value="1" {if $info['equipment']=='1'} selected {/if}>手机</option>
+                                <option value="2" {if $info['equipment']=='2'} selected {/if}>电脑</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">图片(没有就使用小图标)：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="uploader-thum-container">
+                            <input type="text" value="{$info.icon}" class="input-text icon" name="icon" />
+                            <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                            <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="icon" size="50" type="file"><br/>
+
+                            <p class="ge_pic_icon_Infor">
+                                {if $info['icon']}
+                                <img src="__STATIC__/{$info.icon}" id="imgShow" width="200" title="图片" onerror="this.src='';"/>
+                                {/if}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>小图标：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <ul class="small_icon_ul">
+                            {volist name="small_icon" id="vo" key="i"}
+                            <li data-smallicon="{$i}" data-text="{$vo['icon']}">
+                                <a href="#" title="{$vo['title']}" class="{if $info['small_icon']==$i}activeas{/if}"><i class="Hui-iconfont">{$vo['icon']}</i></a>
+                            </li>
+                            {/volist}
+
+                        </ul>
+                        <p class="p_img" title="{$small_icon[$info['small_icon']]['title']}"><i class="Hui-iconfont">{$small_icon[$info['small_icon']]['icon']}</i></p>
+                        <input type="hidden" name="small_icon" id="small_icon" value="{if $info}{$info.small_icon}{else/}0{/if}" />
+                    </div>
+                </div>
+
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>排序：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info['sort']}" placeholder="排序" id="sort" name="sort">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">新窗口打开：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_newwindow" {if $info['is_newwindow']=='1'} checked {/if} />
+                                    <label for="sex-1">是</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_newwindow" id="sex-0" value="2" {if $info['is_newwindow']=='2'} checked {/if}/>
+                                   <label for="sex-0">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="is_show" {if $info['is_show']=='1'} checked {/if}>
+                                    <label for="sex-1">显示</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_show" id="sex-0" value="0" {if $info['is_show']=='0'} checked {/if}>
+                                   <label for="sex-0">隐藏</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.cat_id}" id="cat_id" name="cat_id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

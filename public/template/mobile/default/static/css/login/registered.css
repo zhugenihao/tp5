@@ -1,0 +1,73 @@
+.registered-all{
+    width:100%;
+}
+.registered-auto{
+    width:288px;
+    margin:0px auto;
+}
+.registered-top{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+    color:#ff0033;
+}
+.registered-divul{
+    width:100%;
+}
+.registered-ul{
+    width:100%;
+}
+.registered-li{
+    width:100%;
+    margin-top: 20px;
+    float: left;
+}
+.registered-btnas{
+    width:100%;
+    color:#fff;
+}
+.registered-btn{
+    width:100%;
+    height:40px;
+    text-align: center;
+    line-height:40px;
+    background: #ff0033;
+    color:#fff;
+    display: block;
+    font-size:18px;
+    margin-top: 20px;
+    float: left;
+}
+.input-yanz{
+    border:1px solid #e6e6e6;
+}
+.input-yanz input{
+
+}
+.inputtext{
+    width:130px;
+    border:none;
+    float: left;
+}
+.bacgbtn{
+    background: #666;
+    float: right;
+    border-radius: 0px;
+    padding: 0px 7px;
+}
+.registered-login{
+    width:100%;
+    text-align: right;
+    padding-top: 10px;
+    float: left;
+}
+.vcode-img{
+    width:120px;
+    height:40px;
+}
+.agreement{
+    padding-top: 10px;
+}
+.vcode-div{
+    border-left:1px solid #eee;
+}

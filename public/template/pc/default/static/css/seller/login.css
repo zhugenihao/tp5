@@ -1,0 +1,358 @@
+.login-div{
+    width:100%;
+    min-height: 620px;
+    background:url('/static/images/advertimg/20190312/38e174f536d6635680481a3090a61344.jpg');
+    background-size: 100% auto;
+    min-width:1200px;
+    /*background: #eee;*/
+}
+.login-div2{
+    width:100%;
+    min-height: 620px;
+    background:url('/static/images/advertimg/20190312/38e174f536d6635680481a3090a61344.jpg');
+    background-size: 100% 100%;
+    min-width:1200px;
+    /*background: #eee;*/
+}
+.login-auto{
+    width:1200px;
+    margin:0px auto;
+    height:100%;
+    position: relative;
+}
+.login-auto2{
+    width:1200px;
+    margin:0px auto;
+    height:100%;
+    position: relative;
+    padding-top: 40px;
+}
+.login-text{
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    min-height: 500px;
+    background: #fff;
+    padding-bottom: 40px;
+
+}
+.login-text3{
+    width: 30%;
+    min-height: 300px;
+    background: #fff;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border:1px solid #333;
+    box-shadow: darkgrey 0px 0px 40px 5px;
+    margin:0px auto;
+}
+.login-ul li{
+    min-height: 60px;
+    padding-bottom: 5px;
+}
+.loginli-input{
+    padding: 2px 10px;
+    width:300px;
+    height:35px;
+    transition: all .4s;
+    font-size: 18px;
+    border:1px solid #eee;
+    margin-left: 10px;
+    float: left;
+}
+.loginli-input2{
+    padding: 2px 10px;
+    width:200px;
+    height:35px;
+    transition: all .4s;
+    font-size: 18px;
+    border:1px solid #eee;
+    margin-left: 10px;
+    float: left;
+}
+.loginli-input3{
+    padding: 2px 10px;
+    width:300px;
+    height:35px;
+    transition: all .4s;
+    font-size: 18px;
+    border:1px solid #eee;
+    margin-left: 10px;
+    float: left;
+}
+.loginli-input3:hover{
+    border:1px solid #333;
+}
+.loginli-input2:hover{
+    border:1px solid #ff0033;
+}
+.loginli-input:hover{
+    border:1px solid #ff0033;
+}
+.righttitle{
+    margin-left: 10px;
+    float: left;
+    line-height: 40px;
+}
+.login_title{
+    font-size: 20px;
+    /*margin-left:20px;*/
+    margin-top: 10px;
+}
+.login_title2{
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+.login-ul{
+    width:100%;
+    margin: 0px auto;
+    margin-top: 10px;
+    /*border:1px solid #eee;*/
+}
+.login-btn{
+    min-width:250px;
+    height:40px;
+    font-size: 20px;
+    cursor:pointer;
+    background: #999;
+    border:none;
+    color:#fff;
+    float: right;
+}
+.login-btn3{
+    min-width:320px;
+    height:40px;
+    font-size: 20px;
+    cursor:pointer;
+    background: #999;
+    border:none;
+    color:#fff;
+    margin-left: 10px;
+}
+.login-btn3:hover{
+    border:1px solid #333;
+}
+.login-btn:hover{
+    border:1px solid #cc0033;
+}
+.login-btn:active{
+    background: #cc0033;
+}
+.login-btn2{
+    min-width:100px;
+    height:40px;
+    font-size: 16px;
+    cursor:pointer;
+    background: #eee;
+    border:none;
+    color:#333;
+}
+.login-btn2:active{
+    background: #ccc;
+}
+.login-yanzhengma{
+    width:100%;
+    height:45px;
+    cursor:pointer;
+    border:1px solid #fff;
+    transition: all 0.4s;
+}
+.login-yanzhengma:hover{
+    border:1px solid #ccc;
+}
+.li-submit{
+    height:45px !important;
+}
+.forgotpassword{
+    float: left;
+}
+.registered{
+    float:right;
+}
+.mobile-yzmbtn{
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.mobile-yzmbtn:hover{
+    border:1px solid #bcbbbb;
+}
+.mobile-yzmbtn:active{
+    background: #bcbbbb;
+}
+.fged-li a:hover{
+    color:#ff0033;
+}
+.progress-ul{
+    width:90%;
+    min-height:50px;
+    margin: 0px auto;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+.progress-li{
+    width:200px;
+    height:50px;
+    position: relative;
+    float: left;
+}
+.bacactive-red .progress-heng,.bacactive-red .progress-num{
+    background: red;
+    color:#fff;
+}
+.bacactive-hui .progress-heng,.bacactive-hui .progress-num{
+    background: #ccc;
+    color:#fff;
+}
+.progress-heng{
+    width:100%;
+    height:10px;
+    top:10px;
+}
+.progress-num{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-top:-20px;
+    text-align: center;
+    line-height: 30px;
+}
+.progressnum-auto{
+    margin: 0px auto;
+    margin-top:-20px;
+}
+.title-auto{
+    text-align: center;
+    line-height: 40px;
+}
+.login-text2{
+    width:90%;
+    margin:0px auto;
+}
+.progress-mg1{
+    margin-left: -20px;
+    line-height: 40px;
+}
+.progress-mg2{
+    position: absolute;
+    right:-20px;
+    top: 27px;
+}
+.bacg-lihui{
+    background: #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom:10px solid #fff;
+}
+.bacg-lihui2{
+    background: #eee;
+    min-height:100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom:10px solid #fff;
+}
+.bacgli-auto{
+    margin-left: 10px;
+}
+.bacgli-title2{
+    font-size:12px;
+}
+.bacgliname1{
+    font-size:20px;
+}
+.bacgliname2{
+    font-size:15px;
+}
+.login-li span{
+    display: block;
+    width:200px;
+    height:40px;
+    text-align: right;
+    float: left;
+    line-height: 40px;
+}
+.appltype{
+    margin-left:10px;
+    float: left;
+}
+.selectwidth{
+    width:200px;
+    margin-left: 10px;
+}
+.dakuangborder{
+    width:90%;
+    margin:0px auto;
+    border:1px solid #eee;
+}
+.layui-form-checkbox[lay-skin=primary] span{
+    width:50px;
+}
+.divtables{
+    padding-left: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:700px;
+}
+.tableswgmp{
+    width:100%;
+    border:1px solid #ccc;
+}
+.tableswgmp tr th{
+    text-align: center;
+    padding: 5px;
+    background: #eee;
+}
+.tableswgmp tr td{
+    padding: 5px;
+    text-align: center;
+}
+.shangyb-btn3{
+    text-align: center;
+    line-height:40px;
+    width:120px;
+    height:40px;
+    background: #eee;
+    float: right;
+    margin-right: 10px;
+}
+.shangyb-btn3:active{
+    background: #ccc;
+}
+.shangyb-btn4{
+    text-align: center;
+    line-height:40px;
+    width:120px;
+    height:40px;
+    background: #ccc;
+    float: right;
+    margin-right: 10px;
+}
+.shangyb-btn4:active{
+    background: #999;
+}
+.seller_abtn1:active{
+    background: #999;
+}
+.seller_abtn2:active{
+    background: #999;
+}
+.seller_abtn1{
+    text-align: center;
+    line-height:40px;
+    width:200px;
+    height:40px;
+    background: #ccc;
+    margin: 0px auto;
+}
+.seller_abtn2{
+    text-align: center;
+    line-height:40px;
+    width:200px;
+    height:40px;
+    background: #ccc;
+    margin: 0px auto;
+    margin-top: 10px;
+}

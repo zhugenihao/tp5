@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增图片</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/system_informs/system_informs.js"></script>
+        <style>
+            
+        </style>
+    </head>
+    <body class="bodyclick">
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="type" class="select">
+                                <option value="1" {eq name="info['type']" value="1" } selected {/eq} >商品</option>
+                                <option value="2" {eq name="info['type']" value="2" } selected {/eq} >活动</option>
+                                <option value="3" {eq name="info['type']" value="3" } selected {/eq} >优惠券</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+               <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>通知标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info.si_title}" placeholder="" id="si_title" name="si_title">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">搜指定商品：</label>
+                    <div class="formControls col-xs-8 col-sm-9 divwks">
+                        <input type="text" class="input-text goodsidname" value="{$info.goods_name}" placeholder="商品id/商品名称" oninput="goodslist(this)" id="worksidname" name="" />
+                        <input type="hidden" name="goods_id" value="{$info.goods_id}" class="goods_id" />
+                        <ul class="worksul goodsulclick"></ul>
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">通知图片：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="uploader-thum-container">
+                            <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                            <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="si_url" size="50" type="file"><br/>
+                            <p class="ge_pic_icon_Infor">
+                                {if $info['si_url']}
+                                <img src="__STATIC__/images/system_informs/{$info.si_url}" id="imgShow" width="200" title="图片" onerror="this.src='';"/>
+                                {/if}
+                            </p>
+                            <input type="hidden" value="{$info.si_url}" class="image" name="si_url"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="show-1" name="is_show" {if !$info || $info['is_show']=='1'} checked {/if}>
+                                    <label for="show-1">发布</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_show" id="show-0" value="0" {if $info['is_show']=='2'} checked {/if}>
+                                   <label for="show-0">下架</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius sublimtsi" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" id="id" name="id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+    </body>
+</html>

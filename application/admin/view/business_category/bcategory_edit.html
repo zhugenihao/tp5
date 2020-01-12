@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>编辑类目</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/business_category/bcategory_edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选择店铺：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" disabled value="{$store_name}" placeholder="输入店铺名称/店铺id" id="store_id" name="store_id" oninput="storeList(this)">
+
+                        <input type="hidden" name="store_id" value="{$info['store_id']}" class="store_id" />
+                        <ul class="worksul storeulclick"></ul>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">经营类目：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="divbotm">
+                            <span class="select-box" style="width:250px">
+                                <select class="select" name="directory1_id" id="directory1_id">
+                                    <option value="0" >一级类目</option>
+                                </select>
+                            </span>
+                            <input type="hidden" value="{$info['directory1_id']}" id="directory1_show" />
+                            <span class="select-box" style="width:250px">
+                                <select class="select" name="directory2_id" id="directory2_id">
+                                    <option value="0" >二级类目</option>
+                                </select>
+                            </span>
+                            <input type="hidden" value="{$info['directory2_id']}" id="directory2_show" />
+                            <span class="select-box" style="width:250px">
+                                <select class="select directory_id" name="directory3_id" id="directory3_id">
+                                    <option value="0" >三级类目</option>
+                                </select>
+                            </span>
+                            <input type="hidden" value="{$info['directory3_id']}" id="directory3_show" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分佣比例(%)：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$info['commission_rate']}" id="commission_rate" name="commission_rate">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">审核状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="audit" {eq name="info['audit']" value="1"} checked {/eq}>
+                                    <label for="sex-1">审核中</label>
+                        </div>
+                        <div class="radio-box">
+                            <input  type="radio" value="2" id="sex-1" name="audit" {eq name="info['audit']" value="2"} checked {/eq}>
+                                    <label for="sex-1">审核通过</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" value="3" name="audit" id="sex-0" {eq name="info['audit']" value="3"} checked {/eq}>
+                                   <label for="sex-0">审核不通过</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info['id']}" name="id" />
+            </form>
+        </div>
+
+        {include file="Common/directory_list" /}
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

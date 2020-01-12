@@ -1,0 +1,45 @@
+.goods_type{
+    margin-top: 30px;
+    float:left;
+    padding-bottom: 20px;
+}
+.goodstype_1{
+    width:100%;
+}
+.goodspce_title{
+    float:left;
+    line-height: 40px;
+}
+.goodspce_ul{
+    float:left;
+    width:90%;
+}
+.goodspce_ul li{
+    float:left;
+    margin: 5px;
+}
+
+.goodstype_btn{
+    cursor: pointer;
+    background: #eee;
+    transition: all 0.4s;
+    min-width:100px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    display: block;
+}
+.goodstype_btn:hover{
+    background: red;
+    color:#fff;
+}
+.goodstype_text{
+    width:100px;
+    padding: 3px;
+}
+.goodstype_qd{
+    display: none;
+}
+.goodstype_lt:hover .goodstype_qd{
+    display: inline;
+}

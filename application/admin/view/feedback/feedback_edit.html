@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增标签</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/feedback/feedback_edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+<!--                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">用户昵称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.member_name}
+                    </div>
+                </div>-->
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">用户名字：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.your_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">部门：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$role_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">会员ID：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.member_id}
+                    </div>
+                </div>
+<!--                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">qq：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.qq}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">微信：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.weixin}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">电话（手机号）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.mobile}
+                    </div>
+                </div>-->
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">邮箱：</label>
+                    <div class="formControls col-xs-8 col-sm-9">{$info.email}
+                    </div>
+                </div>
+                {if $reply==1}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">回复内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                         <textarea rows="10" name="reply_text" id="reply_text" cols="100">{$info.reply_text}</textarea>
+                    </div>
+                </div>
+                {else/}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">反馈内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                         <textarea rows="10" name="details" id="details" cols="100">{$info.text}</textarea>
+                    </div>
+                </div>
+                {/if}
+                 
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                         <div class="input-text">{$info.create_time}</div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        {if $reply==1}
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 回复</button>
+                        {/if}
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" id="id" name="id"/>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+
+        
+    </body>
+</html>

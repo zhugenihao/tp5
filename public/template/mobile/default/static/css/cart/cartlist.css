@@ -1,0 +1,276 @@
+.cart-auto{
+    width:100%;
+    border-top: 5px solid #eee;
+}
+.cart-all{
+    width:100%;
+}
+.cart-ul{
+    width:100%;
+    padding-bottom: 40px;
+}
+.cart-li{
+    width:100%;
+    border-bottom:5px solid #eee;
+}
+.cart-lidiv{
+    width:95%;
+    margin:10px auto;
+}
+.cart-input{
+    width:20px;
+    float:left;
+    padding-top: 30px;
+}
+.cart-img{
+    width:80px;
+    height:80px;
+    overflow: hidden;
+}
+.cart-imgas{
+    width:100px;
+    /*height:120px;*/
+    float: left;
+}
+.cart-img img{
+    width:100%;
+}
+.cart-title{
+    width:63%;
+    float:left;
+}
+.cart-textas{
+    font-size:13px;
+    width:100%;
+    height:40px;
+    overflow: hidden;
+}
+.cart-jiage{
+    color:red;
+    font-weight:800;
+    padding-bottom: 4px;
+}
+.cart-qitagg{
+    font-size:13px;
+    color:#999;
+}
+
+.cart-qita{
+    width:100%;
+    height:20px;
+    padding-top: 0px;
+    padding-bottom: 4px;
+}
+.cart-btnnum input{
+
+}
+.cart-jian{
+    width:23px;
+    height:23px;
+    background: #fff;
+    line-height:10px;
+    border:none;
+    background: #eee;
+}
+.cart-btnnum{
+    border:1px solid #ccc;
+}
+.cart-text{
+    width:30px;
+    height:15px;
+    padding: 3px;
+    text-align: center;
+    border:none;
+    font-size:10px;
+    line-height:15px;
+}
+.cart-jia{
+    width:23px;
+    height:23px;
+    background: red;
+    line-height:10px;
+    color:#fff;
+    border:none;
+}
+.cart-zj{
+    max-width:66%;
+    padding-top:4px;
+    display: block;
+    float: right;
+    margin-right: 5px;
+    overflow: hidden;
+    font-size: 10px;
+}
+.cart-zji{
+    font-size:10px;
+    color:red;
+    font-weight:800;
+}
+.cart-jgbtn{
+    width:75%;
+    height:100%;
+}
+.cart-btnfk{
+    display: block;
+    width:30%;
+    height:100%;
+    background: #ff0033;
+    color:#fff;
+    float: right;
+    text-align: center;
+    line-height: 30px;
+}
+.cart-btnfk:active{
+    background: #cc0033;
+    color:#fff;
+}
+.cart-goumai{
+    width:100%;
+    height:32px;
+    position: fixed;
+    bottom:46px;
+    z-index:100;
+    border-top:1px solid #eee;
+    background: #fff;
+}
+.cart-quanxuan{
+    margin-left: 10px;
+    padding-top: 5px;
+}
+.layui-form-checked[lay-skin=primary] i{
+    border-color: #ff0033;
+    background-color: #ff0033;
+    border-radius: 50%;
+}
+.layui-form-checkbox[lay-skin=primary] i{
+    border-radius: 50%;
+}
+.cart-guige{
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0px;
+    display: none;
+    z-index:200;
+}
+.cart-guigeer{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    z-index:300;
+}
+.cart-guige-auto{
+    width:100%;
+    height:70%;
+    position: absolute;
+    top: 182%;
+    background: #fff;
+    z-index:400;
+    transition: all 0.4s; 
+}
+.cart-guigeimg{
+    width:80px;
+    height:85px;
+    overflow: hidden;
+    text-align: center;
+    line-height:75px;
+    margin-top: -25px;
+}
+.cart-guigeimg img{
+    width:70px;
+}
+.cart-guigetop{
+    width:100%;
+    border-bottom:1px solid #eee;
+    padding-bottom: 4px;
+}
+.cart-guigetaut{
+    width:90%;
+    margin:0px auto;
+}
+.cart-guigeshuj{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.cart-guigejiage{
+    color:red;
+    font-weight:800;
+}
+.yanse-list{
+    width:100%;
+    height:60%;
+    overflow-y: auto;
+}
+.cart-yanse{
+    width:100%;
+    min-height:50px;
+    border-bottom:1px solid #eee;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    float: left;
+}
+.cart-yanseauto{
+    width:90%;
+    float: left;
+    margin-left: 20px;
+}
+.cart-yanseul{
+    margin-top: 0px;
+    width:100%;
+    min-height:40px;
+    float: left;
+    /*max-height:100px;*/
+}
+.cart-yanseul li{
+    float: left;
+    padding: 2px 8px;
+    background: #eee;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.active-lx{
+    background: red !important;
+    color:#fff;
+}
+.cart-yanseli{
+    font-size:12px;
+}
+.cart-guigenum{
+    width:90%;
+    margin:0px auto;
+    padding-top: 10px;
+}
+.cart-queding{
+    width:100%;
+    height:30px;
+    position: absolute;
+    bottom:45px;
+    z-index:500;
+}
+.cart-queding div{
+    width:50%;
+    height:100%;
+    line-height:30px;
+    text-align: center;
+}
+.queding-btn1{
+    background: #eee;
+}
+.queding-btn2{
+    background: #ff0033;
+    color:#fff;
+}
+.cartdel{
+    background: #eee;
+    color:#666;
+    padding: 0px 5px;
+    font-weight:100;
+}
+.activitycart{
+    padding-top: 5px;
+    width:95%;
+    margin:0px auto;
+    color:green;
+}

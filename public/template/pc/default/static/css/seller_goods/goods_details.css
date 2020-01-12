@@ -1,0 +1,246 @@
+.goods_fabu{
+    width:100%;
+    margin-top: 10px;
+}
+.goodsfabu_ul{
+    width:100%;
+}
+.goodsfabu_ul li{
+    width:200px;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+}
+.goodsfabu_ul li span{
+    font-size:20px;
+    font-weight:800;
+    color:#666;
+}
+.goodsfabu_ul li i{
+    margin-left: 40px;
+}
+.fabu_active span,.fabu_active i{
+    color:#0aa5ca !important;
+}
+.goods-cateall{
+    width:95%;
+    margin:0px auto;
+    padding-top: 20px;
+}
+.goods-cate{
+    width:100%;
+    min-height:350px;
+    background: #ccc;
+    padding-bottom: 20px;
+}
+.goods-cate1{
+    width:100%;
+    min-height:350px;
+    background: #ccc;
+    /*padding-bottom: 20px;*/
+    border:1px solid #ccc;
+    float: left;
+}
+.goodsdetails-act{
+    width:100%;
+    height:0px;
+    min-height:0px;
+    overflow: hidden;
+}
+.cate_name{
+    width:100%;
+    height:40px;
+    background: #e5e1b0;
+    margin-top: 10px;
+    line-height:40px;
+    text-indent: 20px;
+    color: #78710b;
+    clear:both;
+}
+.goods_btn{
+    background: #ccc;
+    width:150px;
+    height:30px;
+    line-height:30px;
+    color:#fff;
+    margin:0px auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    float: left;
+    margin-left: 10px;
+}
+.goodsbtn_act{
+    background: #00cc99;
+}
+.goodsbtn_act:hover{
+    background: #00cc66;
+}
+.goodsbtn_div{
+    margin-top: 10px;
+    width:400px;
+    margin:0px auto;
+    height:35px;
+    padding-top: 10px;
+}
+.goodscate_div{
+    width:280px;
+    height:300px;
+    background: #fff;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+.goodscate_ul{
+    width:100%;
+    margin-top: 10px;
+}
+.goodscate_ul li{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    text-indent: 20px;
+    cursor: pointer;
+    transition: all 0.4s;
+    border:1px solid #fff;
+}
+.goodscate_ul li:hover{
+    border:1px solid #0aa5ca;
+}
+.goodscat_active{
+    background: #0aa5ca;
+    color:#fff;
+}
+.gdetails{
+    width:100%;
+    margin:0px auto;
+    padding-top: 10px;
+}
+.gdetails_text{
+    width:100%;
+}
+.gdetails_text textarea{
+    width:100%;
+    min-height:300px;
+}
+.detlstext-one{
+    /*display: none;*/
+}
+.details-title{
+    width:100%;
+    height:30px;
+    background: #eee;
+}
+.details-title div{
+    text-align: center;
+    line-height: 30px;
+    width:120px;
+    height:30px;
+    float: left;
+    cursor: pointer;
+}
+.detls-act{
+    background: #fff;
+    border-left:2px solid #333;
+    border-bottom:2px solid #333;
+}
+.detlstext-auto{
+    width:100%;
+    margin:0px auto;
+    margin-top: 10px;
+    min-height:400px;
+    background: #fff;
+    float: left;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+.detlstext-auto1{
+    width:90%;
+    padding: 10px;
+    margin:0px auto;
+}
+.layui-select-title{
+    border: none;
+}
+.layui-select-title:hover{
+    border:none;
+}
+.detonedis{
+    display: none;
+}
+.layui-form-item .layui-input-inline{
+    line-height: 40px;
+}
+.divline{
+    line-height: 35px;
+}
+.goodsimg-ul{
+    width:100%;
+    min-height: 200px;
+    border-top:1px solid #ccc;
+}
+.goodsimg-li{
+    width:150px;
+    height:180px;
+    border:1px solid #ccc;
+    text-align: center;
+    background: #ccc;
+    float: left;
+    margin: 5px;
+    position: relative;
+}
+.goodsimg-li2{
+    width: 142px;
+    height: 140px;
+    border:1px solid #ccc;
+    text-align: center;
+    background: #ccc;
+    float: left;
+    margin: 5px;
+    position: relative;
+}
+.goodsimg-auto{
+    width:96%;
+    margin:0px auto;
+    height:100%;
+}
+.goodsimg-auto img{
+    width:140px;
+    height:140px;
+    background: #fff;
+}
+.goodsimgbtn{
+    margin:0px auto;
+}
+.addgimgdiv{
+    width:100%;
+    height:35px;
+}
+.gimg-dela{
+    position: absolute;
+    top:0px;
+    right:2px;
+    font-size: 25px;
+    display: none;
+    color:red;
+}
+.goodsimg-li:hover .gimg-dela{
+    display:block;
+}
+.duotubtn{
+    float: right;
+    margin-right: 100px;
+}
+#goodsbens-ul2 li{
+    border:5px solid #fff;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+/*#goodsbens-ul2 li:hover{
+    border:2px solid green;
+}*/
+.duotu_act{
+    border:5px solid green !important;
+}

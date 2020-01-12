@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>商品退换货详情</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/returns_replacement/retplt_edit.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>订单编号：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.order_no}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.goods_name}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品数量：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.goods_num}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>退款金额：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.refund_amount}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.member_name}
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>理由内容：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea cols="39" rows="5" name="reason_content" disabled="">{$info.reason_content}</textarea>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">服务类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            {eq name="info['service_type']" value="1"}退货{/eq}
+                            {eq name="info['service_type']" value="2"}换货{/eq}
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="state" {eq name="info.state" value="1"} checked {/eq} />
+                                    <label for="sex-1">审核中</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="state" id="sex-0" value="2" {eq name="info.state" value="2"} checked {/eq} />
+                                   <label for="sex-0">审核通过</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="state" id="sex-0" value="3" {eq name="info.state" value="3"} checked {/eq} />
+                                   <label for="sex-0">审核不通过</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>申请时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {$info.create_time}
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.id}" name="id" />
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/lightbox2/2.8.1/js/lightbox.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+.login-div{
+    width:100%;
+    min-height: 620px;
+    background:url('/static/images/advertimg/20190312/38e174f536d6635680481a3090a61344.jpg');
+    background-size: 100% 100%;
+    min-width:1200px;
+}
+.login-auto{
+    width:1200px;
+    margin:0px auto;
+    height:100%;
+    position: relative;
+}
+.login-text{
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    width: 400px;
+    min-height: 300px;
+    background: #fff;
+    padding-bottom: 10px;
+}
+.login-ul li{
+    height:60px;
+}
+.loginli-input{
+    padding: 3px 10px;
+    width:94%;
+    height:35px;
+    transition: all .4s;
+    font-size: 18px;
+    border:1px solid #eee;
+}
+.loginli-input:hover{
+    border:1px solid #ff0033;
+}
+.login_title{
+    font-size: 20px;
+    margin-left:20px;
+    margin-top: 10px;
+}
+.login-ul{
+    width:90%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+.login-btn{
+    width:100%;
+    height:40px;
+    font-size: 20px;
+    cursor:pointer;
+    background: #ff0033;
+    border:none;
+    color:#fff;
+}
+.login-btn:hover{
+    border:1px solid #cc0033;
+}
+.login-btn:active{
+    background: #cc0033;
+}
+.login-yanzhengma{
+    width:100%;
+    height:45px;
+    cursor:pointer;
+    border:1px solid #fff;
+    transition: all 0.4s;
+}
+.login-yanzhengma:hover{
+    border:1px solid #ccc;
+}
+.li-submit{
+    height:45px !important;
+}
+.forgotpassword{
+    float: left;
+}
+.registered{
+    float:right;
+}
+.mobile-yzmbtn{
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.mobile-yzmbtn:hover{
+    border:1px solid #bcbbbb;
+}
+.mobile-yzmbtn:active{
+    background: #bcbbbb;
+}
+.fged-li a:hover{
+    color:#ff0033;
+}

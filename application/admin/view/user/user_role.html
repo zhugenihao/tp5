@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>角色管理</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <div class="cl pd-5 bg-1 bk-gray"> <span class="l"> 
+                    <!--                    <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+                                            <i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> -->
+                    <a class="btn btn-primary radius" href="javascript:;" onclick="user_role_add('添加角色', '__URL__/user_role_add.html', '800')">
+                        <i class="Hui-iconfont">&#xe600;</i> 添加角色</a> 
+                </span> <span class="r">共有数据：<strong>{$allcount}</strong> 条<</span> </div>
+            <table class="table table-border table-bordered table-hover table-bg">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="6">角色管理</th>
+                    </tr>
+                    <tr class="text-c">
+                        <th width="25"><input type="checkbox" value="" name=""></th>
+                        <th width="40">ID</th>
+                        <th width="200">角色名称</th>
+                        <th>角色描述</th>
+                        <th width="300">状态</th>
+                        <th width="70">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach name="list" item="vo"}
+                    <tr class="text-c">
+                        <td>
+                            {if $vo['id'] != 1}
+                            <input type="checkbox" value="" name="">
+                            {/if}
+                        </td>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.remark}</td>
+                        <td>
+                            {if condition="$vo['status'] eq 1"}
+                            <font color="red">√</font>
+                            {else /}
+                            <font color="red">╳</font>
+                            {/if}
+                        </td>
+                        <td class="f-14">
+                            {if condition="$vo['id'] eq 1 or $roleids!=1"}
+                            <i class="Hui-iconfont" style="color:#ccc;">&#xe6df;</i>
+                            <i class="Hui-iconfont" style="color:#ccc;">&#xe6e2;</i>
+                            {else /}
+                            <a title="编辑" href="javascript:;" onclick="href_url('角色编辑', '__URL__/user_role_add.html?role_id={$vo.id}', '1', '1000')" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6df;</i>
+                            </a>
+                            <a title="删除" href="javascript:;" onclick="user_role_del(this, '{$vo.id}')" class="ml-5" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6e2;</i>
+                            </a>
+                            {/if}
+
+                        </td>
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript" src="__STATIC__/h-admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+                                /*管理员-角色-添加*/
+                                function user_role_add(title, url, w, h) {
+                                    layer_show(title, url, w, h);
+                                }
+                                /*管理员-角色-编辑*/
+                                function user_role_edit(title, url, id, w, h) {
+                                    layer_show(title, url, w, h);
+                                }
+                                /*管理员-角色-删除*/
+                                function user_role_del(obj, id) {
+                                    layer.confirm('角色删除须谨慎，确认要删除吗？', function (index) {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: "{:url('user/roleDelete')}",
+                                            data: {'role_id': id},
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                if (data.types === 1) {
+                                                    $(obj).parents("tr").remove();
+                                                    layer.msg(data.prompt, {icon: 1, time: 1000});
+
+                                                } else {
+                                                    layer.msg(data.prompt, {icon: 5});
+                                                }
+                                            },
+                                            error: function (data) {
+                                                console.log(data.msg);
+                                            },
+                                        });
+                                    });
+                                }
+        </script>
+    </body>
+</html>

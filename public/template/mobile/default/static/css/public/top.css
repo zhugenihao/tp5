@@ -1,0 +1,133 @@
+.index-top{
+    width:100%;
+    height:40px;
+    background: #ff0033;
+    position: fixed;
+    top:0px;
+    z-index:9000;
+}
+
+.index-top div{
+    float: left;
+}
+.category-icon{
+    margin-left: 10px;
+    margin-top: 1px;
+}
+.category-icon:active{
+    background: #eee;
+}
+.index-top a{
+    color:#fff;
+}
+.category-icon i{
+    font-size:24px;
+    /*font-weight:600;*/
+}
+.top-search{
+    width:80%;
+    margin-left: 20px;
+}
+.index-content{
+    width:100%;
+}
+.search-input{
+    width:100%;
+    margin-top: 5px;
+    padding: 7px 10px;
+    height:13px;
+    border-radius: 20px 0px 0px 20px;
+    border:none;
+}
+.search-btn{
+    width:40px;
+    margin-left:0px;
+    background: #fff;
+    color:#333;
+    border:none;
+    border-left:1px solid #eee;
+    border-radius: 0px 20px 20px 0px;
+    height:27px;
+    margin-top: 5px;
+    text-align: center;
+}
+.search-btn i{
+    font-size: 20px;
+}
+
+.indextopbacg{
+    background: #fff;
+    border-bottom:1px solid #eee;
+}
+.indextopbacg a{
+    color:#333;
+}
+.top_text{
+    text-align: center;
+    font-size:16px;
+    width:100%;
+    line-height:0px;
+    margin-top: -18px;
+}
+.searchdiv{
+    width:80%;
+}
+.homediv{
+    float: right !important;
+    margin-top: -28px;
+    margin-right: 15px;
+}
+.searchgoods{
+    padding-top: 40px;
+    display: none;
+    padding-bottom: 40px;
+}
+.top_gengduo{
+    float:right !important;
+    margin-top: -30px;
+    margin-right: 10px;
+    width:30px;
+    height:30px;
+    background: #eee;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    display: none;
+}
+.youslie{
+    min-width:100px;
+    position: fixed;
+    right:0px;
+    top:40px;
+    z-index:9000;
+    display: none;
+    transition: all 0.4s;
+    padding-left: 5px;
+    background: #eee;
+    padding-right: 5px;
+}
+.youslie-ul{
+    width:100%;
+    height:100%;
+    float: left;
+    background: #eee;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.youslie-ul li{
+    width:100%;
+    height:35px;
+    text-align: center;
+    line-height:30px;
+}
+.youslie-ul li:active{
+    background: #ccc;
+}
+.youslie-li span{
+    margin-left: 5px;
+}
+.youslie-li i{
+    font-size: 16px;
+}

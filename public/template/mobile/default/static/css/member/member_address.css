@@ -1,0 +1,39 @@
+.address-all{
+    width:100%;
+}
+.address-ul{
+    width:100%;
+}
+.address-li{
+    width:100%;
+    height:40px;
+    border-bottom:1px solid #eee;
+}
+.address-liauto{
+    width:90%;
+    margin:0px auto;
+    line-height: 40px;
+}
+.address-text{
+    width:85%;
+    height:40px;
+    overflow: hidden;
+}
+.address-btn{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    position: fixed;
+    bottom:0px;
+    text-align: center;
+    background:#ff0033;
+}
+.address-a{
+    display: block;
+    color: #fff;
+}
+.adsdefault{
+    background: #5FB878;
+    color:#fff;
+    padding: 1px;
+}

@@ -1,0 +1,112 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /}
+        <title>基本设置</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/config/index.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+            <span class="c-gray en">&gt;</span>
+            配置管理
+            <span class="c-gray en">&gt;</span>
+            基本设置
+            <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+        </nav>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" name="fileinfo">
+                <div id="tab-system" class="HuiTab config-text">
+                    <div class="tabBar cl">
+                        <span>基本设置</span>
+                        <span>其他设置</span>
+                    </div>
+                    <div class="tabCon">
+                        {volist name="list1" id="vo"}
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">
+                                <span class="c-red">*</span>
+                                {$vo.config_title}：</label>
+                            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                                {if $vo['config_type'] == 1} （前端标题：
+                                <input type="text" id="config_front_title" placeholder="" value="{$vo.config_front_title}" name="config_front_title[]" class="input-text" style="width:200px;">
+                                内容：
+                                <input type="text" id="config_text" placeholder="" value="{$vo.config_text}" name="config_text[]" class="input-text" style="width:500px;">
+                                ）
+                                {elseif $vo['config_type'] == 2 /}
+                                <div class="radio-box">
+                                    <input  type="checkbox" value="1" id="config_text" name="config_text[]" {if $info['config_text']=='1'} checked {/if}>
+                                            <label for="sex-1">状态一</label>
+                                </div> 
+                                <div class="radio-box">  
+                                    <input  type="checkbox" value="2" id="config_text" name="config_text[]" {if $info['config_text']=='2'} checked {/if}>
+                                            <label for="sex-2">状态二</label>
+                                </div>
+                                {elseif $vo['config_type'] == 3 /}
+                                <div class="radio-box">
+                                    <input  type="radio" value="1" id="config_text" name="config_text[]" {if $info['config_text']=='1'} checked {/if}>
+                                            <label for="sex-1">开启</label>
+                                </div>
+                                <div class="radio-box">
+                                    <input type="radio" name="config_text[]" id="config_text" value="2" {if $info['config_text']=='2'} checked {/if}>
+                                           <label for="sex-2">关闭</label>
+                                </div>
+                                {/if}
+                            </div>
+                        </div>
+                        <input type="hidden" value="{$vo.id}" name="id[]" id="id"/>
+                        {/volist}
+
+                    </div>
+                    <div class="tabCon">
+                        {volist name="list2" id="vo"}
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">
+                                <span class="c-red">*</span>
+                                {$vo.config_title}：</label>
+                            <div class="formControls col-xs-8 col-sm-9 skin-minimal" >
+                                {if $vo['config_type'] == 1} （前端标题：
+                                <input type="text" id="config_front_title" placeholder="" value="{$vo.config_front_title}" name="config_front_title[]" class="input-text" style="width:200px;">
+                                内容：
+                                <input type="text" id="config_text" placeholder="" value="{$vo.config_text}" name="config_text[]" class="input-text" style="width:500px;">
+                                ）
+                                {elseif $vo['config_type'] == 2 /}
+                                <div class="radio-box">
+                                    <input  type="checkbox" value="1" id="config_text" name="config_text[]" {if $info['config_text']=='1'} checked {/if}>
+                                            <label for="sex-1">开启</label>
+                                </div> 
+                                <div class="radio-box">  
+                                    <input  type="checkbox" value="2" id="config_text" name="config_text[]" {if $info['config_text']=='2'} checked {/if}>
+                                            <label for="sex-2">关闭</label>
+                                </div>
+                                {elseif $vo['config_type'] == 3 /}
+                                <div class="radio-box">
+                                    <input  type="radio" value="1" id="config_text" name="config_text[]" {if $info['config_text']=='1'} checked {/if}>
+                                            <label for="sex-1">开启</label>
+                                </div>
+                                <div class="radio-box">
+                                    <input type="radio" name="config_text[]" id="config_text" value="2" {if $info['config_text']=='2'} checked {/if}>
+                                           <label for="sex-2">关闭</label>
+                                </div>
+                                {/if}
+                            </div>
+                        </div>
+                        <input type="hidden" value="{$vo.id}" name="id[]" id="id"/>
+                        {/volist}
+                    </div>
+
+                    <div class="row cl">
+                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                            <button class="btn btn-primary radius btnas" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+                            <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        
+    </body>
+</html>

@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^syzwangzhanmei.club$ [NC]
+RewriteCond %{REQUEST_URI} !^/mallz/public/
+RewriteRule ^(.*)$ mallz/public/$1?Rewrite [L,QSA]
+
+</IfModule>

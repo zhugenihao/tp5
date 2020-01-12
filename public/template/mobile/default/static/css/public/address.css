@@ -1,0 +1,59 @@
+.all-div{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0px;
+    display: none;
+}
+.allbacg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    z-index:100;
+    background: rgba(0,0,0,0.5);
+}
+.allautoas{
+    position: absolute;
+    width:100%;
+    height:50%;
+    z-index:200;
+    background: #fff;
+    bottom:0px;
+}
+.allautoas-auto{
+    width:90%;
+    margin: 0px auto;
+    padding-top: 10px;
+}
+.allautoas-title{
+    width:100%;
+    height:30px;
+    border-bottom:1px solid #ccc;
+    line-height: 30px;
+    overflow: hidden;
+}
+.allautoas-title div{
+    float: left;
+    margin-left: 10px;
+    height:30px;
+}
+.allautoas-ul{
+    width:100%;
+    clear:both;
+    overflow-y: scroll;
+    height:80%;
+}
+.allautoas-ul::-webkit-scrollbar {
+    display: none;
+}
+.allautoas-ul li{
+    width:100%;
+    text-align: center;
+    height:30px;
+    line-height:30px;
+}
+.ada-active{
+    box-sizing: border-box;
+    border-bottom:1px solid red;
+}

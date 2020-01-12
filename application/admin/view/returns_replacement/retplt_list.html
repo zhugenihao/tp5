@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>退换货列表</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/returns_replacement/retplt_list.js"></script>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 退换货管理 <span class="c-gray en">&gt;</span> 退换货列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">状态
+                    <span class="select-box" style="width:150px">
+                        <select name="state" class="select state">
+                            <option value="0">请选择状态</option>
+                            <option value="1" {eq name=":input('state')" value="1"} selected{/eq}>待处理</option>
+                            <option value="2" {eq name=":input('state')" value="2"} selected{/eq}>处理中</option>
+                            <option value="3" {eq name=":input('state')" value="3"} selected{/eq}>已完成</option>
+                        </select>
+                    </span>
+                    日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="datemin" value="{:input('datemin')}" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="datemax" value="{:input('datemax')}" class="input-text Wdate" style="width:120px;">
+
+                    <input type="text" class="input-text" style="width:250px" placeholder="退换货用户/商品名称" id="search" name="search" value="{:input('search')}">
+                    <button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i> 搜退换货</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel(this)" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                </span> <span class="r"><strong>{$limit}</strong>条/页,共有数据：<strong>{$list['total']}</strong> 条</span> </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="80">ID</th>
+                            <th width="100">订单编号</th>
+                            <th>商品名称</th>
+                            <th>商品数量</th>
+                            <th width="100">退款金额</th>
+                            <th width="150">服务类型</th>
+                            <th width="130">用户名称</th>
+                            <th width="150">申请时间</th>
+                            <th width="130">状态</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list['data']" id="vo"}
+                        <tr class="text-c">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.order_no}</td>
+                            <td>{$vo.goods_name}</td>
+                            <td>{$vo.goods_num}</td>
+                            <td>{$vo.refund_amount}</td>
+                            <td>
+                                {if $vo['service_type']==1}
+                                <font color="#007DDB">退货</font>
+                                {else/}
+                                <font color="#007DDB">换货</font>
+                                {/if}
+                            </td>
+                            <td>{$vo.member_name}</td>
+                            <td>{$vo.create_time}</td>
+                            <td>
+                                {eq name="vo['state']" value="1"}<font color="#007DDB">审核中</font>{/eq}
+                                {eq name="vo['state']" value="2"}<font color="green">审核通过</font>{/eq}
+                                {eq name="vo['state']" value="3"}<font color="red">审核不通过</font>{/eq}
+                            </td>
+
+                            <td class="td-manage">
+                                <a style="text-decoration:none" onClick="modifyState(this, '{$vo.id}')" href="javascript:;" title="{if $vo['state']=='2'} 审核通过 {else /} 审核不通过 {/if}">
+                                    <i class="Hui-iconfont">&#xe6de;</i>
+                                </a>
+                                <a style="text-decoration:none" class="ml-5" onClick="datadel(this, '{$vo.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                                <a style="text-decoration:none" class="ml-5" onClick="href_jump('详情', '__URL__/retplt_edit?id={$vo.id}')" href="javascript:;" title="编辑">
+                                    <i class="Hui-iconfont">&#xe6df;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

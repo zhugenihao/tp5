@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增优惠券</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/coupon/couponadd.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">优惠券类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="type" class="select clicktype">
+                                <option value="1" >商品</option>
+                                <option value="2" >店铺</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl type_num" id="type_1">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选择商品：<br/>(输入商品名称或商品ID)</label>
+                    <div class="formControls col-xs-8 col-sm-9 divwks">
+                        <input type="text" class="input-text" value="" placeholder="商品id/商品名称" oninput="goodsList(this)" id="goods_id" name="goods_id">
+                        <input type="hidden" name="goods_id" value="" class="goods_id" />
+                        <ul class="worksul goodsulclick"></ul>
+                    </div>
+                </div>
+                <div class="row cl type_num" id="type_2">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>选择店铺：<br/>(输入店铺名称或店铺ID)</label>
+                    <div class="formControls col-xs-8 col-sm-9 divwks">
+                        <input type="text" class="input-text" value="" placeholder="店铺id/店铺名称" oninput="storeList(this)" id="store_id" name="store_id">
+                        <input type="hidden" name="store_id" value="" class="store_id" />
+                        <ul class="worksul storeulclick"></ul>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="优惠券名称" id="cop_name" name="cop_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>金额(￥)：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="金额" id="cop_price" name="cop_price">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券数量（张）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="优惠券数量" id="cop_num" name="cop_num">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>满足金额（￥）：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="满足金额" id="full_amount" name="full_amount">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">优惠券封面：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="uploader-thum-container">
+                            <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                            <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="cop_img" size="50" type="file"><br/>
+
+                            <p class="ge_pic_icon_Infor"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">有效开始时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9" id="start_time_div">
+                        <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" class="input-text Wdate" value="{$start_time}" id="copa_time" name="copa_time" style="width:200px;">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>有效结束时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9" id="end_time_div">
+                        <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" placeholder="结束时间" id="copb_time" name="copb_time" value="" class="input-text Wdate" style="width:200px;">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">发布状态：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="cop_show" checked>
+                            <label for="sex-1">发布</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="cop_show" id="sex-2" value="2">
+                            <label for="sex-2">下架</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+
+    </body>
+</html>

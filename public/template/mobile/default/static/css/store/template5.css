@@ -1,0 +1,28 @@
+.home-all{
+    background: red;
+}
+.tejiayouhui-li{
+    border:0;
+}
+.cate-li p{
+    color:#fff;
+}
+.tejiayouhui-xl{
+    color:#fff;
+}
+.tejiayouhui-toptitle{
+    color:#fff;
+}
+.tejiayouhui-title{
+    color:#fff;
+}
+.goodspce_title{
+    color:#fff;
+}
+.layui-flow-more{
+    color:#fff;
+}
+.goodstype_btn:hover {
+    background: #333;
+    color: #fff;
+}

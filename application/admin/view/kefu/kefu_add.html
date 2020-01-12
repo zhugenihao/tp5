@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增客服</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/kefu/kefu_add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="submitfrom">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="客服名称" placeholder="客服名称" id="kefu_name" name="kefu_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="kefu_type" class="select" id="kefu_type">
+                                <option value="1" >售前客服</option>
+                                <option value="2" >售后客服</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服工具：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:250px">
+                            <select name="kefu_tool" class="select" id="kefu_tool">
+                                <option value="1" >站内客服</option>
+                                <option value="2" >qq</option>
+                                <option value="3" >微信</option>
+                                <option value="4" >旺旺</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服账号：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="客服账号" id="kefu_account" name="kefu_account">
+                    </div>
+                </div>
+                <div class="row cl" id="passworddiv">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>登录密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" placeholder="登录密码" id="kefu_password" name="kefu_password">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客服电话：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="客服电话" id="tel" name="tel">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button" onClick="addKefu(this)"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

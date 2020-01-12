@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增地址</title>
+        <script type="text/javascript" src="__STATIC__/h-admin/js/seller_address/seller_address_add.js"></script>
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>联系人：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="联系人" id="contact_name" name="contact_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>手机号码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="手机号码" id="mobile" name="mobile">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>邮政编码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="邮政编码" id="zip_code" name="zip_code">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>地区：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box" style="width:150px">
+                            <select name="province_id" class="select" id="province_id">
+                                <option value="0">请选择省级</option>
+                            </select>
+                        </span>
+                        <span class="select-box" style="width:150px">
+                            <select name="city_id" class="select" id="city_id">
+                                <option value="0">请选择市级</option>
+                            </select>
+                        </span>
+                        <span class="select-box" style="width:150px">
+                            <select name="county_id" class="select" id="county_id">
+                                <option value="0">请选择县级</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>详细地址：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea class="textarea" name="detailed_address" id="detailed_address" placeholder="详细地址"></textarea>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"> 地址类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-1" name="address_type" checked />
+                            <label for="sex-1">发货地址</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="address_type" id="sex-0" value="0" />
+                            <label for="sex-0">收货地址</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"> 是否默认：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input  type="radio" value="1" id="sex-2" name="is_default" checked />
+                            <label for="sex-2">是</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="is_default" id="sex-3" value="0" />
+                            <label for="sex-3">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {include file="Common/plugin/regional_linkage" /}
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+    </body>
+</html>

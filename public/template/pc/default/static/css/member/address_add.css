@@ -1,0 +1,97 @@
+.address-auto{
+    width:90%;
+    margin: 0px auto;
+}
+.address-auto div{
+    /*margin-top:10px;*/
+}
+.address_div{
+    margin-top:20px;
+}
+.address_tdiv{
+    clear:both;
+    float:left;
+}
+.address_tdiv p{
+    float:left;
+}
+.address_text{
+    padding: 5px;
+    width:300px;
+    height:100px;
+    transition: all 0.4s;
+    border:1px solid #eee;
+}
+.address_text:hover{
+    border:1px solid red;
+}
+.member_text3{
+    padding: 5px;
+    border:1px solid #eee;
+    width:315px;
+    transition: all 0.4s;
+}
+.member_text4{
+    padding: 5px;
+    border:1px solid #eee;
+    width:300px;
+    transition: all 0.4s;
+}
+.member_text3:hover{
+    border:1px solid red;
+}
+.member_text4:hover{
+    border:1px solid red;
+}
+.addrsbz_div{
+    padding-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+.addrsbz_ul{
+    margin-top: 2px;
+}
+.addrsbz_ul li{
+    float:left;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 2px 8px;
+    background: rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.addrsbz_ul li:hover{
+    background: red;
+    color:#fff;
+}
+.update_btn1{
+    width:400px;
+    height:35px;
+    cursor: pointer;
+    border:none;
+    transition: all 0.4s;
+}
+.update_btn1:hover{
+    background: red;
+    color:#fff;
+}
+.addre-region{
+    float:left;
+}
+.addre-region div{
+    float:left;
+}
+.address_mrdiv p{
+    line-height: 35px;
+}
+.upbtn_div{
+    margin-top: 10px;
+    float: left;
+}
+.sign_active{
+    background: red !important;
+    color:#fff;
+}
+.delsigns{
+    display: none;
+}

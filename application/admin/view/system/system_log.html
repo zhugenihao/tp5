@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>日志列表</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统管理 <span class="c-gray en">&gt;</span> 日志列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="datemin" value="{$datemin}" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="datemax" value="{$datemax}" class="input-text Wdate" style="width:120px;">
+
+                    <input type="text" class="input-text" style="width:250px" placeholder="用户名称/登陆ip" id="search" name="search" value="{$search}">
+                    <button type="button" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜日志</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                </span> <span class="r"><strong>{$limit}</strong>条/页,共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="80">ID</th>
+                            <th>内容</th>
+                            <th width="150">用户名称</th>
+                            <th width="150">登录IP</th>
+                            <th width="150">登录时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="vo"}
+                        <tr class="text-c">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.texts}</td>
+                            <td>{$vo.user_name}</td>
+                            <td>{$vo.login_ip}</td>
+                            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                            <td class="td-manage">
+                                <a style="text-decoration:none" class="ml-5" onClick="system_log_del(this, '{$vo.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript">
+                                    $(function () {
+                                        $(".btn-success").click(function () {
+                                            var search = $("#search").val();
+                                            var datemax = $("#datemax").val();
+                                            var datemin = $("#datemin").val();
+                                            var list = "{$list[0]['id']}";
+                                            if (search || datemax || datemin || !list) {
+                                                $("#forms").submit();
+                                            }
+                                        })
+                                    })
+
+
+
+                                    /*日志-删除*/
+                                    function system_log_del(obj, id) {
+                                        layer.confirm('确认要删除吗？', function (index) {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: "{:url('system/system_logdetel')}",
+                                                data: {'id': id},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    if (data.types === 1) {
+                                                        $(obj).parents("tr").remove();
+                                                        layer.msg(data.prompt, {icon: 1, time: 1000});
+                                                    } else {
+                                                        layer.msg(data.prompt, {icon: 5});
+                                                    }
+
+                                                },
+                                                error: function (data) {
+                                                    console.log(data.msg);
+                                                },
+                                            });
+                                        });
+                                    }
+                                    /*日志-批量删除*/
+                                    function datadel() {
+                                        var idstr = $('input[type=checkbox]:checked').map(function () {
+                                            return this.value
+                                        }).get().join(',');
+                                        layer.confirm('确认要删除这些吗？', function (index) {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: "{:url('system/system_log_datadel')}",
+                                                data: {'idstr': idstr},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    if (data.types === 1) {
+                                                        layer.msg(data.prompt, {icon: 1});
+                                                        $("body").addClass("layui-layer-load");
+                                                        setTimeout(function () {
+                                                            window.location.href = "{:url('system/system_log')}";
+
+                                                        }, 1000);
+                                                    } else {
+                                                        layer.msg(data.prompt, {icon: 5});
+                                                    }
+
+                                                },
+                                                error: function (data) {
+                                                    console.log(data.msg);
+                                                },
+                                            });
+                                        });
+                                    }
+
+
+        </script>
+    </body>
+</html>

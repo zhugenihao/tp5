@@ -1,0 +1,105 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.directory-all{
+    width:100%;
+    height:100%;
+}
+.directory-one{
+    /*float:left;*/
+    position: fixed;
+    top: 40px;
+    width:80px;
+    height:100%;
+    overflow-y:scroll;
+    /*border-right:1px solid #eeeeee;*/
+    background: #f8f8f8;
+}
+.directory-one::-webkit-scrollbar{width:1px;}
+.directory-one::-webkit-scrollbar-track{background-color:#eee;}
+.directory-one::-webkit-scrollbar-thumb{background-color:#ccc;}
+.directory-one::-webkit-scrollbar-thumb:hover {background-color:#fff}
+.directory-one::-webkit-scrollbar-thumb:active {background-color:red}
+.directory-oneul{
+    width:100%;
+    padding-bottom: 90px;
+}
+.directory-oneul li{
+    width:100%;
+    height:40px;
+}
+.directory-onea{
+    display: block;
+    width:100%;
+    height:40px;
+    line-height:40px;
+    text-align: center;
+}
+.diractive{
+    background: #fff;
+}
+.directory-sul{
+    width:100%;
+}
+.directory-sli{
+    width:100%;
+    /*display: none;*/
+}
+.directory-second{
+    width: 100%;
+    float: left;
+    margin-left: 90px;
+    height: 100%;
+    overflow-y:scroll;
+    position: fixed;
+    top:40px;
+}
+.directory-guanggao{
+    width:266px;
+    height:100px;
+    overflow: hidden;
+}
+.directory-guanggao img{
+    width:100%;
+}
+.directory-list{
+    width: 100%;
+    padding-bottom: 100px;
+    float: left;
+    height: 100%;
+}
+.directory-listone{
+    width:100%;
+    padding-top: 10px;
+}
+.directory-listul{
+    width:100%;
+}
+.directory-listli{
+    min-width:80px;
+    max-width:120px;
+    height:85px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.directory-listli p{
+    text-align: center;
+}
+.directory-imgs{
+    width:60px;
+    height:60px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.directory-imgs img{
+    width:100%;
+}
+.directory-title{
+    width:100%;
+    font-size:12px;
+    margin-top:4px;
+}

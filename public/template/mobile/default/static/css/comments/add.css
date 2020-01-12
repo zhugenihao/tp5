@@ -1,0 +1,69 @@
+.comadd-all{
+    width:100%;
+}
+.formdiv{
+    width:100%;  
+}
+.comadd-auto{
+    width:90%;
+    margin:10px auto;
+}
+.comadd-text{
+    width:100%;
+}
+.comadd-tares{
+    width:100%;
+    height:100px;
+}
+.comadd-img{
+    width:100%;
+}
+.comadd-imgul{
+    float: left;
+}
+.comadd-imgli{
+    width:60px;
+    height:60px;
+    overflow: hidden;
+    float:left;
+    margin: 2px;
+}
+.comadd-imgli img{
+    width:92%;
+    height:92%;
+}
+.comadd-imgup{
+    width:60px;
+    height:60px;
+    overflow: hidden;
+}
+.comadd-imgup img{
+    width:100%;
+}
+.comadd-btn{
+    width:100%;
+    height:30px;
+    background: red;
+    margin: 10px auto;
+}
+.comadd-btn a{
+    width:100%;
+    height:100%;
+    display: block;
+    text-align: center;
+    line-height:30px;
+    color:#fff;
+    font-size: 16px;
+}
+.comadd-btn a:active{
+    background: #cc0033;
+}
+.comadd-xing{
+    margin-left: 10px;
+}
+.comadd-xing span{
+    line-height: 30px;
+}
+.comadd-xing img{
+    cursor: pointer;
+}

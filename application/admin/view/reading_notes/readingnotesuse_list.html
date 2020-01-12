@@ -1,0 +1,167 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>阅读券使用记录</title>
+    </head>
+    <body>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 会员阅读券 <span class="c-gray en">&gt;</span> 阅读券使用记录 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+        <div class="page-container">
+            <?php 
+            $readingnoteslistUrl = url('readingNotes/readingnotes_list');
+            $readingnotesuselistUrl = url('readingNotes/readingnotesuse_list');
+            ?>
+             <a class="btn radius" style="line-height:1.6em;margin-top:3px" href="{$readingnoteslistUrl}" title="">会员阅读券</a>
+            <a class="btn btn-success radius" style="line-height:1.6em;margin-top:3px" href="{$readingnotesuselistUrl}" title="">阅读券使用记录</a>
+            
+            <form action="" method="post" class="form form-horizontal" id="forms">
+                <div class="text-c">
+                    日期范围：
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemax\')||\'%y-%M-%d\']', maxDate: '%y-%M-%d'})" id="datemin" name="datemin" value="{$datemin}" class="input-text Wdate" style="width:120px;">
+                    -
+                    <input type="text" onfocus="WdatePicker({maxDate: '#F[$dp.$D(\'datemin\')]', maxDate: '%y-%M-%d'})" id="datemax" name="datemax" value="{$datemax}" class="input-text Wdate" style="width:120px;">
+
+                    <input type="text" class="input-text" style="width:250px" placeholder="用户/商品名称" id="search" name="search" value="{$search}">
+                    <button type="button" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜阅读券</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="collection_datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                </span> 
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;已使用阅读券：<strong>{$allcount} 张</strong></span>
+                <span class="r"><strong>{$limit}</strong>条/页,共有数据：<strong>{$allcount}</strong> 条</span> </div>
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <th width="40"><input name="" type="checkbox" value=""></th>
+                            <th width="80">ID</th>
+                            <th width="100">商品封面</th>
+                            <th>商品名称</th>
+                            <th width="150">用户</th>
+                            <th width="150">使用时间</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="vo"}
+                        <tr class="text-c">
+                            <td><input name="id[]" type="checkbox" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td><img height="50" class="works-thumb" src="__STATIC__/images/works/cover/{$vo.cross_img}"></td>
+                            <td class="text-l">{$vo.cartoon_name}（看了{$vo.chaptar_num}:{$vo.chaptar_name}）</td>
+                            <td class="text-c">
+                                 <?php $member_showurl = url('member/member_show')."?m_id=".$vo['m_id'];?>
+                                <a href="javascript:;" onclick="member_show('会员信息', '{$member_showurl}', '10001', '560', '600')">
+                                    <i class="avatar size-L radius">
+                                        <img alt="" src="__STATIC__/images/photo/{$vo.photo}" onerror="this.src='__STATIC__/h-admin/static/h-ui/images/ucnter/avatar-default-S.gif';">
+                                    </i><br/>
+                                    {$vo.uname}
+                                </a>
+                            </td>
+                            <td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
+                            <td class="td-manage">
+                                <a style="text-decoration:none" class="ml-5" onClick="collection_del(this, '{$vo.id}')" href="javascript:;" title="删除">
+                                    <i class="Hui-iconfont">&#xe6e2;</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+                {$page}
+            </div>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        {include file="Common/_footer" /}
+        <!--/_footer 作为公共模版分离出去-->
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript">
+                                    $(function () {
+                                        $(".btn-success").click(function () {
+                                            var search = $("#search").val();
+                                            var datemax = $("#datemax").val();
+                                            var datemin = $("#datemin").val();
+                                            var list = "{$list[0]['id']}";
+                                            var dateminas = new Date(datemin.replace(/\-/g, "\/"));
+                                            var datemaxas = new Date(datemax.replace(/\-/g, "\/"));
+                                            if(datemax !="" && datemin !="" && dateminas >= datemaxas){  
+                                               layer.msg("开始时间不能大于等于结束时间！", {icon: 5});
+                                               return false;
+                                            }
+                                            if (search || datemax || datemin || !list) {
+                                                $("#forms").submit();
+                                            }
+                                        })
+                                    })
+                                    function readingNotes(title, url) {
+                                        var index = layer.open({
+                                            type: 2,
+                                            title: title,
+                                            content: url
+                                        });
+                                        layer.full(index);
+                                    }
+
+
+
+                                    /*收藏-删除*/
+                                    function collection_del(obj, id) {
+                                        layer.msg("管理员没有赋予此权限", {icon: 5});return;
+                                        layer.confirm('确认要删除吗？', function (index) {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: "{:url('member/collectiondetel')}",
+                                                data: {'id': id},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    if (data.types === 1) {
+                                                        $(obj).parents("tr").remove();
+                                                        layer.msg(data.prompt, {icon: 1, time: 1000});
+                                                    } else {
+                                                        layer.msg(data.prompt, {icon: 5});
+                                                    }
+
+                                                },
+                                                error: function (data) {
+                                                    console.log(data.msg);
+                                                },
+                                            });
+                                        });
+                                    }
+                                    /*收藏-批量删除*/
+                                    function collection_datadel() {
+                                        layer.msg("管理员没有赋予此权限", {icon: 5});return;
+                                        var idstr = $('input[type=checkbox]:checked').map(function () {
+                                            return this.value
+                                        }).get().join(',');
+                                        layer.confirm('确认要删除这些吗？', function (index) {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: "{:url('member/collection_datadel')}",
+                                                data: {'idstr': idstr},
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    if (data.types === 1) {
+                                                        layer.msg(data.prompt, {icon: 1});
+                                                        $("body").addClass("layui-layer-load");
+                                                        setTimeout(function () {
+                                                            window.location.href = "{:url('member/collection_list')}";
+
+                                                        }, 1000);
+                                                    } else {
+                                                        layer.msg(data.prompt, {icon: 5});
+                                                    }
+
+                                                },
+                                                error: function (data) {
+                                                    console.log(data.msg);
+                                                },
+                                            });
+                                        });
+                                    }
+                                  
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+.member-all{
+    width:100%;
+}
+.member-top{
+    width: 100%;
+    min-height: 180px;
+    background: #ff9933;
+    float: left;
+    padding-bottom: 10px;
+}
+.member-topauto{
+    width:90%;
+    margin: 0px auto;
+    color:#fff;
+    padding-top:10px;
+}
+.member-img{
+    width:60px;
+    height:60px;
+    overflow: hidden;
+    border-radius:50%;
+}
+.member-img img{
+    width:100%;
+    height:60px;
+    border-radius:50%;
+}
+.member-name{
+    margin-top: 15px;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.margintop{
+    padding-top:10px;
+}
+.member-topyue{
+    width:90%;
+    margin:0px auto;
+}
+.member-yuenum{
+    font-size:20px;
+}
+.member-topyh{
+    width:90%;
+    margin:0px auto;
+}
+.orderlist{
+    width:100%;
+    margin-top: 10px;
+    clear: both;
+}
+.ordertop{
+    width:100%;
+    height:30px;
+    border-bottom:1px solid #eee;
+}
+.ordertopp{
+    width:90%;
+    margin:0px auto;
+    height:100%;
+    line-height:30px;
+}
+.orderul li:active{
+    background: #eee;
+}
+.orderli{
+    float: left;
+    margin: 10px;
+}
+.orderli p{
+    text-align: center;
+}
+.ordericon{
+    font-size: 25px;
+}
+.myjiezuo{
+    width:100%;
+}
+.myjiezuo-auto{
+    width:95%;
+    height:120px;
+    margin:0px auto;
+
+}
+.myjiezuo-list{
+    float:left;
+    width:100%;
+    background: #eee;
+    padding-bottom: 20px;
+}
+.myjiezuo-div{
+    float: left;
+    margin-left: 15px;
+    margin-top:20px;
+}
+.myjiezuo-div:active{
+    background: #ccc;
+}
+.myjiezuo-div p{
+    text-align: center;
+}
+.sas img{
+    width:100%;
+}
+.myjiezuo-num i{
+    font-size: 20px;
+}
+.member-topicon a{
+    color:#fff;
+}

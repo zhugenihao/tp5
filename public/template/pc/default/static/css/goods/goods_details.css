@@ -1,0 +1,503 @@
+.goodsdetails-tul{
+    margin-left: -10px;
+}
+.goodsdetails-tul li{
+    min-width: 50px;
+    margin-left: 10px;
+    float:left;
+    font-size:17px;
+    height:40px;
+    line-height: 40px;
+}
+.goodstul-span{
+    margin-left: 10px;
+}
+.goods-text{
+    width:100%;
+    min-height:600px;
+    clear:both;
+    float: left;
+}
+.goods-imgas{
+    width:45%;
+}
+.goods-bens{
+    width:50%;
+}
+#cantuanp{
+    color:red;
+    display: none;
+}
+.goodsbens-ul{
+    width:100%;
+    margin-top: -15px;
+}
+.goodsbens-ul li{
+    margin-top:20px;
+    width: 100%;
+}
+.goods_name{
+    font-size: 17px;
+    height:50px;
+    overflow: hidden;
+}
+.goods_gkp{
+    height:50px;
+}
+.goods_gkp_num{
+    margin-top: 15px;
+    margin-right:10px;
+}
+.goods_gkp_2{
+    width:50px;
+    height:50px;
+    border-radius: 50px;
+    border:1px solid #ccc;
+    cursor: pointer;
+}
+.goods_gkp_xh{
+    font-size: 30px;
+    text-align: center;
+    margin-top: -7px;
+}
+.goods_gkp_xh i{
+    color:red;
+}
+.goods_gkp_xht{
+    text-align: center;
+    margin-top: -15px;
+    font-size: 15px;
+}
+.goods_sb{
+    float:left;
+}
+.goodscolor_list div{
+    float:left;
+    margin-left: 10px;
+    margin-top:10px;
+
+}
+.goodscolor_list div a{
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #eee;
+}
+.gcolor_active{
+    color:#fff;
+    background: red !important;
+}
+.goodsnum-text input{
+    padding: 5px 10px;
+    margin-left: -4px;
+}
+.goods_num_jian{
+    width:35px;
+    height:35px;
+    cursor: pointer;
+    background: #eee;
+}
+.goods_num_jia{
+    width:35px;
+    height:35px;
+    cursor: pointer;
+    color:#fff;
+    background: red;
+}
+.goods_num{
+    width:40px;
+    height:35px;
+    text-align: center;
+}
+.goods_shouc{
+    width:80px;
+    height:35px;
+    background: #eee;
+    line-height:35px;
+    text-align: center;
+}
+.goods_shouc a{
+    display: block;
+}
+.goods_btns div{
+    float:left;
+    width:48%;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+}
+.goods_btns a{
+    color:#fff;
+    font-size: 20px;
+    display: block;
+}
+.add_cart{
+    background: #ff9933;
+}
+.goods_buy{
+    background: red;
+}
+.goods_text_all{
+    width:100%;
+    min-height:500px;
+    margin-top: 50px;
+    float: left;
+    border:1px solid #ccc;
+}
+.goodstext_all_1{
+    width:25%;
+    min-height:500px;
+}
+.goodstext_all_2{
+    width:74%;
+    min-height:650px;
+    border:1px solid #ccc;
+    border-bottom:none;
+    border-top:none;
+    overflow: hidden;
+}
+.goodstext_dianpu{
+    border-bottom:1px solid #ccc;
+}
+.goodstext_dianpu_1 div{
+    float:left;
+    margin-left: 10px;
+    line-height: 60px;
+}
+.store_jinru{
+    clear: both;
+    width:95%;
+}
+.gdianpu_img img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+}
+.gdianpu_name{
+    font-size:20px;
+}
+.gkefu_icon i{
+    font-size:50px;
+}
+.goodstext_kefu div{
+    width:70px;
+    text-align: center;
+    height:60px;
+}
+.goodshot_title{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.goodshot_ul{
+    margin-left:10px;
+}
+.goodshot_li{
+    margin-top: 10px;
+    height:90px;
+}
+.goodshot_img{
+    width:90px;
+    height:80px;
+    overflow:hidden;
+}
+.goodshot_img img{
+    width:100%;
+}
+.goodshot_cont{
+    margin-left: 10px;
+}
+.goodshot_cont div{
+    margin-top: 4px;
+}
+.goodshot_price{
+    font-weight:600;
+    color:red;
+}
+.goodshot_snum span{
+    color:red;
+}
+.goodsdetails_title div{
+    float:left;
+}
+.goodsdetails_text{
+    clear:both;
+    margin-top: 10px;
+    padding: 10px;
+}
+.goodsdetails_title{
+    width:100%;
+    height:50px;
+    background: #eee;
+}
+.goodsdetails_title div{
+    width:150px;
+    height:100%;
+    line-height:50px;
+    text-align: center;
+    cursor: pointer;
+}
+.gdtitle_active{
+    background: #fff;
+}
+.goodstext_list{
+    display: none;
+}
+.gd_texts{
+    width:100%;
+}
+.gd_texts img{
+    width:100%;
+}
+.goods-cai{
+    margin-top:10px;
+}
+.goodscai-title{
+    font-size:20px;
+}
+.goodscai-ul{
+    margin-top: 10px;
+}
+.goodscai-img{
+    width:210px;
+    height:210px;
+    overflow: hidden;
+}
+.goodscai-img img{
+    width:100%;
+}
+.goodscai-li{
+    width:220px;
+    height:285px;
+    overflow: hidden;
+    float: left;
+    margin-left: 10px;
+}
+.goods_name{
+    width:100%;
+    height:50px;
+}
+.goodspl_li{
+    width:100%;
+    margin: 0px auto;
+    float:left;
+    margin-top: 10px;
+}
+.goodspl_top{
+    height:60px;
+    background: #eee;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.goodspl_photo{
+    float:left;
+}
+.goodspl_photo img{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+.goodspl_uname{
+    float:left;
+    margin-left: 10px;
+    line-height: 50px;
+}
+.goodspl_ts{
+    float:right;
+}
+.goodspl_sc{
+    float: right;
+}
+.goodspl_text{
+    width:95%;
+    margin:0px auto;
+    margin-top: 10px;
+}
+.goodspl_cont{
+    width:100%;
+    min-height:50px;
+}
+.goodspl_img div{
+    width:50px;
+    height:50px;
+    overflow: hidden;
+    float:left;
+    margin-left: 5px;
+}
+.goodspl_img div img{
+    width:100%;
+    cursor: pointer;
+}
+.goodspl_big{
+    clear:both;
+    position: relative;
+    max-width:350px;
+    /*max-height:350px;*/
+    background: rgba(0,0,0,0.7);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+}
+.goodspl_bigshow{
+    width:100%;
+    text-align: center;
+}
+.goodspl_bigshow img{
+    max-width:100%;
+}
+.goodspl_left{
+    font-size:20px;
+    position: absolute;
+    top:40%;
+    background: rgba(0,0,0,0.4);
+    color:#fff;
+    cursor: pointer;
+}
+.goodspl_right{
+    font-size:20px;
+    position: absolute;
+    right:0px;
+    top:40%;
+    background: rgba(0,0,0,0.4);
+    color:#fff;
+    cursor: pointer;
+}
+.goodspl_left:hover{
+    background: rgba(0,0,0,0.6);
+}
+.goodspl_right:hover{
+    background: rgba(0,0,0,0.6);
+}
+.splbtna{
+    padding: 2px 10px;
+    background: red;
+    color:#fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cantuanlist2{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0px;
+    z-index:9998;
+    display: none;
+}
+
+.pinyuan-auto2{
+    position: absolute;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:7000;
+    background: rgba(0,0,0,0.5);
+}
+.pinyuan-div{
+    position: absolute;
+    top:30%;
+    width:100%;
+    z-index:7100;
+}
+.pinyuan-auto{
+    width:40%;
+    margin:0px auto;
+    height:150px;
+}
+.pinyuan-ludiv{
+    width:90%;
+    margin:0px auto;
+    padding-top: 10px;
+}
+.pinyuan-ludiv2{
+    width:100%;
+    float: left;
+    background: #fff;
+    padding-bottom: 25px;
+}
+.pinyuanli-img{
+    width:35px;
+    height:35px;
+    border:2px solid #ccc;
+    border-radius: 50%;
+}
+.active-pl{
+    border:2px solid red;
+}
+.pinyuanli-img img{
+    width:35px;
+    height:35px;
+    border-radius: 50%;
+}
+.pinyuan-lu{
+    padding-top: 5px;
+}
+.pinyuan-li{
+    float:left;
+    margin:5px;
+    text-align: center;
+}
+.pinyuanli-name{
+
+}
+.spell-buys{
+    width:50%;
+    height:30px;
+    text-align:center;
+    line-height: 30px;
+    font-size:17px;
+    background: red;
+    color:#fff;
+    clear:both;
+    margin: 0px auto;
+}
+
+.goodsyhq-ul{
+    margin:0px auto;
+    width:90%;
+    border-top:1px solid #eee;
+    padding-top: 5px;
+}
+.goodsyhq-li{
+    width:100%;
+    height:70px;
+    background: #3399ff;
+    color:#fff;
+    margin-top: 2px;
+}
+.goodsyhqli-auto{
+    width:100%;
+    margin:0px auto;
+    height:100%;
+}
+.goodsyhq-num{
+    font-size: 23px;
+    margin-top: 8px;
+}
+.goodsyhq-jiage{
+    font-size:13px;
+    margin-left: 5px;
+}
+.goodsyhqdiv{
+    margin-left: 10px;
+}
+.goodsyhq-lq{
+    width: 100px;
+    height: 40px;
+    background: #0066cc;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.goodsyhq-lqp{
+    width:100%;
+    margin-top: 8px;
+}
+.goodsyhq-title{
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    font-size: 16px;
+}

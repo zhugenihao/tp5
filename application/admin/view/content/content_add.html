@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {include file="Common/_meta" /} 
+        <title>新增内容</title>
+        <link href="__STATIC__/h-admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__STATIC__/h-admin/js/content/content_add.js"></script>
+        
+        {include file="Common/editor" /} 
+    </head>
+    <body>
+        <div class="page-container">
+            <form class="form form-horizontal" id="form-article-add" method="post" enctype="multipart/form-data" name="fileinfo">
+                {if $info['id']}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">语言类型：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="button" class="btn btn-default" value="语言内容" onclick="href_url('语言内容', '__URL__/language_content?content_id={$info[\'id\']}')">
+                    </div>
+                </div>
+                {/if}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>栏目选择：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <span class="select-box">
+                            <select name="directorypid_id" class="select selectdi">
+                                <option value="" >请选择</option>
+                                {volist name="directorypid_list" id="vo"}
+                                <option value="{$vo.id}" {if ($info['directory_id']==$vo['id'])} selected {/if}>
+                                        |{for start="1" end="$vo['hierarchy']+1"}--{/for}{$vo.title}
+                            </option>
+                            {/volist}
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{$info.title}" placeholder="" id="title" name="title">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>副标题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{$info.subtitle}" placeholder="" id="subtitle" name="subtitle">
+                </div>
+            </div>
+
+
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">图片：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="uploader-thum-container">
+                        <label class="fileLabel btn btn-default btn-uploadstar radius" for="images">选择文件</label>
+                        <input class="common-text required" onchange="getPhoto(this)" id="images" style="display: none;" name="images" size="50" type="file"><br/>
+
+                        <p class="ge_pic_icon_Infor">
+                            {if $info['images']}
+                            <img src="__STATIC__/images/content/{$info.images}" id="imgShow" width="200" title="图片" onerror="this.src='';"/>
+                            {/if}
+                        </p>
+                        <input type="hidden" value="{$info.images}" class="images" name="images"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>内容：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <!--<textarea id="editor_id" class="kindeditor" name="content" rows="20" cols="150"><?php echo htmlspecialchars_decode($info['content']); ?></textarea>-->
+                    <!--<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>--> 
+                    <textarea id="editor" class="kindeditor" name="content" style="width:100%;height:400px;">
+                        <?php echo htmlspecialchars_decode($info['content']); ?>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>seo标题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{$info.seo_title}" placeholder="" id="seo_title" name="seo_title">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>关键词：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{$info.keywords}" placeholder="逗号隔开" id="keywords" name="keywords">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">详情：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <textarea rows="10" name="details" id="details" cols="150">{$info.details}</textarea>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">推荐状态：</label>
+                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                    <div class="radio-box">
+                        <input  type="checkbox" value="1" id="sex-1" name="recommend_type" {if $info && $info['recommend_type']=='1'} checked {/if}>
+                                <label for="sex-1">推荐</label>
+                    </div> 
+                    <div class="radio-box">  
+                        <input  type="checkbox" value="2" id="sex-1" name="recommend_type" {if $info && $info['recommend_type']=='2'} checked {/if}>
+                                <label for="sex-1">幻灯片</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">发布状态：</label>
+                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                    <div class="radio-box">
+                        <input  type="radio" value="1" id="sex-1" name="is_show" {if !$info || $info['is_show']=='1'} checked {/if}>
+                                <label for="sex-1">发布</label>
+                    </div>
+                    <div class="radio-box">
+                        <input type="radio" name="is_show" id="sex-0" value="0" {if $info['is_show']=='0'} checked {/if}>
+                               <label for="sex-0">下架</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">排序值：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{if $info['sort']} {$info.sort} {else/}100{/if}" placeholder="" id="sort" name="sort">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">更新时间：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="input-text">{$info.create_time}</div>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                    <button class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                    <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                </div>
+            </div>
+            <input type="hidden" value="{$info.id}" id="id" name="id"/>
+        </form>
+    </div>
+
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="Common/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+</body>
+</html>
