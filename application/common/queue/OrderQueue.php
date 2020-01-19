@@ -68,7 +68,7 @@ class OrderQueue {
 
                 $job->delete();
 
-                // 也可以重新发布这个任务
+                 // 也可以重新发布这个任务
                 //print("<info>Hello Job will be availabe again after 2s."."</info>\n");
                 //$job->release(2); //$delay为延迟时间，表示该任务延迟2秒后再执行
             }
