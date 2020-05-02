@@ -3,7 +3,7 @@
 use think\Route;
 
 #移动端接口
-
+Route::rule([]);
 Route::post('api/:version/token/member', 'api/:version.Token/getToken'); //令牌
 Route::post('api/:version/token/mid', 'api/:version.Token/getMid'); // 获取用户mid
 
@@ -23,6 +23,10 @@ Route::get([
     'api/:version/spell_group_ordernum_list' => 'api/:version.SpellGroupOrdernum/getlist', //参团信息
     'api/:version/spell_group_ordernum_member' => 'api/:version.SpellGroupOrdernum/getsgMemberList', //参团信息2
     'api/:version/add_collection' => 'api/:version.Collection/addCollection', //商品收藏
+    
+    'api/:version/user_cart_list' => 'api/:version.Cart/cartList', //用户购物车数据
+    'api/:version/user_cart_norm' => 'api/:version.Cart/normList', //用户购物车规格1
+    'api/:version/user_cart_cates' => 'api/:version.Cart/catesList', //用户购物车规格2
 ]);
 
 Route::post([

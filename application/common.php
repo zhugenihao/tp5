@@ -201,3 +201,7 @@ function camelize($uncamelized_words, $separator = '_') {
 function uncamelize($camelCaps, $separator = '_') {
     return strtolower(preg_replace('/([a-z])([A-Z])/', "$1" . $separator . "$2", $camelCaps));
 }
+function returnMessage($data){
+    exit(json_encode($data));
+}
+

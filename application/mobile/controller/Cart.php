@@ -21,6 +21,7 @@ use app\common\model\SpellGroup as spellGroupModel;
 use app\common\model\CouponReceive as couponReceiveModel;
 use app\mobile\model\ComdysalesPromotion as comdysalesPromotionModel;
 use app\common\model\Order as orderModel;
+use app\common\model\OrderGoods as orderGoodsModel;
 
 class Cart extends Common {
 
@@ -113,29 +114,9 @@ class Cart extends Common {
             if ($catesList) {
                 
                 foreach ($catesList as $catelKey => $catelVal) {
-                    //秒杀信息
-                    if ($cart['activity'] == 'seconds_kill') {
-                        $sk_price = secondsKillModel::getValue(['goods_id' => $get['goods_id']], 'sk_price');
-                        //秒杀规格价格的运算：秒杀规格价格=(秒杀价格/商品价格)*原商品规格价格
-                        $cate_price = ($sk_price / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                    } else if ($cart['activity'] == 'spell_group') {
-                        $sg_price = spellGroupModel::getValue(['goods_id' => $get['goods_id']], 'sg_price');
-                        //拼团规格价格的运算：拼团规格价格=(拼团价格/商品价格)*原商品规格价格
-                        $cate_price = ($sg_price / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                    } else if ($cart['activity'] == 'comdysalesp') {
-                        //促销规格价格的运算
-                        $comdysalesp = comdysalesPromotionModel::getInfo(['goods_id' => $get['goods_id']], 'cp_price,cp_type,discount');
-                        if ($comdysalesp['cp_type'] == 1) {//直接打折
-                            //打折规格价格=(折扣/10)*原商品规格价格
-                            $cate_price = ($comdysalesp['discount'] / 10) * $cate_price_arr[$catelVal['cate_id']];
-                        } elseif ($comdysalesp['cp_type'] == 2) {//减价优惠
-                            //打折规格价格=(减价价格/商品价格)*原商品规格价格
-                            $cate_price = ($comdysalesp['cp_price'] / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                        }
-                    } else {
-                        $cate_price = $cate_price_arr[$catelVal['cate_id']];
-                    }
-
+                    //商品价格
+                    $cate_price = orderGoodsModel::priceCalculation($get['goods_id'], $normInfo['n_id'], $catelVal['cate_id'], $cart['activity']);
+                 
                     $catesList[$catelKey]['cate_price'] = sprintf("%.2f", $cate_price);
 
                     $catesList[$catelKey]['inventory'] = $inventory_arr[$catelVal['cate_id']];

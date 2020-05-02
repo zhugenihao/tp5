@@ -6,10 +6,10 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>首页</title>
+        <title>你好华技</title>
         <meta charset="UTF-8">
-        <meta name="description" content=""/>
-        <meta name="keywords" content=""/>
+        <meta name="description" content="你好华技"/>
+        <meta name="keywords" content="你好华技,你好华技基地,你好华技基地公司"/>
         {include file="public/js_css" /}
         <link rel="stylesheet" type="text/css" href="__PC__/css/index/index.css" />
     </head>

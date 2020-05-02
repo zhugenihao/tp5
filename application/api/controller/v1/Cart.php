@@ -10,7 +10,7 @@ use \think\Db;
 use app\api\controller\v1\Common;
 use app\api\model\Session as sessionModel;
 use app\common\model\Cart as cartModel;
-use app\api\model\Goods as GoodsModel;
+use app\common\model\Goods as GoodsModel;
 use app\common\model\Norm as NormModel;
 use app\common\model\GoodsColor as goodsColorModel;
 use app\common\model\Cates as catesModel;
@@ -21,6 +21,7 @@ use app\common\model\SpellGroup as spellGroupModel;
 use app\common\model\CouponReceive as couponReceiveModel;
 use app\api\model\ComdysalesPromotion as comdysalesPromotionModel;
 use app\common\model\Order as orderModel;
+use app\common\model\OrderGoods as orderGoodsModel;
 
 class Cart extends Common {
 
@@ -34,19 +35,16 @@ class Cart extends Common {
     }
 
     public function cartList() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $get = input('get.');
             $field = 'c.*,g.goods_name,g.thecover,n.goodscolor_id,gc.color_name,cs.cate_name';
             $cartList = cartModel::getList(['c.m_id' => $this->mid], $field, $get['start'], $get['limit']);
-            exit(json_encode($cartList));
+            returnMessage($cartList);
         }
-        $cartCount = cartModel::getCount(['m_id' => $this->mid]);
-        $this->assign("countTitle", "我的购物车(" . $cartCount . ")");
-        return $this->fetch();
     }
 
     public function normList() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $get = input('get.');
             $goods = GoodsModel::get($get['goods_id']);
             //商品颜色
@@ -83,17 +81,22 @@ class Cart extends Common {
             }
             $field = 'c.*,g.goods_name,g.goods_price,g.thecover,n.goodscolor_id,gc.color_name,gc.id as goodscolor_id,cs.cate_name';
             $cartInfo = cartModel::getCartInfo(['c.m_id' => $this->mid, 'c.cart_id' => $get['cart_id']], $field);
-            $normInfo['default_gallery'] = galleryModel::getValue(['n_id' => $normInfo['n_id']], 'img_small');
+            $img_small = galleryModel::getValue(['n_id' => $normInfo['n_id']], 'img_small');
+            $default_gallery = !empty($img_small) ? $img_small : $goods['thecover'];
+            $normInfo['default_gallery'] = $default_gallery;
             $list = array('inventory' => $inventory0, 'goods_color_list' => $goodsColorList, 'cate_price' => $cate_price0,
                 'cates_list' => $catesList, 'cart_info' => $cartInfo, 'norm_info' => $normInfo);
-            exit(json_encode($list));
+            
+            returnMessage($list);
         }
     }
 
     public function catesList() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $get = input('get.');
-            $cart = cartModel::getInfo(['cart_id' => $get['cart_id']], '*');
+            $goods = GoodsModel::get($get['goods_id']);
+            $field = 'c.*,g.goods_name,g.goods_price,g.thecover,n.goodscolor_id,gc.color_name,gc.id as goodscolor_id,cs.cate_name';
+            $cartInfo = cartModel::getCartInfo(['c.m_id' => $this->mid, 'c.cart_id' => $get['cart_id']], $field);
             $normInfo = NormModel::getInfo(['goods_id' => $get['goods_id'], 'goodscolor_id' => $get['goodscolor_id']], 'n_id,goodscolor_id');
             $inventoryArr = inventoryModel::getList(['n_id' => $normInfo['n_id'], 'goods_id' => $get['goods_id']])->toArray();
             $cateid = array();
@@ -110,30 +113,10 @@ class Cart extends Common {
             }
             $catesList = !empty($inventoryArr) ? catesModel::all($cateid) : '';
             if ($catesList) {
-                $goods = GoodsModel::getInfo(['goods_id' => $get['goods_id']], 'goods_price');
+                
                 foreach ($catesList as $catelKey => $catelVal) {
-                    //秒杀信息
-                    if ($cart['activity'] == 'seconds_kill') {
-                        $sk_price = secondsKillModel::getValue(['goods_id' => $get['goods_id']], 'sk_price');
-                        //秒杀规格价格的运算：秒杀规格价格=(秒杀价格/商品价格)*原商品规格价格
-                        $cate_price = ($sk_price / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                    } else if ($cart['activity'] == 'spell_group') {
-                        $sg_price = spellGroupModel::getValue(['goods_id' => $get['goods_id']], 'sg_price');
-                        //拼团规格价格的运算：拼团规格价格=(拼团价格/商品价格)*原商品规格价格
-                        $cate_price = ($sg_price / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                    } else if ($cart['activity'] == 'comdysalesp') {
-                        //促销规格价格的运算
-                        $comdysalesp = comdysalesPromotionModel::getInfo(['goods_id' => $get['goods_id']], 'cp_price,cp_type,discount');
-                        if ($comdysalesp['cp_type'] == 1) {//直接打折
-                            //打折规格价格=(折扣/10)*原商品规格价格
-                            $cate_price = ($comdysalesp['discount'] / 10) * $cate_price_arr[$catelVal['cate_id']];
-                        } elseif ($comdysalesp['cp_type'] == 2) {//减价优惠
-                            //打折规格价格=(减价价格/商品价格)*原商品规格价格
-                            $cate_price = ($comdysalesp['cp_price'] / $goods['goods_price']) * $cate_price_arr[$catelVal['cate_id']];
-                        }
-                    } else {
-                        $cate_price = $cate_price_arr[$catelVal['cate_id']];
-                    }
+                    //商品价格
+                    $cate_price = orderGoodsModel::priceCalculation($get['goods_id'], $normInfo['n_id'], $catelVal['cate_id'], $cartInfo['activity']);
 
                     $catesList[$catelKey]['cate_price'] = sprintf("%.2f", $cate_price);
 
@@ -142,9 +125,12 @@ class Cart extends Common {
                 $cate_price0 = $catesList[0]['cate_price'];
                 $inventory0 = $catesList[0]['inventory'];
             }
-            $normInfo['default_gallery'] = galleryModel::getValue(['n_id' => $normInfo['n_id']], 'img_small');
-            $list = array('inventory' => $inventory0, 'cate_list' => $catesList, 'norm_info' => $normInfo, 'cate_price' => $cate_price0);
-            exit(json_encode($list));
+            $img_small = galleryModel::getValue(['n_id' => $normInfo['n_id']], 'img_small');
+            $default_gallery = !empty($img_small) ? $img_small : $goods['thecover'];
+            $normInfo['default_gallery'] = $default_gallery;
+            $list = array('inventory' => $inventory0, 'cate_list' => $catesList, 'norm_info' => $normInfo, 'cate_price' => $cate_price0,
+                'cart_info' => $cartInfo);
+            returnMessage($list);
         }
     }
 

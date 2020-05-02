@@ -1,0 +1,653 @@
+---------------------------------------------------------------
+[ 2018-09-16T02:30:57+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.082733s][吞吐率：12.09req/s] [内存消耗：3,931.33kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '123585',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryBFe7lIOqCvu15rgK',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '0',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:31:00+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.072364s][吞吐率：13.82req/s] [内存消耗：3,931.33kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '166680',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryISV2jjIvNCtvK4ZC',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '1',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:31:03+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.072754s][吞吐率：13.74req/s] [内存消耗：3,931.33kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '210269',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryL4jVCjbDj7KEBA1x',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '2',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:31:08+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.072235s][吞吐率：13.84req/s] [内存消耗：3,931.33kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '388926',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarys9Adgr6kPqkdsokw',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '3',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:31:16+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.074848s][吞吐率：13.36req/s] [内存消耗：3,931.33kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '461362',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryAZ5RAskstufMzQxG',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '4',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:31:26+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：1.004100s][吞吐率：1.00req/s] [内存消耗：3,924.78kb] [文件加载：60]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '575137',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary1KHyDKUpTUrBdECU',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '5',
+  'length' => '6',
+  'content' => '通途诺',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+[ log ] array (
+  0 => 
+  array (
+    'url' => '20180916/77e27dbec26c9cd12f7422fc78ba6ba9.jpg',
+  ),
+  1 => 
+  array (
+    'url' => '20180916/a403ed9fc53b0fbbb0d5833dcd9bcc19.jpg',
+  ),
+  2 => 
+  array (
+    'url' => '20180916/7deaf0a56f02622a428ed6c24fb0bde3.jpg',
+  ),
+  3 => 
+  array (
+    'url' => '20180916/368ec0232ad3426f0cdb6bd9f1752ca4.jpg',
+  ),
+  4 => 
+  array (
+    'url' => '20180916/ab07da6eb9d776867f1befccf951c4a0.jpg',
+  ),
+  5 => 
+  array (
+    'url' => '20180916/dbb33c09af02d1b140837af76cef3123.jpg',
+  ),
+  6 => 
+  array (
+    'url' => '20180916/281e403dcc381c3cba32a682232ff470.jpg',
+  ),
+  7 => 
+  array (
+    'url' => '20180916/9bab9293ce83c483f95653b717beb548.jpg',
+  ),
+)
+---------------------------------------------------------------
+[ 2018-09-16T02:32:27+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.077418s][吞吐率：12.92req/s] [内存消耗：3,931.54kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '131055',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarynM8m5cYHIIyhe885',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '0',
+  'length' => '3',
+  'content' => '公积金HK哦噢功能破记录了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:32:33+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.071687s][吞吐率：13.95req/s] [内存消耗：3,931.54kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '723230',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarysehYDpG4VBEAFHZu',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '1',
+  'length' => '3',
+  'content' => '公积金HK哦噢功能破记录了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:32:37+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.962322s][吞吐率：1.04req/s] [内存消耗：3,920.72kb] [文件加载：60]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '388952',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryYBaha7w5LoCiB6GT',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip,deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=3lkvibdp6vkh9ol8u1sblmhoj6; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.2; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'x-wap-profile' => 'http://wap1.huawei.com/uaprof/HUAWEI_MT7-TL10_UAProfile.xml',
+)
+[ info ] [ PARAM ] array (
+  'i' => '2',
+  'length' => '3',
+  'content' => '公积金HK哦噢功能破记录了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+[ log ] array (
+  0 => 
+  array (
+    'url' => '20180916/93604aa9feda1835e1dbf1b434a5553a.jpg',
+  ),
+  1 => 
+  array (
+    'url' => '20180916/741f5f3ff517fd13b782a85471d55308.jpg',
+  ),
+  2 => 
+  array (
+    'url' => '20180916/166c56553695822f6929b024c738c8c7.jpg',
+  ),
+)
+---------------------------------------------------------------
+[ 2018-09-16T02:34:33+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.052413s][吞吐率：19.08req/s] [内存消耗：3,806.30kb] [文件加载：60]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '15',
+  'content-type' => 'text/plain;charset=UTF-8',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=gk11mmv1om3ahsal94t834fqk2; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.8 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] Undefined index: i
+---------------------------------------------------------------
+[ 2018-09-16T02:34:33+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.072255s][吞吐率：13.84req/s] [内存消耗：3,930.91kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '107560',
+  'content-type' => 'multipart/form-data; boundary=--------------------5qmdvs0dskw0000000',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=gk11mmv1om3ahsal94t834fqk2; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.8 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'i' => '0',
+  'length' => '4',
+  'content' => '让我哭考虑好可怜了好可怜了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:34:37+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.070702s][吞吐率：14.14req/s] [内存消耗：3,931.04kb] [文件加载：61]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '315792',
+  'content-type' => 'multipart/form-data; boundary=--------------------l5rlnjhbixo0000000',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=gk11mmv1om3ahsal94t834fqk2; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.8 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'i' => '2',
+  'length' => '4',
+  'content' => '让我哭考虑好可怜了好可怜了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+---------------------------------------------------------------
+[ 2018-09-16T02:34:42+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ info ] syzwangzhanmei.club/douman/public//api/v1/CommunityInformationSubmit/ [运行时间：0.168051s][吞吐率：5.95req/s] [内存消耗：3,920.23kb] [文件加载：60]
+[ info ] [ LANG ] /data/home/bxu2713700220/htdocs/douman/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'v1.CommunityInformation',
+    2 => 'CommunityInformationSubmit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '393927',
+  'content-type' => 'multipart/form-data; boundary=--------------------ymd4ntnq5og0000000',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'hidden=value; PHPSESSID=gk11mmv1om3ahsal94t834fqk2; hidden=value',
+  'host' => 'syzwangzhanmei.club',
+  'origin' => 'http://syzwangzhanmei.club',
+  'referer' => 'http://syzwangzhanmei.club/douman/public/mobile/community/comrelease.html',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL10 Build/HuaweiMT7-TL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.8 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'i' => '3',
+  'length' => '4',
+  'content' => '让我哭考虑好可怜了好可怜了',
+  'version' => 'v1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\v1\CommunityInformation->CommunityInformationSubmit[ /data/home/bxu2713700220/htdocs/douman/application/api/controller/v1/CommunityInformation.php ]
+[ info ] [ LOG ] INIT File
+[ info ] [ DB ] INIT mysql
+[ log ] 远程调试insert
+[ log ] array (
+  0 => 
+  array (
+    'url' => '20180916/8743e2e62ad49354a4b84c1d72dc3065.jpg',
+  ),
+  1 => 
+  array (
+    'url' => '20180916/f5b8951e3e7f6d5a03e20e50eaa8e3b3.jpg',
+  ),
+  2 => 
+  array (
+    'url' => '20180916/ec341f9e2da4234c700a474e0b7aac10.jpg',
+  ),
+)

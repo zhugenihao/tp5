@@ -28,14 +28,15 @@ class Inventory extends Common {
         $this->assign("limit", 15);
         $this->assign('page', $list->render());
 
-        $catesList = CatesModel::getList(['dir_id' => $goodsInfo['dir_id']]);
-        $GoodsColorList = GoodsColorModel::getGoodsColor(['dir_id' => $goodsInfo['dir_id']]);
+        $catesList = CatesModel::getList(['directory3_id' => $goodsInfo['dir_id']]);
+        $GoodsColorList = GoodsColorModel::getGoodsColor(['directory3_id' => $goodsInfo['dir_id']]);
         $this->assign("catesList", $catesList);
         $this->assign("GoodsColorList", $GoodsColorList);
         return $this->fetch();
     }
 
     public function inventory_add() {
+        $goods_id = input('goods_id');
         if ($this->request->isAjax()) {
             $res = InventoryModel::inventoryAddMd();
             if ($res) {
@@ -44,7 +45,7 @@ class Inventory extends Common {
                 Tiperror("规格添加失败！");
             }
         }
-        $this->inventoryGoodsColorCates();
+        $this->inventoryGoodsColorCates($goods_id);
         return $this->fetch();
     }
 
@@ -90,12 +91,12 @@ class Inventory extends Common {
         return $this->fetch();
     }
 
-    public function inventoryGoodsColorCates($goods_id = 0) {
+    public function inventoryGoodsColorCates($goods_id) {
         $goodsid_i = input('get.goods_id');
         $goods_id = !empty($goods_id) ? $goods_id : $goodsid_i;
         $goodsInfo = GoodsModel::get($goods_id);
-        $catesList = CatesModel::getList(['dir_id' => $goodsInfo['dir_id']]);
-        $goodsColorList = GoodsColorModel::getGoodsColor(['dir_id' => $goodsInfo['dir_id']]);
+        $catesList = CatesModel::getList(['directory3_id' => $goodsInfo['dir_id']]);
+        $goodsColorList = GoodsColorModel::getGoodsColor(['directory3_id' => $goodsInfo['dir_id']]);
         $this->assign("goodsColorList", $goodsColorList);
         $this->assign("catesList", $catesList);
         $this->assign("goodsInfo", $goodsInfo);

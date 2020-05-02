@@ -1,0 +1,72 @@
+---------------------------------------------------------------
+[ 2018-09-16T02:30:57+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007268s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003535s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/7deaf0a56f02622a428ed6c24fb0bde3.jpg') [ RunTime:0.015514s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:31:00+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007205s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003244s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/368ec0232ad3426f0cdb6bd9f1752ca4.jpg') [ RunTime:0.005170s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:31:03+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006091s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003157s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/ab07da6eb9d776867f1befccf951c4a0.jpg') [ RunTime:0.005500s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:31:08+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006937s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003720s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/dbb33c09af02d1b140837af76cef3123.jpg') [ RunTime:0.005405s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:31:16+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006408s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.004179s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/281e403dcc381c3cba32a682232ff470.jpg') [ RunTime:0.007853s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:31:26+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006570s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003271s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/9bab9293ce83c483f95653b717beb548.jpg') [ RunTime:0.005155s ]
+[ sql ] [ SQL ] SELECT `url` FROM `dm_temporary_img` WHERE  `m_id` = 53 [ RunTime:0.003041s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_community_information` [ RunTime:0.009213s ]
+[ sql ] [ SQL ] INSERT INTO `dm_community_information` (`content` , `m_id` , `picture_url` , `is_show` , `create_time`) VALUES ('通途诺' , 53 , '[{\"url\":\"20180916\\/77e27dbec26c9cd12f7422fc78ba6ba9.jpg\"},{\"url\":\"20180916\\/a403ed9fc53b0fbbb0d5833dcd9bcc19.jpg\"},{\"url\":\"20180916\\/7deaf0a56f02622a428ed6c24fb0bde3.jpg\"},{\"url\":\"20180916\\/368ec0232ad3426f0cdb6bd9f1752ca4.jpg\"},{\"url\":\"20180916\\/ab07da6eb9d776867f1befccf951c4a0.jpg\"},{\"url\":\"20180916\\/dbb33c09af02d1b140837af76cef3123.jpg\"},{\"url\":\"20180916\\/281e403dcc381c3cba32a682232ff470.jpg\"},{\"url\":\"20180916\\/9bab9293ce83c483f95653b717beb548.jpg\"}]' , 1 , 1537036286) [ RunTime:0.005426s ]
+[ sql ] [ SQL ] DELETE FROM `dm_temporary_img`    WHERE  `m_id` = 53 [ RunTime:0.005638s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:32:27+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006324s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003217s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/93604aa9feda1835e1dbf1b434a5553a.jpg') [ RunTime:0.005432s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:32:33+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006090s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003060s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/741f5f3ff517fd13b782a85471d55308.jpg') [ RunTime:0.005710s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:32:37+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006965s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003035s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/166c56553695822f6929b024c738c8c7.jpg') [ RunTime:0.006198s ]
+[ sql ] [ SQL ] SELECT `url` FROM `dm_temporary_img` WHERE  `m_id` = 53 [ RunTime:0.002674s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_community_information` [ RunTime:0.002951s ]
+[ sql ] [ SQL ] INSERT INTO `dm_community_information` (`content` , `m_id` , `picture_url` , `is_show` , `create_time`) VALUES ('公积金HK哦噢功能破记录了' , 53 , '[{\"url\":\"20180916\\/93604aa9feda1835e1dbf1b434a5553a.jpg\"},{\"url\":\"20180916\\/741f5f3ff517fd13b782a85471d55308.jpg\"},{\"url\":\"20180916\\/166c56553695822f6929b024c738c8c7.jpg\"}]' , 1 , 1537036357) [ RunTime:0.007548s ]
+[ sql ] [ SQL ] DELETE FROM `dm_temporary_img`    WHERE  `m_id` = 53 [ RunTime:0.005312s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:34:33+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006479s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003541s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/8743e2e62ad49354a4b84c1d72dc3065.jpg') [ RunTime:0.005591s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:34:37+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006222s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003055s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/f5b8951e3e7f6d5a03e20e50eaa8e3b3.jpg') [ RunTime:0.005611s ]
+---------------------------------------------------------------
+[ 2018-09-16T02:34:42+08:00 ] 116.77.73.253 POST /douman/public//api/v1/CommunityInformationSubmit/
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007199s ] mysql:host=bdm291063527.my3w.com;port=3306;dbname=bdm291063527_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_temporary_img` [ RunTime:0.003835s ]
+[ sql ] [ SQL ] INSERT INTO `dm_temporary_img` (`m_id` , `url`) VALUES (53 , '20180916/ec341f9e2da4234c700a474e0b7aac10.jpg') [ RunTime:0.018236s ]
+[ sql ] [ SQL ] SELECT `url` FROM `dm_temporary_img` WHERE  `m_id` = 53 [ RunTime:0.003367s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dm_community_information` [ RunTime:0.003698s ]
+[ sql ] [ SQL ] INSERT INTO `dm_community_information` (`content` , `m_id` , `picture_url` , `is_show` , `create_time`) VALUES ('让我哭考虑好可怜了好可怜了' , 53 , '[{\"url\":\"20180916\\/8743e2e62ad49354a4b84c1d72dc3065.jpg\"},{\"url\":\"20180916\\/f5b8951e3e7f6d5a03e20e50eaa8e3b3.jpg\"},{\"url\":\"20180916\\/ec341f9e2da4234c700a474e0b7aac10.jpg\"}]' , 1 , 1537036482) [ RunTime:0.005600s ]
+[ sql ] [ SQL ] DELETE FROM `dm_temporary_img`    WHERE  `m_id` = 53 [ RunTime:0.005194s ]

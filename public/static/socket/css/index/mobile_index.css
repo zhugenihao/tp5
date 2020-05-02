@@ -1,0 +1,218 @@
+body{
+    height:100%;
+}
+.socket-all{
+    width:100%;
+}
+.socket-top{
+    width:100%;
+    height:40px;
+    background: #eee;
+    position: fixed;
+    top:0px;
+    text-align: center;
+    line-height: 40px;
+}
+.top-height{
+    height:50px;
+}
+.bottom-height{
+    height:180px;
+    clear: both;
+}
+.mallz-div{
+    /*    position: fixed;
+        top:40px;*/
+    width:100%;
+    height:65px;
+    border-bottom:1px solid #ccc;
+    background: #fff;
+}
+.mallzdiv-auto{
+    width:95%;
+    margin:0px auto;
+    height:60px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.mallzdiv-auto2{
+    width:100%;
+    margin:0px auto;
+    height:60px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.mallzdiv-img{
+    width:60px;
+    height:60px;
+    overflow: hidden;
+    float:left;
+}
+.mallzdiv-img img{
+    width:100%;
+}
+.mallzdiv-text{
+    /*width:400px;*/
+    height:100%;
+    float:left;
+    margin-left: 20px;
+}
+.mallzdiv-text2{
+    width:150px;
+    height:100%;
+    float:left;
+    margin-left: 15px;
+    overflow: hidden;
+}
+.goods_name2{
+    width:150px;
+    height:25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goods_name3{
+    width:140px;
+    height:25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.btndiv-all{
+    width:100%;
+    height:150px;
+    position: fixed;
+    bottom:0px;
+    border-top:1px solid #ccc;
+    background: #eee;
+}
+.btndiv-img div{
+    float: left;
+    margin-left: 20px;
+}
+.btndiv-img div i{
+    font-size:20px;
+}
+.btndiv-img{
+    width:100%;
+    height:30px;
+}
+.btndiv-text{
+    width:95%;
+    margin:0px auto;
+}
+.btndivtextar{
+    width:100%;
+    padding: 5px;
+    height:70px;
+}
+.btndiv{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.content-btn{
+    padding: 5px 10px;
+    background: red;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+.content-btn:hover{
+    background: #cc0033;
+}
+.content-btn2{
+    padding: 0px 8px;
+    background: red;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+}
+.content-btn2:hover{
+    background: #cc0033;
+}
+.content-btn3{
+    padding: 5px 10px;
+    background: #ccc;
+    border:none;
+    cursor: pointer;
+}
+.contentdiv{
+    width:100%;
+}
+.contentdiv-ul{
+    width:100%;
+}
+.contentdiv-li{
+    width:100%;
+    min-height:60px;
+    padding-bottom: 10px;
+    float: left;
+}
+.contentdiv-auto{
+    width:95%;
+    margin: 0px auto;
+}
+.contentdiv-img{
+    width:30px;
+    height:30px;
+    float: left;
+}
+.contentdiv-img img{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+.contentdiv-img i{
+    font-size: 30px;
+}
+.contentdiv-text{
+    min-width:150px;
+    max-width:200px;
+    min-height:30px;
+    background: #eee;
+    background: #eee;
+    float: left;
+    margin-left: 20px;
+    padding: 5px 10px;
+    word-wrap:break-word;
+}
+.contentdiv-img2{
+    width:30px;
+    height:30px;
+    float: right;
+}
+.contentdiv-img2 img{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+.contentdiv-text2{
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 30px;
+    background: #eee;
+    float: right;
+    margin-right: 20px;
+    padding: 5px 10px;
+    word-wrap: break-word;
+}
+.btndiv-auto{
+    position: relative;
+}
+.layui-icon{
+    cursor: pointer;
+}
+.face-box{width:350px;background:#fff;position:absolute;z-index:99999999;bottom:130px}
+.face-box:after{content:'';display:block;clear:both}
+.face-box ul li{
+    cursor: pointer;
+    float: left;
+    border: 1px solid #e8e8e8;
+    height: 22px;
+    width: 26px;
+    overflow: hidden;
+    margin: -1px 0 0 -1px;
+    padding: 4px 2px;
+    text-align: center;
+}

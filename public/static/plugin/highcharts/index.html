@@ -1,0 +1,67 @@
+
+    <div id="container" style="height: 400px;width:95%;"></div>
+    <script type="text/javascript" src="__PUBLIC__/lib/highcharts/echarts.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            title: {
+                text: '销售概况'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['交易金额','订单数']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            //工具箱
+            toolbox: {
+                show : true, //是否显示工具箱
+                right:'50', //移动
+                feature : { //要显示的工具箱内容
+                    dataView : {show: false, readOnly: false}, //数据视图
+                    magicType : {show: true, type: ['line', 'bar']}, //动态类型切换
+                    restore : {show: true}, //配置项还原
+                    dataZoom:{show: true}, //数据区域缩放
+                    saveAsImage : {show: true} //保存为图片
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                data: {$date_list}
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'交易金额',
+                    type:'line',
+                    stack: '总量1',
+                    data:{$all_pay_money}
+                },
+                {
+                    name:'订单数',
+                    type:'line',
+                    stack: '总量2',
+                    data:{$all_the_orders}
+                }
+            ]
+        };
+        ;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+       </script>
+    
+     
+
