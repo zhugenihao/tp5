@@ -1,60 +1,60 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>jQuery左右滑动效果选取数值</title>
-<style type="text/css">
-.demo{width:350px; margin:100px auto 10px auto}
-#g1,#g2{margin-top:50px}
-</style>
-<script type="text/javascript" src="jquery.min.js"></script>
-<link rel="stylesheet" href="jquery.range.css">
-<script src="jquery.range.js"></script>
-<script>
-$(function(){
-	$('.single-slider').jRange({
-		from: 0,
-		to: 100,
-		step: 1,
-		scale: [0,25,50,75,100],
-		format: '%s',
-		width: 300,
-		showLabels: true,
-		showScale: true
-	});
-	$('.range-slider').jRange({
-		from: 0,
-		to: 100,
-		step: 1,
-		scale: [0,25,50,75,100],
-		format: '%s',
-		width: 300,
-		showLabels: true,
-		isRange : true
-	});
-	
-	$("#g1").click(function(){
-		var aa = $(".single-slider").val();
-		alert(aa);
-	});
-	$("#g2").click(function(){
-		var aa = $(".range-slider").val();
-		alert(aa);
-	});
-});
-</script>
-</head>
-
-<body>
-
-<div class="demo">
-	<input type="hidden" class="single-slider" value="23" />
-	<button id="g1">获取值</button>
-</div>
-<div class="demo">
-	<input class="range-slider" type="hidden" value="25,75"/>
-	<button id="g2">获取值</button>
-</div>
-</body>
-</html>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>jQuery左右滑动效果选取数值</title>
+<style type="text/css">
+.demo{width:350px; margin:100px auto 10px auto}
+#g1,#g2{margin-top:50px}
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<link rel="stylesheet" href="jquery.range.css">
+<script src="jquery.range.js"></script>
+<script>
+$(function(){
+	$('.single-slider').jRange({
+		from: 0,
+		to: 100,
+		step: 1,
+		scale: [0,25,50,75,100],
+		format: '%s',
+		width: 300,
+		showLabels: true,
+		showScale: true
+	});
+	$('.range-slider').jRange({
+		from: 0,
+		to: 100,
+		step: 1,
+		scale: [0,25,50,75,100],
+		format: '%s',
+		width: 300,
+		showLabels: true,
+		isRange : true
+	});
+	
+	$("#g1").click(function(){
+		var aa = $(".single-slider").val();
+		alert(aa);
+	});
+	$("#g2").click(function(){
+		var aa = $(".range-slider").val();
+		alert(aa);
+	});
+});
+</script>
+</head>
+
+<body>
+
+<div class="demo">
+	<input type="hidden" class="single-slider" value="23" />
+	<button id="g1">获取值</button>
+</div>
+<div class="demo">
+	<input class="range-slider" type="hidden" value="25,75"/>
+	<button id="g2">获取值</button>
+</div>
+</body>
+</html>
