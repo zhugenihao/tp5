@@ -7,6 +7,7 @@
 namespace app\api\controller\v1;
 
 use \think\Db;
+use \think\Cache;
 use app\api\controller\v1\Common;
 use app\api\model\Session as sessionModel;
 use app\common\model\Order as orderModel;
@@ -163,12 +164,17 @@ class Order extends Common {
      */
     public function submit_orders() {
         if ($this->request->isGet()) {
-            $cart_id = input('cart_id', 0, 'trim');
+            $cartIdArr = input('cart_id', 0, 'intval');            
+            $type = input('type', '', 'trim');
             $mid = $this->mId();
-            $where = ['c.cart_id' => ['in', $cart_id], 'c.m_id' => $mid];
+            if($type=='cart'){
+                $cartIdStr = Cache::get('cartid'.$mid);
+                $cartIdArr = explode(',', $cartIdStr);
+            }
+            $where = ['c.cart_id' => ['in', $cartIdArr], 'c.m_id' => $mid];
             $field = 'c.*,g.goods_name,g.thecover,n.goodscolor_id,gc.color_name,cs.cate_name';
             $submitOrdersInfo = cartModel::submitTheorder($where, $field);
-            exit(json_encode($submitOrdersInfo));
+            returnMessage($submitOrdersInfo);
         }
     }
 
@@ -177,13 +183,35 @@ class Order extends Common {
      * @return type
      */
     public function cart_order_submit() {
-        $post = input('post.');
-        $mid = $this->mId();
-        $where = ['c.cart_id' => ['in', $post['cartid']], 'c.m_id' => $mid];
-        $field = 'c.*,g.goods_name,g.thecover,n.goodscolor_id,gc.color_name,cs.cate_name';
-        $submitOrdersInfo = cartModel::submitTheorder($where, $field);
-        $this->assign('submitOrdersInfo', $submitOrdersInfo);
-        return $this->fetch('order/submit_orders');
+        if ($this->request->isPost()) {
+            $mid = $this->mId();
+            $cartIdStr = Cache::get('cartid'.$mid);
+            $where = ['c.cart_id' => ['in', explode(',', $cartIdStr)], 'c.m_id' => $mid];
+            $field = 'c.*,g.goods_name,g.thecover,n.goodscolor_id,gc.color_name,cs.cate_name';
+            $submitOrdersInfo = cartModel::submitTheorder($where, $field);
+            returnMessage($submitOrdersInfo);
+        }
+    }
+    /**
+     * 缓存购物车id
+     */
+    public function cacheCartid(){
+        if ($this->request->isPost()) {
+            $post = input('post.');
+            $mid = $this->mId();
+            $cartidArr = explode(',', $post['cartid']);
+            $res = cartModel::goodsJudge($cartidArr); #判断库存
+            if ($res['code']) {
+                returnMessage($res);
+            }
+            Cache::set('cartid'.$mid,$post['cartid'],3600);
+            $cartIdStr = Cache::get('cartid'.$mid);
+            if($cartIdStr){
+                returnMessage(['code'=>0,'msg'=>'缓存成功']);
+            }else{
+                returnMessage(['code'=>1,'msg'=>'失败']);
+            }
+        }
     }
 
     /**

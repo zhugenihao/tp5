@@ -20,6 +20,10 @@ use app\common\model\Gallery as galleryModel;
 use app\common\model\GoodsColor as goodsColorModel;
 use app\common\model\Cates as catesModel;
 use app\common\model\Norm as NormModel;
+use app\common\model\Inventory as inventoryModel;
+use app\common\model\SecondsKill as secondsKillModel;
+use app\common\model\SpellGroup as spellGroupModel;
+use app\api\model\ComdysalesPromotion as comdysalesPromotionModel;
 
 class Cart extends Commons {
 
@@ -37,7 +41,7 @@ class Cart extends Commons {
     public static function getList($where = [], $field = '*', $start = 0, $limit = 10) {
         $order = ['cart_id' => 'desc'];
         $join = [
-            ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
+                ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
             ['mz_norm n', 'n.n_id=c.n_id', 'left'], //规格表信息
             ['mz_goods_color gc', 'gc.id=n.goodscolor_id', 'left'], //商品颜色表信息
             ['mz_cates cs', 'cs.cate_id=c.cate_id', 'left'], //商品版本表信息
@@ -49,7 +53,7 @@ class Cart extends Commons {
 
     public static function getCartInfo($where = [], $field = '*') {
         $join = [
-            ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
+                ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
             ['mz_norm n', 'n.n_id=c.n_id', 'left'], //规格表信息
             ['mz_goods_color gc', 'gc.id=n.goodscolor_id', 'left'], //商品颜色表信息
             ['mz_cates cs', 'cs.cate_id=c.cate_id', 'left'], //商品版本表信息
@@ -63,7 +67,7 @@ class Cart extends Commons {
      */
     public static function submitTheorder($where = [], $field = '*') {
         $join = [
-            ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
+                ['mz_goods g', 'g.goods_id=c.goods_id', 'left'], //商品表信息
             ['mz_norm n', 'n.n_id=c.n_id', 'left'], //规格表信息
             ['mz_goods_color gc', 'gc.id=n.goodscolor_id', 'left'], //商品颜色表信息
             ['mz_cates cs', 'cs.cate_id=c.cate_id', 'left'], //商品版本表信息
@@ -144,7 +148,7 @@ class Cart extends Commons {
         $cart = self::getInfo(['cart_id' => $post['cart_id']]);
         $goods = goodsModel::get($cart['goods_id']);
         $imgSmall = galleryModel::getValue(['n_id' => $post['n_id']], 'img_small');
-        $goods_img = !empty($goods['setup_norm'] == 'off'||$imgSmall=='') ? $goods['thecover'] : $imgSmall;
+        $goods_img = !empty($goods['setup_norm'] == 'off' || $imgSmall == '') ? $goods['thecover'] : $imgSmall;
         $goodsColor = goodsColorModel::get(NormModel::getValue(['n_id' => $post['n_id']], 'goodscolor_id'));
         $cates = catesModel::get($post['cate_id']);
         $goods_price = orderGoodsModel::priceCalculation($cart['goods_id'], $post['n_id'], $post['cate_id'], $cart['activity']);
@@ -165,6 +169,54 @@ class Cart extends Commons {
         } else {
             return false;
         }
+    }
+
+    #商品库存判断
+
+    public static function goodsJudge($cartidArr = []) {
+        $cart = self::all($cartidArr)->toArray();
+        foreach ($cart as $key => $val) {
+            //商品库存判断
+            if ($val['setup_norm'] == 'on') {
+                $inventory = inventoryModel::getValue(['n_id' => $val['n_id'], 'cate_id' => $val['cate_id']], 'inventory');
+                if ($inventory < $val['goods_num']) {
+                    return ['code' => 1, 'msg' => '商品库存不足！'];
+                }
+            } else {
+                $goods_stock = goodsModel::getValue(['goods_id' => $val['goods_id']], 'goods_stock');
+                if ($goods_stock < $val['goods_num']) {
+                    return ['code' => 1, 'msg' => '商品库存不足！'];
+                }
+            }
+            //判断秒杀库存
+            if ($val['activity'] == 'seconds_kill') {
+                $sk_num = secondsKillModel::getValue(['goods_id' => $val['goods_id']], 'sk_num');
+                if ($sk_num < $val['goods_num']) {
+                    return ['code' => 1, 'msg' => '商品库存不足！'];
+                }
+                $is_sk_time = secondsKillModel::getSecondsKillInfoTime(['goods_id' => $val['goods_id']]);
+                if (empty($is_sk_time)) {
+                    return ['code' => 1, 'msg' => '秒杀商品已过时！'];
+                }
+                //判断拼团库存
+            } elseif ($val['activity'] == 'spell_group') {
+
+                $sg_num = spellGroupModel::getValue(['goods_id' => $val['goods_id']], 'sg_num');
+                if ($sg_num < $val['goods_num']) {
+                    return ['code' => 1, 'msg' => '商品库存不足！'];
+                }
+            } elseif ($val['activity'] == 'comdysalesp') {//判断促销库存
+                $cp_num = comdysalesPromotionModel::getValue(['goods_id' => $val['goods_id']], 'cp_num');
+                if ($cp_num < $val['goods_num']) {
+                    return ['code' => 1, 'msg' => '促销商品库存不足！'];
+                }
+                $is_cp_time = comdysalesPromotionModel::getComdypInfoTime(['goods_id' => $val['goods_id']]);
+                if (empty($is_cp_time)) {
+                    return ['code' => 1, 'msg' => '促销商品已过时！'];
+                }
+            }
+        }
+        return ['code' => 0, 'msg' => '商品可以购买！'];
     }
 
 }

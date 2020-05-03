@@ -86,7 +86,7 @@ class Cart extends Common {
             $normInfo['default_gallery'] = $default_gallery;
             $list = array('inventory' => $inventory0, 'goods_color_list' => $goodsColorList, 'cate_price' => $cate_price0,
                 'cates_list' => $catesList, 'cart_info' => $cartInfo, 'norm_info' => $normInfo);
-            
+
             returnMessage($list);
         }
     }
@@ -113,7 +113,7 @@ class Cart extends Common {
             }
             $catesList = !empty($inventoryArr) ? catesModel::all($cateid) : '';
             if ($catesList) {
-                
+
                 foreach ($catesList as $catelKey => $catelVal) {
                     //商品价格
                     $cate_price = orderGoodsModel::priceCalculation($get['goods_id'], $normInfo['n_id'], $catelVal['cate_id'], $cartInfo['activity']);
@@ -135,7 +135,7 @@ class Cart extends Common {
     }
 
     public function cartOneSubmit() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isPost()) {
             $result = cartModel::cartOneSubmitMd();
             if ($result) {
                 Tobesuccess('修改成功，去购买吧');
@@ -145,10 +145,11 @@ class Cart extends Common {
         }
     }
 
+    #单个删除购物车
     public function cartDel() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $get = input('get.');
-            $cartArr = explode(',', $get['cart_id']);
+            $cartArr = explode(',', $get['cartid_str']);
             $result = cartModel::destroy($cartArr);
             if ($result) {
                 Tobesuccess('删除成功');
@@ -159,11 +160,15 @@ class Cart extends Common {
     }
 
     /**
-     * 使用优惠券
+     * 使用优惠券和商品数量变动
      */
     public function algorithmCart() {
         if ($this->request->isGet()) {
             $get = input('get.');
+            $res = cartModel::goodsJudge([$get['cart_id']]); #判断库存
+            if ($res['code']) {
+                Tiperror($res['msg']);
+            }
             $cop_price = 0;
             //判断优惠券是否已使用
             $copon_receive_id = isset($get['copon_receive_id']) ? $get['copon_receive_id'] : 0;
@@ -199,51 +204,15 @@ class Cart extends Common {
      * 商品库存判断
      */
     public function goodsJudge() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isPost()) {
             $post = input('post.');
-            $cart = cartModel::all($post['cartid'])->toArray();
-            foreach ($cart as $key => $val) {
-                //商品库存判断
-                if ($val['setup_norm'] == 'on') {
-                    $inventory = inventoryModel::getValue(['n_id' => $val['n_id'], 'cate_id' => $val['cate_id']], 'inventory');
-                    if ($inventory < $val['goods_num']) {
-                        Tiperror("商品库存不足！");
-                    }
-                } else {
-                    $goods_stock = GoodsModel::getValue(['goods_id' => $val['goods_id']], 'goods_stock');
-                    if ($goods_stock < $val['goods_num']) {
-                        Tiperror("商品库存不足！");
-                    }
-                }
-                //判断秒杀库存
-                if ($val['activity'] == 'seconds_kill') {
-                    $sk_num = secondsKillModel::getValue(['goods_id' => $val['goods_id']], 'sk_num');
-                    if ($sk_num < $val['goods_num']) {
-                        Tiperror("商品库存不足！");
-                    }
-                    $is_sk_time = secondsKillModel::getSecondsKillInfoTime(['goods_id' => $val['goods_id']]);
-                    if (empty($is_sk_time)) {
-                        Tiperror("秒杀商品已过时！");
-                    }
-                    //判断拼团库存
-                } elseif ($val['activity'] == 'spell_group') {
-
-                    $sg_num = spellGroupModel::getValue(['goods_id' => $val['goods_id']], 'sg_num');
-                    if ($sg_num < $val['goods_num']) {
-                        Tiperror("商品库存不足！");
-                    }
-                } elseif ($val['activity'] == 'comdysalesp') {//判断促销库存
-                    $cp_num = comdysalesPromotionModel::getValue(['goods_id' => $val['goods_id']], 'cp_num');
-                    if ($cp_num < $val['goods_num']) {
-                        Tiperror("促销商品库存不足！");
-                    }
-                    $is_cp_time = comdysalesPromotionModel::getComdypInfoTime(['goods_id' => $val['goods_id']]);
-                    if (empty($is_cp_time)) {
-                        Tiperror("促销商品已过时！");
-                    }
-                }
+            $cartidArr = explode(',', $post['cartid']);
+            $res = cartModel::goodsJudge($cartidArr);
+            if ($res['code']) {
+                Tiperror($res['msg']);
+            } else {
+                Tobesuccess($res['msg']);
             }
-            Tobesuccess('商品可以购买');
         }
     }
 
@@ -251,7 +220,7 @@ class Cart extends Common {
      * 清空购物车
      */
     public function emptyCart() {
-        if ($this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $result = cartModel::destroy(['m_id' => $this->mid]);
             if ($result) {
                 Tobesuccess('已经清空购物车');

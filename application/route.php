@@ -27,6 +27,8 @@ Route::get([
     'api/:version/user_cart_list' => 'api/:version.Cart/cartList', //用户购物车数据
     'api/:version/user_cart_norm' => 'api/:version.Cart/normList', //用户购物车规格1
     'api/:version/user_cart_cates' => 'api/:version.Cart/catesList', //用户购物车规格2
+    'api/:version/user_cart_del' => 'api/:version.Cart/cartDel', //用户购物车删除
+    'api/:version/user_cart_empty' => 'api/:version.Cart/emptyCart', //用户购物车清空
 ]);
 
 Route::post([
@@ -39,5 +41,9 @@ Route::post([
     'api/:version/submit_orders_api' => 'api/:version.Order/submit_orders_api', //单个商品订单提交
     'api/:version/pay_paysubmit' => 'api/:version.Pay/paySubmit', //支付订单提交
     'api/:version/pay_payupdate' => 'api/:version.Pay/payUpdate', //多个订单付款
+    
+    'api/:version/user_cart_onesubmit' => 'api/:version.Cart/cartOneSubmit', //用户购物车修改数据
+    'api/:version/cache_cartid' => 'api/:version.Order/cacheCartid', //缓存购物车id
+    'api/:version/cart_order_submit' => 'api/:version.Order/cart_order_submit', //购物车订单提交
     
 ]);

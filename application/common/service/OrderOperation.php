@@ -42,10 +42,10 @@ class OrderOperation {
         if ($orderCount >= 20) {
             Tiperror("你有共20个及以上未付款订单，请先去付款，或取消订单。");
         }
-
+        $cartId = is_array($post['cart_id'])?$post['cart_id']:explode(',', $post['cart_id']);
         Db::startTrans();
         try {
-            $cartList = cartModel::all($post['cart_id'])->toArray();
+            $cartList = cartModel::all($cartId)->toArray();
 
             foreach ($cartList as $key => $val) {
 
